@@ -2,11 +2,11 @@
 
 echo "Hello World<br/>";
 $variabile = 1;
-echo $variabile. "<br/>";
+echo $variabile. "<br />";
 $variabile += 1;
-echo $variabile. "<br/>";
+echo $variabile. "<br />";
 $variabile += 3;
-echo $variabile. "<br/>";
+echo $variabile. "<br/ >";
 
 //Cosi si può sommare con una stringa che contiene al suo interno un numero
 //prende in considerazione solo quel numero e ne fa il cast, e poi la somma come in questo caso
@@ -24,7 +24,7 @@ $array2 = [1, 2, 3, 4, 5, 6 ,7];
 //e anche 2 metodi per stampare tutti gli elementi senza ciclo for
 //metodo var_dump()
 var_dump($array1);
-echo "<br/>";
+echo "<br/ >";
 //metodo print_r()
 print_r($array2);
 
