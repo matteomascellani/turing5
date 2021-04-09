@@ -31,10 +31,9 @@ print_r($array2);
 //ciclo for
 echo "for <br/>";
 
-for ($i = 0; $i < 10; $i++) {
-    echo "number $i <br/>";
+for ($i = 0; $i < 10; $i++) 
+{
     echo "number" . $i . "<br/>";
-    echo "numero $i " . $elementi[1]["nome"] . "<br/>";
 }
 
 
@@ -58,3 +57,131 @@ class Persona {
 $persona = new Persona();
 $persona->setName(5);
 echo $persona->getName();
+?>
+
+
+<?php
+
+//Determina se una variabile a diversa da null
+//An associative array that by default contains the contents of $_GET, $_POST and $_COOKIE.
+if(isset($_REQUEST["name"])) {
+    $name = $_REQUEST["name"];
+} else {
+    $name = null;
+}
+
+echo $name;
+
+abstract class Veicolo {
+
+    private $modello;
+    private $marchio;
+
+    function __construct($modello=null, $marchio=null) {
+
+        $this->modello = $modello;
+        $this->marchio = $marchio;
+
+    }
+
+    function getModello() {
+        return $this -> modello;
+    }
+
+    function getmarchio() {
+        return $this -> marchio;
+    }
+}
+
+class Auto extends Veicolo {
+
+    private $numRuote = 4;
+
+    function getNumRuote() {
+
+        return $this -> numRuote;
+    }
+
+}
+
+class Moto extends Veicolo {
+
+    private $numRuote = 2;
+
+    function getNumRuote() {
+
+        return $this -> numRuote;
+    }
+
+}
+
+class PersonaModel {
+
+    private $persone = [
+        ["name"=>"Matteo",
+        "surname"=>"Mascellani"],
+        ["name"=>"Marco",
+        "surname"=>"Simoni"],
+        ["name"=>"Chiara",
+        "surname"=>"Rossi"],
+    ];
+
+    function getPersone() {
+        return $this->persone;
+    }
+}
+
+class PersonaController {
+
+    static function getPersone()  {
+        $persone = new PersonaModel();
+        return $persone -> getPersone();
+    }
+
+    static function getPersona($name) {
+
+        $items = self::getPersone();
+        foreach($items as $item) {
+            if($item["name"] == $name) {
+                return $item;
+            }
+        }
+
+    }
+}
+
+
+
+//VISTA
+$items = PersonaController::getPersone();
+
+$item = PersonaController::getPersona($name);
+
+print_r($item);
+?>
+
+
+<div>Lista persone</div>
+
+<?php if(isset($item["name"])): ?>
+<ul>
+<li><?php echo $item["name"] . " " . $item["surname"]; ?></li>
+</ul>
+<?php endif; ?>
+
+<ul>
+<?php foreach($items as $item): ?>
+<li><?php echo $item["name"] . " " . $item["surname"]; ?></li>
+<?php endforeach; ?>
+</ul>
+
+<select>
+<?php foreach($items as $item): ?>
+<option><?php echo $item["name"] . " " . $item["surname"]; ?></option>
+<?php endforeach; ?>
+</select>
+
+
+<!-- //require_once() 
+serve per richiamare file di models e controller che mi servono nella views
+-->
