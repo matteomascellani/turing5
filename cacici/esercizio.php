@@ -8,7 +8,6 @@
 .pushed { background-color:#000!important}
 
 </style>
-
 <script>
 
 $(document).ready(function() {
@@ -27,28 +26,20 @@ $(document).ready(function() {
 
         } else {
 
-            if($("button.pushed").length > 0 && $(this).val() == "act") {
+            if($("button.pushed").length > 0) {
 
                 $.ajax({
                     method: "POST",
                     url: "ajax.php",
                     data: { actual: $("#risultato").val(), operator: $("button.pushed").val(), integer: $(this).val() }
                 })
-                .done(function( response ) {
-                    $("#risultato").val(response);
-                    
+                .done(function( data ) {
+                    $("#risultato").val(data);
                 });
             }
 
-            if($("button.pushed").length > 0) {
-                $("#risultato").val($(this).val());
-            } else {
-                $("#risultato").val($("#risultato").val() + $(this).val());
-            }
-            
-            
             $("button").removeClass("pushed");
-            
+            $("#risultato").val($(this).val());
 
         }
 
@@ -80,11 +71,6 @@ $(document).ready(function() {
                     <td><button class="btn btn-primary" value="1">1</button></td>
                     <td><button class="btn btn-primary" value="2">2</button></td>
                     <td><button class="btn btn-primary" value="3">3</button></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td><button class="btn btn-primary" value="0">0</button></td>
-                    <td><button class="btn btn-success" value="act">=</button></td>
                 </tr>
             </table>
         </div>
