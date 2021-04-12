@@ -101,3 +101,5 @@ class Figlio extends Persona{
 abstract class Veicolo{
 
 }
+
+//ciao
