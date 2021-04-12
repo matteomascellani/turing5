@@ -1,3 +1,4 @@
+
 <?php
 
 define("A",1);
@@ -26,5 +27,3 @@ class Persona {
 }
 
 $persona = new Persona;
-
-echo $persona->SetName($nome);
