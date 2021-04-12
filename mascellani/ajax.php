@@ -5,6 +5,10 @@ class Calcolatrice {
 
     public $risultato;
 
+    public function __construct() {
+
+    }
+
     public function start($integer) {
 
         $this -> risultato = $integer;
