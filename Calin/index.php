@@ -26,4 +26,5 @@ class Persona {
 }
 
 $persona = new Persona;
+
 echo $persona->SetName($nome);
