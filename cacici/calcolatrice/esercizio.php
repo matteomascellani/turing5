@@ -14,31 +14,60 @@ $(document).ready(function() {
     
     $(document).on("click","button",function(){
 
+        // if(
+        //     $(this).val() == "sum" ||
+        //     $(this).val() == "sub" ||
+        //     $(this).val() == "mol" ||
+        //     $(this).val() == "div"
+        // ) {
+
+        //     $("button").removeClass("pushed");
+        //     $(this).addClass("pushed");
+
+        // } else {
+
+        //     if($("button.pushed").length > 0) {
+
+        //         $.ajax({
+        //             method: "POST",
+        //             url: "ajax.php",
+        //             data: { actual: $("#risultato").val(), operator: $("button.pushed").val(), integer: $(this).val() }
+        //         })
+        //         .done(function( data ) {
+        //             $("#risultato").val(data);
+        //         });
+        //     }
+
+        //     $("button").removeClass("pushed");
+        //     $("#risultato").val($(this).val());
+
+        // }
+
         if(
             $(this).val() == "sum" ||
             $(this).val() == "sub" ||
             $(this).val() == "mol" ||
             $(this).val() == "div"
-        ) {
-
+        )
+        {
             $("button").removeClass("pushed");
             $(this).addClass("pushed");
-
-        } else {
-
-            if($("button.pushed").length > 0) {
-
+        }
+        else if($(this).val() == "equal")
+        {
                 $.ajax({
-                    method: "POST",
-                    url: "ajax.php",
-                    data: { actual: $("#risultato").val(), operator: $("button.pushed").val(), integer: $(this).val() }
+                        method: "POST",
+                        url: "ajax.php",
+                        data: { actual: $("#risultato").val(), operator: $("button.pushed").val(), integer: $(this).val() }
                 })
                 .done(function( data ) {
                     $("#risultato").val(data);
                 });
-            }
-
             $("button").removeClass("pushed");
+        }
+        else
+        {
+            
             $("#risultato").val($(this).val());
 
         }
@@ -71,6 +100,11 @@ $(document).ready(function() {
                     <td><button class="btn btn-primary" value="1">1</button></td>
                     <td><button class="btn btn-primary" value="2">2</button></td>
                     <td><button class="btn btn-primary" value="3">3</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button class="btn btn-primary" value="0">0</button></td>
+                    <td><button class="btn btn-success" value="equal">=</button></td>
                 </tr>
             </table>
         </div>
