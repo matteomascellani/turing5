@@ -47,3 +47,4 @@ for ($i=0; $i < 10; $i++) {
 foreach ($array as $key => $value) {
     echo $key . " " . $value . "<br />";
 }
+
