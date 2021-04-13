@@ -10,7 +10,7 @@ echo $variabile;
 echo "<br></br>";
 
 $stringa = "Ci son due coccodrilli";
-$stringa .= "ed un orangotango";
+$stringa .= " ed un orangotango";
 echo $stringa;
 echo "<br></br>";
 
