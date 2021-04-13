@@ -106,7 +106,7 @@ $(document).ready(function() {
 
     <div class="row">
         <div class="col-4 offset-4">
-            <input class="form-control" type="text" id="risultato" value="<?php echo $risultato ?? ''; ?>" />
+            <input class="form-control" type="text" id="risultato" value=""<?php echo $risultato ?? ''; ?>" />
         </div>
     </div>
 </div>
