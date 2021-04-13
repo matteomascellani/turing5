@@ -93,9 +93,9 @@ $(document).ready(function() {
         <div class="offset-3 col-6">
             <table class="table table-bordered text-center">
                 <tr>
-                    <td><button class="btn btn-primary" value="sum">+</button></td>
-                    <td><button class="btn btn-success" value="sub">-</button></td>
-                    <td><button class="btn btn-secondary" value="mol">x</button></td>
+                    <td><button class="btn btn-danger" value="sum">+</button></td>
+                    <td><button class="btn btn-danger" value="sub">-</button></td>
+                    <td><button class="btn btn-danger" value="mol">x</button></td>
                     <td><button class="btn btn-danger" value="div">÷</button></td>
                 </tr>
             </table>
