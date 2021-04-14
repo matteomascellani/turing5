@@ -39,7 +39,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <label class="col-form-label col-form-label-lg">Display</label>
-                        <input type="text" class="form-control form-control-lg text-end display" value="" placeholder="0" readonly>
+                        <input type="text" class="form-control form-control-lg text-end display" value="" readonly>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@
 
                 <div class="row mt-1">
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg separator"><strong><span class="fs-3">&#46;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg clear"><strong><span class="fs-3">&#67;</span></strong></button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#48;</span></strong></button>
@@ -109,7 +109,7 @@
 
     </div>
 
-    <script src="js/index.js"></script>
+    <script type="module" src="js/main.js"></script>
 
 </body>
 
