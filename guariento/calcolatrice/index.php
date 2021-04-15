@@ -45,46 +45,46 @@
 
                 <div class="row mt-4">
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#55;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#55;</span></strong></button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#56;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#56;</span></strong></button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#57;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#57;</span></strong></button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg operation"><strong><span class="fs-3">&#43;</span></strong></button>
-                    </div>
-                </div>
-
-                <div class="row mt-1">
-                    <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#52;</span></strong></button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#53;</span></strong></button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#54;</span></strong></button>
-                    </div>
-                    <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg operation"><strong><span class="fs-3">&#45;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#43;</span></strong></button>
                     </div>
                 </div>
 
                 <div class="row mt-1">
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#49;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#52;</span></strong></button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#50;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#53;</span></strong></button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#51;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#54;</span></strong></button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg operation"><strong><span class="fs-3">&#120;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#45;</span></strong></button>
+                    </div>
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col-3">
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#49;</span></strong></button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#50;</span></strong></button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#51;</span></strong></button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#120;</span></strong></button>
                     </div>
                 </div>
 
@@ -93,13 +93,13 @@
                         <button type="button" class="col-12 btn btn-primary btn-lg clear"><strong><span class="fs-3">&#67;</span></strong></button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg digit"><strong><span class="fs-3">&#48;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#48;</span></strong></button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="col-12 btn btn-primary btn-lg equal"><strong><span class="fs-3">&#61;</span></strong></button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="col-12 btn btn-primary btn-lg operation"><strong><span class="fs-3">&#247;</span></strong></button>
+                        <button type="button" class="col-12 btn btn-primary btn-lg key"><strong><span class="fs-3">&#247;</span></strong></button>
                     </div>
                 </div>
 
@@ -109,7 +109,7 @@
 
     </div>
 
-    <script type="module" src="js/main.js"></script>
+    <script src="js/index.js"></script>
 
 </body>
 
