@@ -14,6 +14,9 @@ abstract class Veicolo {
     private $modello;
     private $marchio;
 
+
+    // c'è un motivo particolare per cui il costruttore richiama i setter 
+    // invece di agire direttamente sugli attributi?
     function __construct($modello=null, $marchio=null) {
 
         $this->setModello($modello);
