@@ -1,9 +1,12 @@
-<html>
+<!DOCTYPE html>
 <head>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-<style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <title>Calcolatrice</title>
+    <style>
 
 .pushed { background-color:#000!important}
 
@@ -84,7 +87,7 @@ $(document).ready(function() {
                 <tr>
                     <td>&nbsp;</td>
                     <td><button class="btn btn-primary" value="0">0</button></td>
-                    <td><button class="btn btn-success" value="">=</button></td>
+                    <td><button class="btn btn-success" value="act">=</button></td>
                 </tr>
             </table>
         </div>
@@ -92,9 +95,9 @@ $(document).ready(function() {
         <div class="offset-3 col-6">
             <table class="table table-bordered text-center">
                 <tr>
-                    <td><button class="btn btn-primary" value="sum">+</button></td>
-                    <td><button class="btn btn-success" value="sub">-</button></td>
-                    <td><button class="btn btn-secondary" value="mol">x</button></td>
+                    <td><button class="btn btn-danger" value="sum">+</button></td>
+                    <td><button class="btn btn-danger" value="sub">-</button></td>
+                    <td><button class="btn btn-danger" value="mol">x</button></td>
                     <td><button class="btn btn-danger" value="div">÷</button></td>
                 </tr>
             </table>
@@ -103,7 +106,7 @@ $(document).ready(function() {
 
     <div class="row">
         <div class="col-4 offset-4">
-            <input class="form-control" type="text" id="risultato" value="<?php echo $risultato ?? ''; ?>" />
+            <input class="form-control" type="text" id="risultato" value="act"<?php echo $risultato ?? ''; ?>" />
         </div>
     </div>
 </div>

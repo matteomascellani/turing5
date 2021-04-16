@@ -5,8 +5,9 @@ class Calcolatrice {
 
     public $risultato;
 
-    public function __construct() {
-
+    function __construct()
+    {
+        
     }
 
     public function start($integer) {

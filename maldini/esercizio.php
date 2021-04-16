@@ -84,7 +84,7 @@ $(document).ready(function() {
                 <tr>
                     <td>&nbsp;</td>
                     <td><button class="btn btn-primary" value="0">0</button></td>
-                    <td><button class="btn btn-success" value="">=</button></td>
+                    <td><button class="btn btn-success" value="act">=</button></td>
                 </tr>
             </table>
         </div>

@@ -8,47 +8,67 @@
 .pushed { background-color:#000!important}
 
 </style>
-
 <script>
 
 $(document).ready(function() {
     
     $(document).on("click","button",function(){
 
+        // if(
+        //     $(this).val() == "sum" ||
+        //     $(this).val() == "sub" ||
+        //     $(this).val() == "mol" ||
+        //     $(this).val() == "div"
+        // ) {
+
+        //     $("button").removeClass("pushed");
+        //     $(this).addClass("pushed");
+
+        // } else {
+
+        //     if($("button.pushed").length > 0) {
+
+        //         $.ajax({
+        //             method: "POST",
+        //             url: "ajax.php",
+        //             data: { actual: $("#risultato").val(), operator: $("button.pushed").val(), integer: $(this).val() }
+        //         })
+        //         .done(function( data ) {
+        //             $("#risultato").val(data);
+        //         });
+        //     }
+
+        //     $("button").removeClass("pushed");
+        //     $("#risultato").val($(this).val());
+
+        // }
+
         if(
             $(this).val() == "sum" ||
             $(this).val() == "sub" ||
             $(this).val() == "mol" ||
             $(this).val() == "div"
-        ) {
-
+        )
+        {
             $("button").removeClass("pushed");
             $(this).addClass("pushed");
-
-        } else {
-
-            if($("button.pushed").length > 0 && $(this).val() == "act") {
-
+        }
+        else if($(this).val() == "equal")
+        {
                 $.ajax({
-                    method: "POST",
-                    url: "ajax.php",
-                    data: { actual: $("#risultato").val(), operator: $("button.pushed").val(), integer: $(this).val() }
+                        method: "POST",
+                        url: "ajax.php",
+                        data: { actual: $("#risultato").val(), operator: $("button.pushed").val(), integer: $(this).val() }
                 })
-                .done(function( response ) {
-                    $("#risultato").val(response);
-                    
+                .done(function( data ) {
+                    $("#risultato").val(data);
                 });
-            }
-
-            if($("button.pushed").length > 0) {
-                $("#risultato").val($(this).val());
-            } else {
-                $("#risultato").val($("#risultato").val() + $(this).val());
-            }
-            
-            
             $("button").removeClass("pushed");
+        }
+        else
+        {
             
+            $("#risultato").val($(this).val());
 
         }
 
@@ -82,9 +102,9 @@ $(document).ready(function() {
                     <td><button class="btn btn-primary" value="3">3</button></td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td></td>
                     <td><button class="btn btn-primary" value="0">0</button></td>
-                    <td><button class="btn btn-success" value="">=</button></td>
+                    <td><button class="btn btn-success" value="equal">=</button></td>
                 </tr>
             </table>
         </div>

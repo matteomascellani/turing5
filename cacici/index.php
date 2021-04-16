@@ -42,6 +42,11 @@ class Persona {
 
     private $name;
 
+    function __construct()
+    {
+        
+    }
+
     function setName($valore) {
         if(is_integer($valore)) {
             $this -> name = $valore;

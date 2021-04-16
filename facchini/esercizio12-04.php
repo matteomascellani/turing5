@@ -1,3 +1,38 @@
+
+<?php
+
+
+class Calcolatrice {
+    public $risultato;
+
+    public function start($integer){
+        $this->risultato=$integer;
+    }
+
+    public function somma($integer) {
+        $this->risultato+=$integer;
+    }
+
+    public function sottrazione($integer) {
+        $this->risultato-=$integer;
+    }
+
+    public function moltiplicazione($integer) {
+        $this->risultato*=$integer;
+    }
+
+    public function divisione($integer) {
+        $this->risultato/=$integer;
+    }
+
+    public function result(){
+        return $this->risultato;
+    }
+}
+
+
+?>
+
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -5,56 +40,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 <style>
 
-.pushed { background-color:#000!important}
+
 
 </style>
-
 <script>
-
-$(document).ready(function() {
-    
-    $(document).on("click","button",function(){
-
-        if(
-            $(this).val() == "sum" ||
-            $(this).val() == "sub" ||
-            $(this).val() == "mol" ||
-            $(this).val() == "div"
-        ) {
-
-            $("button").removeClass("pushed");
-            $(this).addClass("pushed");
-
-        } else {
-
-            if($("button.pushed").length > 0 && $(this).val() == "act") {
-
-                $.ajax({
-                    method: "POST",
-                    url: "ajax.php",
-                    data: { actual: $("#risultato").val(), operator: $("button.pushed").val(), integer: $(this).val() }
-                })
-                .done(function( response ) {
-                    $("#risultato").val(response);
-                    
-                });
-            }
-
-            if($("button.pushed").length > 0) {
-                $("#risultato").val($(this).val());
-            } else {
-                $("#risultato").val($("#risultato").val() + $(this).val());
-            }
-            
-            
-            $("button").removeClass("pushed");
-            
-
-        }
-
-    });
-
-});
 
 </script>
 </head>
@@ -81,11 +70,6 @@ $(document).ready(function() {
                     <td><button class="btn btn-primary" value="2">2</button></td>
                     <td><button class="btn btn-primary" value="3">3</button></td>
                 </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td><button class="btn btn-primary" value="0">0</button></td>
-                    <td><button class="btn btn-success" value="">=</button></td>
-                </tr>
             </table>
         </div>
 
@@ -94,7 +78,7 @@ $(document).ready(function() {
                 <tr>
                     <td><button class="btn btn-primary" value="sum">+</button></td>
                     <td><button class="btn btn-success" value="sub">-</button></td>
-                    <td><button class="btn btn-secondary" value="mol">x</button></td>
+                    <td><button class="btn btn-warning" value="mol">x</button></td>
                     <td><button class="btn btn-danger" value="div">÷</button></td>
                 </tr>
             </table>
@@ -103,7 +87,7 @@ $(document).ready(function() {
 
     <div class="row">
         <div class="col-4 offset-4">
-            <input class="form-control" type="text" id="risultato" value="<?php echo $risultato ?? ''; ?>" />
+            <input class="form-control" type="text" id="risultato" value="" />
         </div>
     </div>
 </div>
