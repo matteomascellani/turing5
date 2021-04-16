@@ -1,5 +1,6 @@
 <?php
 
+//Appunti 
 echo "Hello World<br/>";
 $variabile = 1;
 echo $variabile. "<br />";
@@ -41,11 +42,6 @@ for ($i = 0; $i < 10; $i++)
 class Persona {
 
     private $name;
-
-    function __construct()
-    {
-        
-    }
 
     function setName($valore) {
         if(is_integer($valore)) {
@@ -185,8 +181,3 @@ print_r($item);
 <option><?php echo $item["name"] . " " . $item["surname"]; ?></option>
 <?php endforeach; ?>
 </select>
-
-
-<!-- //require_once() 
-serve per richiamare file di models e controller che mi servono nella views
--->
