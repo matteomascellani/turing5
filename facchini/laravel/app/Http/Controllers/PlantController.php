@@ -15,9 +15,10 @@ class PlantController extends Controller
     public function index()
     {
         //
-        $plant=new Plant;
-        $plants=$plant->get(); //metodo get (object relation mapping) prende le righe e le converte in istanze di plant
-        dd($plants);//visualizzazione di debug
+        //$plant=new Plant;
+        //$plants=$plant->get(); //metodo get (object relation mapping) prende le righe e le converte in istanze di plant
+        return view('plant.index');
+        //dd($plants);//visualizzazione di debug
     }
 
     /**
