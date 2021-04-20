@@ -15,7 +15,7 @@ class BookController extends Controller
     public function index()
     {
         $book = new Book;
-        $items = $book -> get();
+        $items = $book->get();
 
         dd($items);
     }
