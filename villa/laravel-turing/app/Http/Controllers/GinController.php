@@ -14,8 +14,7 @@ class GinController extends Controller
      */
     public function index()
     {
-        return view('gin.index')
-            ->with('gins', Gin::orderBy('updated_at', 'DESC')->get());
+        return view('gin.index');
     }
 
     /**
