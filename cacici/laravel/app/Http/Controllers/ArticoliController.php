@@ -34,6 +34,7 @@ class ArticoliController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * lo store crea nuovi elementi nella tabella
      */
     public function store(Request $request)
     {
@@ -97,8 +98,9 @@ class ArticoliController extends Controller
             "Sku" => $sku,
             "Tipologia" => $tipologia,
             "Marca" => $marca,
-
         ]);
+
+        return redirect('/articoli');
     }
 
     /**
@@ -109,6 +111,10 @@ class ArticoliController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $articolo = new Articolo;
+        $articolo = $articolo->find($id);
+        $articolo->delete();
+
+        return redirect('/articoli');
     }
 }

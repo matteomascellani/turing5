@@ -10,38 +10,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Modifica</h1>
 
+    <h1>Aggiungi un nuovo articolo</h1>
 
-    <form method="post" action="/articoli/{{$item->id}}">
+    <form method="post" action="/articoli">
         @csrf
-        @method('PUT')
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Lean</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Lean" value="{{ $item->Lean }}">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Lean" >
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Sku</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Sku" value="{{ $item->Sku }}">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Sku" >
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Tipologia</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Tipologia" value="{{ $item->Tipologia }}">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Tipologia">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Marca</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Marca" value="{{ $item->Marca }}">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="Marca">
         </div>
         <button type="submit"class="btn btn-success">Salva</button>
-
-
-
-        {{-- Lean: <input type="text" name="Lean" value="{{ $item->Lean }}" /><br />
-        Sku: <input type="text" name="Sku" value="{{ $item->Sku }}" /><br />
-        Tipologia: <input type="text" name="Tipologia" value="{{ $item->Tipologia }}" /><br />
-        Marca: <input type="text" name="Marca" value="{{ $item->Marca }}" /><br /> --}}
-        {{-- <input type="submit" value=" Salva " /> --}}
     </form>
+
+    <a href="/articoli"><button class="btn btn-primary">Indietro</button></a>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -50,6 +43,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 

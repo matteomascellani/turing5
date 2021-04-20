@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Articolo extends Model
 {
     use HasFactory;
-    protected $fillable = ['Lean','Sku','Tipologia', 'Marca'];
+    protected $fillable = ['Lean','Sku','Tipologia','Marca'];
 }
