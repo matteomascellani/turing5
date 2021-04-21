@@ -15,9 +15,9 @@ class PlantController extends Controller
     public function index()
     {
         //
-        //$plant=new Plant;
-        //$plants=$plant->get(); //metodo get (object relation mapping) prende le righe e le converte in istanze di plant
-        return view('plant.index');
+        $plant=new Plant;
+        $plants= $plant->get(); //metodo get (object relation mapping) prende le righe e le converte in istanze di plant
+        return view('plant.index', compact('plants'));
         //dd($plants);//visualizzazione di debug
     }
 
@@ -28,7 +28,7 @@ class PlantController extends Controller
      */
     public function create()
     {
-        //
+        return view('plant.create');
     }
 
     /**
@@ -62,6 +62,9 @@ class PlantController extends Controller
     public function edit($id)
     {
         //
+        //$plant=new plant;
+        //$item=$plant->find($id);
+        //return view ('edit',compact('item'));
     }
 
     /**
