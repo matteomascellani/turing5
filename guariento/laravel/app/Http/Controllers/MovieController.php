@@ -25,7 +25,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view("movie.create");
     }
 
     /**
@@ -36,7 +36,27 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $titolo = $request->input('input-titolo');
+        $descrizione = $request->input('input-descrizione');
+        $regia = $request->input('input-regia');
+        $anno = (int)$request->input('input-anno');
+        $durata = date('H:i:s', strtotime($request->input('input-durata')));
+        $genere = $request->input('input-genere');
+
+        echo $durata;
+
+        $movie = new Movie;
+
+        $movie->create([
+            'titolo' => $titolo,
+            'descrizione' => $descrizione,
+            'regia' => $regia,
+            'anno' => $anno,
+            'durata' => $durata,
+            'genere' => $genere
+        ]);
+
+        return redirect('/movies');
     }
 
     /**
