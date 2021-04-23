@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Music;
 
 class MusicController extends Controller
 {
@@ -13,7 +14,11 @@ class MusicController extends Controller
      */
     public function index()
     {
-        echo "index";
+        $music = new Music;
+        $items = $music ->get();
+
+        return view('musics', compact('items'));
+
     }
 
     /**
@@ -23,7 +28,8 @@ class MusicController extends Controller
      */
     public function create()
     {
-        echo "create";
+
+        return view('create');
     }
 
     /**
@@ -34,7 +40,19 @@ class MusicController extends Controller
      */
     public function store(Request $request)
     {
-        echo "store";
+
+        $name = $request->input('name');
+        $composer = $request->input('composer');
+        $date = $request->input('date');
+
+        $music = new Music;
+        $music->create([
+            "name"=> $name,
+            "composer"=> $composer,
+            "date"=> $date,
+        ]);
+
+        return redirect('/musics');
     }
 
     /**
@@ -56,7 +74,12 @@ class MusicController extends Controller
      */
     public function edit($id)
     {
-        echo "edit";
+        $music = new Music;
+        $item = $music->find($id);
+
+        dd($item);
+
+        return view('edit', compact('item'));
     }
 
     /**
@@ -68,7 +91,20 @@ class MusicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo "update";
+
+        $name = $request->input('name');
+        $composer = $request->input('composer');
+        $date = $request->input('date');
+
+        $music = new Music;
+        $music = $music->find($id);
+        $music->update([
+            "name"=> $name,
+            "composer"=> $composer,
+            "date"=> $date,
+        ]);
+
+        return redirect('/musics');
     }
 
     /**
@@ -79,6 +115,10 @@ class MusicController extends Controller
      */
     public function destroy($id)
     {
-        echo "destroy";
+        $music = new Music;
+        $music = $music->find($id);
+        $music->delete();
+
+        return redirect('/musics');
     }
 }
