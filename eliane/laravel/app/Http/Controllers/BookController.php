@@ -14,9 +14,10 @@ class BookController extends Controller
     public function index()// metode pour montrer la liste des elemt en DB
     {
         $book=new Book();
-        $list=$book->get();
+        $lists=$book->get();
+        return view('books',compact('lists'));
 
-        dd($list);
+
     }
 
     /**
@@ -26,7 +27,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        echo'create';
+        return view('create');
     }
 
     /**
@@ -37,7 +38,17 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        echo'store';
+        $nome=$request->input('nome');
+        $author=$request->input('author');
+        $pages=$request->input('pages');
+        $book=new Book;
+        $book->create([
+            "nome" =>$nome,
+            "author" =>$author,
+            "pages" =>$pages
+        ]);
+
+        return redirect('/books');
     }
 
     /**
@@ -48,7 +59,9 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        echo'show';
+        $book=new Book;
+        $book=$book->find($id);
+        return view('show',compact('book'));
     }
 
     /**
@@ -59,7 +72,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book=new Book;
+        $libro=$book->find($id);
+        return view('edit',compact('libro'));
     }
 
     /**
@@ -71,7 +86,19 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nome=$request->input('nome');
+        $author=$request->input('author');
+        $pages=$request->input('pages');
+
+        $book=new Book;
+        $book=$book->find($id);
+        $book->update([
+            "nome" =>$nome,
+            "author" =>$author,
+            "pages" =>$pages
+        ]);
+
+        return redirect('/books');
     }
 
     /**
@@ -82,6 +109,9 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book=new Book;
+        $book = $book->find($id);
+        $book->delete();
+        return redirect('/books');
     }
 }
