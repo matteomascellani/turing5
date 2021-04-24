@@ -15,7 +15,7 @@ class MusicController extends Controller
     public function index()
     {
         $music = new Music;
-        $items = $music ->get();
+        $items = $music->get();
 
         return view('musics', compact('items'));
 
