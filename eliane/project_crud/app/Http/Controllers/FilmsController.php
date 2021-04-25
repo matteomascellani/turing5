@@ -110,6 +110,9 @@ class FilmsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $film=new Films();
+        $items=$film->find($id);
+        $items->delete();
+        return redirect('/films');
     }
 }

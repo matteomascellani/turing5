@@ -20,7 +20,15 @@
     <td>{{$item->categoria}}</td>
     <td>{{$item->tipologia}}</td>
     <td>{{$item->anno}}</td>
+    <td>
+        <form action="/films/{{$item->id}}" method="POST" >
+         @csrf
+        @method('DELETE')
+            <input type="submit" value="Delete">
+        </form>
+    </td>
 
+</tr>
 @endforeach
 
 </table><br><br>
