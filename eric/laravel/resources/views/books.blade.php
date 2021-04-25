@@ -2,8 +2,9 @@
     <h1>lista dei libri</h1>
 <ul>
 @foreach ($livres as $livre)
-    <li>{{$livre->titolo}} ----->{{$livre->author}}---->{{{$livre->pages}}}</li>
+    <li><i><strong><a href="/books/{{$livre->id}}/edit">{{$livre->titolo}} </a></strong> ----->{{$livre->author}}---->{{$livre->pages}}</i></li>
 
 @endforeach
 </ul>
 </html>
+<a href="/books/create">NUOVO LIBRO</a>
