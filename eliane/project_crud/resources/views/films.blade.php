@@ -21,10 +21,22 @@
     <td>{{$item->tipologia}}</td>
     <td>{{$item->anno}}</td>
     <td>
+        <form action="/films/{{$item->id}}">
+            @csrf
+                <td>
+                  <input type="submit" value="Detagli" >
+                </td>
+
+            </form>
+    </td>
+    <td>
         <form action="/films/{{$item->id}}" method="POST" >
          @csrf
         @method('DELETE')
-            <input type="submit" value="Delete">
+            <td>
+                <input type="submit" value="Delete">
+            </td>
+
         </form>
     </td>
 

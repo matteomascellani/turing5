@@ -61,7 +61,9 @@ class FilmsController extends Controller
      */
     public function show($id)
     {
-        //
+        $film=new Films();
+        $items=$film->find($id);
+        return view('show',compact('items'));
     }
 
     /**
