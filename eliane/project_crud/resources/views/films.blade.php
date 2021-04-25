@@ -16,7 +16,7 @@
   </tr>
 @foreach ($items as $item)
 <tr>
-    <td>{{$item->titolo}}</td>
+    <td><a href="/films/{{$item->id}}/edit">{{$item->titolo}}</a></td>
     <td>{{$item->categoria}}</td>
     <td>{{$item->tipologia}}</td>
     <td>{{$item->anno}}</td>

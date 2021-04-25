@@ -72,7 +72,9 @@ class FilmsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $film=new Films();
+        $items=$film->find($id);
+        return view('edit',compact('items'));
     }
 
     /**
@@ -84,7 +86,20 @@ class FilmsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $titolo=$request->input('titolo');
+        $categoria=$request->input('categoria');
+        $tipologia=$request->input('tipologia');
+        $anno=$request->input('anno');
+
+        $film=new Films();
+        $film=$film->find($id);
+        $film->update([
+            'titolo'=>$titolo,
+            'categoria'=>$categoria,
+            'tipologia'=>$tipologia,
+            'anno'=>$anno
+        ]);
+        return redirect('/films');
     }
 
     /**
