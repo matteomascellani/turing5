@@ -23,4 +23,5 @@
 
 @endforeach
 
-</table><br>
+</table><br><br>
+<a href="/films/create"><strong>Nuovo film</strong></a>

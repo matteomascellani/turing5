@@ -26,7 +26,7 @@ class FilmsController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -37,7 +37,20 @@ class FilmsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $titolo=$request->input('titolo');
+        $categoria=$request->input('categoria');
+        $tipologia=$request->input('tipologia');
+        $anno=$request->input('anno');
+
+        $film=new Films();
+
+        $film->create([
+            'titolo'=>$titolo,
+            'categoria'=>$categoria,
+            'tipologia'=>$tipologia,
+            'anno'=>$anno
+        ]);
+        return redirect('/films');
     }
 
     /**
