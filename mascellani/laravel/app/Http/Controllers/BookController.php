@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Serie;
+use App\Models\Author;
+use App\Models\Nation;
 
 class BookController extends Controller
 {
@@ -27,12 +30,9 @@ class BookController extends Controller
     public function index()
     {
 
+        $items = Book::get();
 
-        $book = new Book;
-        $items = $book->get();
-        $name = "Matteo";
-
-        return view('books',compact('items','name'));
+        return view('books',compact('items'));
 
     }
 

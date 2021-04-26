@@ -24,7 +24,7 @@ Route::resource('books', BookController::class);
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('frontend.welcome');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
