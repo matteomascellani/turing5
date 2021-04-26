@@ -15,6 +15,7 @@ class BookController extends Controller
     public function index()
     {
         $book=new Book();
+
         $livres=$book->get();
         return view('books',compact('livres'));
     }
@@ -106,6 +107,10 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book=new Book();
+        $livres=$book->find($id);
+        $livres->delete();
+        return redirect('/books');
+
     }
 }
