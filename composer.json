@@ -1,5 +1,10 @@
 {
     "require": {
         "laravel/jetstream": "^2.3"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.3"
+        }
     }
 }

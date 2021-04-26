@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'e5371e9c9e166e9d42f9cf5644f2d5de2d46c46a',
+    'reference' => 'f02b7bfeb2f465f087d1aa6827ba48a494358ba4',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'e5371e9c9e166e9d42f9cf5644f2d5de2d46c46a',
+      'reference' => 'f02b7bfeb2f465f087d1aa6827ba48a494358ba4',
     ),
     'bacon/bacon-qr-code' => 
     array (
