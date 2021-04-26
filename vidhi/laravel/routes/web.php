@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +13,6 @@ use App\Http\Controllers\BookController;
 |
 */
 
-
-Route::get('/books/prova', [BookController::class, 'prova']);
-Route::resource('books', BookController::class);
-
-
-
-
-
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
