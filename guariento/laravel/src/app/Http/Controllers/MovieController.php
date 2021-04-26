@@ -83,7 +83,11 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movie = new Movie;
+        $selectedMovie = $movie->find($id);
+
+        return view('movie.edit')
+            ->with('movie', $selectedMovie);
     }
 
     /**
@@ -95,7 +99,26 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $titolo = $request->input('input-titolo');
+        $descrizione = $request->input('input-descrizione');
+        $regia = $request->input('input-regia');
+        $anno = (int)$request->input('input-anno');
+        $durata = date('H:i:s', strtotime($request->input('input-durata')));
+        $genere = $request->input('input-genere');
+
+        $movie = new Movie;
+        $selectedMovie = $movie->find($id);
+
+        $selectedMovie->update([
+            'titolo' => $titolo,
+            'descrizione' => $descrizione,
+            'regia' => $regia,
+            'anno' => $anno,
+            'durata' => $durata,
+            'genere' => $genere
+        ]);
+
+        return redirect('/movies');
     }
 
     /**
@@ -106,6 +129,11 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $movie = new Movie;
+        $selectedMovie = $movie->find($id);
+
+        $selectedMovie->delete();
+
+        return view('movie.destroy');
     }
 }

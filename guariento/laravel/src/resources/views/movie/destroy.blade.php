@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Films | Visualizza</title>
+    <title>Films | Elimina</title>
     <link rel="apple-touch-icon" sizes="57x57" href="../images/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="../images/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="../images/favicon/apple-icon-72x72.png">
@@ -35,7 +35,7 @@
 
             <div class="col-12 text-center">
 
-                <h1><span class="text-uppercase">visualizza</span></h1>
+                <h1><span class="text-uppercase">elimina</span></h1>
 
             </div>
 
@@ -43,50 +43,19 @@
 
         <div class="row mt-4">
 
-            <div class="col-12 col-lg-8 mx-lg-auto">
+            <div class="col-12">
 
-                <div class="mb-3">
-                    <label for="input-titolo" class="form-label">Titolo</label>
-                    <input type="text" id="input-titolo" class="form-control" value="{{ $movie->titolo }}" readonly>
-                </div>
+                <h3 class="text-center">
+                    <span class="text-success fw-bold">Eliminazione avvenuta con successo!</span>
+                </h3>
 
-                <div class="mb-3">
-                    <label for="input-descrizione" class="form-label">Descrizione</label>
-                    <textarea id="input-descrizione" rows="5" class="form-control" style="resize: none;"
-                        readonly>{{ $movie->descrizione }}</textarea>
-                </div>
+            </div>
 
-                <div class="mb-3">
-                    <label for="input-regia" class="form-label">Regia</label>
-                    <input type="text" id="input-regia" class="form-control" value="{{ $movie->regia }}" readonly>
-                </div>
+            <div class="col-12 col-lg-4 mt-4 mx-lg-auto">
 
-                <div class="mb-3">
-                    <label for="input-anno" class="form-label">Anno di rilascio</label>
-                    <input type="text" id="input-anno" class="form-control" value="{{ $movie->anno }}" readonly>
-                </div>
-
-                <div class="mb-3">
-                    <label for="input-durata" class="form-label">Durata</label>
-                    <input type="text" id="input-durata" class="form-control" value="{{ $movie->durata }}" readonly>
-                </div>
-
-                <div class="mb-5">
-                    <label for="input-genere" class="form-label">Genere</label>
-                    <input type="text" id="input-genere" class="form-control" value="{{ $movie->genere }}" readonly>
-                </div>
-
-                <div class="row justify-content-lg-center">
-
-                    <div class="col-12 col-lg-4">
-
-                        <a href="/movies" class="btn btn-primary btn-lg d-block">
-                            <span class="text-uppercase">indietro</span>
-                        </a>
-
-                    </div>
-
-                </div>
+                <a href="/movies" class="btn btn-primary btn-lg d-block">
+                    <span class="text-uppercase">indietro</span>
+                </a>
 
             </div>
 
