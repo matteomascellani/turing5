@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\FilmsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\filmController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,13 +13,7 @@ use App\Http\Controllers\filmController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::resource('films', filmController::class);
-
+Route::resource('films', FilmsController::class);
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
