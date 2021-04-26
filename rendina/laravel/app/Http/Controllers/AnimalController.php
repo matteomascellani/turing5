@@ -28,7 +28,7 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        //
+        return view('animal.create');
     }
 
     /**
@@ -39,7 +39,19 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $latin_name = $request->input('input-latin');
+        $name = $request->input('input-name');
+        $legs = $request->input('input-legs');
+
+        $animal = new Animal;
+        $animal->create([
+            "latin" => $latin_name,
+            "name" => $name,
+            "legs" => $legs
+
+        ]);
+
+        return redirect('/animals');
     }
 
     /**
