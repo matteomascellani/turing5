@@ -5,8 +5,9 @@
 <table>
 @foreach($items as $item)
 <tr><td><a href="/animals/{{$item->id}}/edit">{{ $item->name }}</a></td>
-    <td>{{ $item->'latin name' }}</td>
-    <td>{{ $item->name }}</td>
+    <td>{{ $item->$latin_name }}</td>
+    <td>{{ $item->$name }}</td>
+    <td>{{ $item->$legs }}</td>
     <td>
         <form method="post" action="/animals/{{$item->id}}">
             @csrf
