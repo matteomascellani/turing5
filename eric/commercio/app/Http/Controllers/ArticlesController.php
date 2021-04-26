@@ -64,7 +64,9 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        $article=new Article();
+        $items=$article->find($id);
+        return view('showcommercio',compact('items'));
     }
 
     /**
@@ -115,6 +117,9 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article=new Article();
+        $items=$article->find($id);
+        $items->delete();
+        return redirect('/articles/create');
     }
 }
