@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -13,7 +14,10 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        $article=new Article();
+        $items=$article->get();
+        return view('articles',compact('items'));
+
     }
 
     /**
