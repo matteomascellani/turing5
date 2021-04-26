@@ -21,7 +21,7 @@ th {
   </tr>
   @foreach ($items as $item)
   <tr>
-    <td>{{$item->nome}}</td>
+    <td><a href="/articles/{{$item->id}}/edit">{{$item->nome}}</a></td>
     <td>{{$item->origine}}</td>
     <td>{{$item->quantità}}</td>
     <td>{{$item->prezzo}}</td>
@@ -29,6 +29,6 @@ th {
   </tr>
   @endforeach
 </table>
-
+<a href="/articles/create">New article</a>
 </body>
 </html>

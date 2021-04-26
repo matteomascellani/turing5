@@ -38,7 +38,22 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newnome=$request-> input('nome');
+        $neworigine=$request-> input('origine');
+        $newquantità=$request-> input('quantità');
+        $newprezzo=$request-> input('prezzo');
+        $newdescrizione=$request-> input('descrizione');
+
+        $article=new Article();
+        $article->create([
+             'nome'=>$newnome,
+             'origine'=>$neworigine,
+             'quantità'=>$newquantità,
+             'prezzo'=>$newprezzo,
+             'descrizione'=>$newdescrizione,
+        ]);
+        return redirect('/articles');
+
     }
 
     /**
@@ -60,7 +75,9 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article=new Article();
+        $items=$article->find($id);
+        return view('editcommercio',compact('items'));
     }
 
     /**
@@ -72,7 +89,22 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $newnome=$request-> input('nome');
+        $neworigine=$request-> input('origine');
+        $newquantità=$request-> input('quantità');
+        $newprezzo=$request-> input('prezzo');
+        $newdescrizione=$request-> input('descrizione');
+
+        $article=new Article();
+        $article=$article->find($id);
+        $article->update([
+             'nome'=>$newnome,
+             'origine'=>$neworigine,
+             'quantità'=>$newquantità,
+             'prezzo'=>$newprezzo,
+             'descrizione'=>$newdescrizione,
+        ]);
+        return redirect('/articles');
     }
 
     /**

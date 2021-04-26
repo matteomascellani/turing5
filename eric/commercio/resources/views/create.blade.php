@@ -7,3 +7,4 @@
     Descrizione: <input type="text" name="descrizione" value=""><br><br>
     <input type="submit" value="Salva">
 </form>
+<a href="/articles">Pagina Precedente</a>
