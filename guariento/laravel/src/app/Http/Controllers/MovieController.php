@@ -14,8 +14,11 @@ class MovieController extends Controller
      */
     public function index()
     {
+        $movie = new Movie;
+        $movies = $movie->get();
+
         return view("movie.index")
-            ->with('movies', Movie::all());
+            ->with('movies', $movies);
     }
 
     /**
@@ -65,7 +68,11 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        //
+        $movie = new Movie;
+        $selectedMovie = $movie->find($id);
+
+        return view('movie.show')
+            ->with('movie', $selectedMovie);
     }
 
     /**
