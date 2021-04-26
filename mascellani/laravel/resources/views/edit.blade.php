@@ -1,6 +1,6 @@
 
 
-<form method="post" action="/books/{{$item->id}}">
+<form method="post" action="{{ route('books.update',$item->id) }}">
 @csrf
 @method('PUT')
 Nome: <input type="text" name="name" value="{{ $item->name }}" /><br />
@@ -10,4 +10,4 @@ Pagine: <input type="text" name="pages" value="{{ $item->pages }}" /><br />
 </form>
 
 
-<a href="/books">Indietro</a>
+<a href="{{ route('frontend.welcome') }}">Indietro</a>
