@@ -43,8 +43,6 @@ class MovieController extends Controller
         $durata = date('H:i:s', strtotime($request->input('input-durata')));
         $genere = $request->input('input-genere');
 
-        echo $durata;
-
         $movie = new Movie;
 
         $movie->create([
