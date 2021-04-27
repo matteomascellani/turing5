@@ -1,6 +1,6 @@
 
 
-<form method="post" action="/books">
+<form method="post" action="{{ route('book.create') }}">
 @csrf
 Nome: <input type="text" name="name" value="" /><br />
 Autore: <input type="text" name="author" value="" /><br />

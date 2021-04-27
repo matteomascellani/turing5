@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'f02b7bfeb2f465f087d1aa6827ba48a494358ba4',
+    'reference' => 'a7e6efe29f9ce8c4e9c3905a54b256506c50f0e0',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'f02b7bfeb2f465f087d1aa6827ba48a494358ba4',
+      'reference' => 'a7e6efe29f9ce8c4e9c3905a54b256506c50f0e0',
     ),
     'bacon/bacon-qr-code' => 
     array (
