@@ -35,8 +35,7 @@ $(document).ready(function() {
                     data: { actual: $("#risultato").val(), operator: $("button.pushed").val(), integer: $(this).val() }
                 })
                 .done(function( response ) {
-                    $("#risultato").val(response);
-                    
+                    $("#risultato").val(response);    
                 });
             }
 
@@ -109,3 +108,4 @@ $(document).ready(function() {
 </div>
 
 </html>
+ 
