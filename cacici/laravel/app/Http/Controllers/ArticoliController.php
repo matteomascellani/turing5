@@ -16,6 +16,7 @@ class ArticoliController extends Controller
     {
         $articolo = new Articolo;
         $items = $articolo->get();
+        // $items = Articolo::with('tipologia')->get();
         return view('articoli', compact('items'));
     }
 
