@@ -56,20 +56,26 @@
 
                         </div>
 
-                        <div class="col-12 text-center text-md-start">
+                        <form method="POST" action="/movies/{{ $movie->id }}" class="text-center text-md-start">
+
+                            @csrf
+                            @method('DELETE')
+
                             <a href="/movies/{{ $movie->id }}" class="btn btn-primary"
                                 title="Visualizza i dettagli di {{ $movie->titolo }}">
                                 <span class="text-uppercase">visualizza</span>
                             </a>
+
                             <a href="/movies/{{ $movie->id }}/edit" class="btn btn-primary"
                                 title="Modifica {{ $movie->titolo }}">
                                 <span class="text-uppercase">modifica</span>
                             </a>
-                            <a href="/movies/{{ $movie->id }}/destroy" class="btn btn-danger"
-                                title="Elimina {{ $movie->titolo }}">
+
+                            <button type="submit" class="btn btn-danger" title="Elimina {{ $movie->titolo }}">
                                 <span class="text-uppercase">elimina</span>
-                            </a>
-                        </div>
+                            </button>
+
+                        </form>
 
                     </div>
 

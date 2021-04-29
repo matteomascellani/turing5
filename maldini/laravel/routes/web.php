@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +12,6 @@ use App\Http\Controllers\BookController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::resource('books', BookController::class);
 
 Route::get('/', function () {
     return view('welcome');

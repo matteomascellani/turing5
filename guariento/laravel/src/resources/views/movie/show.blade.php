@@ -78,7 +78,7 @@
 
                 <div class="row justify-content-lg-center">
 
-                    <div class="col-12 mt-2 col-lg-4 mt-lg-0">
+                    <div class="col-12 col-lg-4">
 
                         <a href="/movies" class="btn btn-primary btn-lg d-block">
                             <span class="text-uppercase">indietro</span>

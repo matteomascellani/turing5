@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MusicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +12,6 @@ use App\Http\Controllers\MusicController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::resource('/musics', MusicController::class);
 
 Route::get('/', function () {
     return view('welcome');
