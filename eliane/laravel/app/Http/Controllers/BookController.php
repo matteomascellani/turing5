@@ -13,8 +13,12 @@ class BookController extends Controller
      */
     public function index()// metode pour montrer la liste des elemt en DB
     {
-        $book=new Book();
-        $lists=$book->get();
+       // $book=new Book();
+       // $lists=$book->get();
+       $lists = Book::with('author','serie')->get();
+
+       dd($lists);
+
         return view('books',compact('lists'));
 
 
