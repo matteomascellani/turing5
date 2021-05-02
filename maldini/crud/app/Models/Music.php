@@ -11,6 +11,8 @@ class Music extends Model
 
     protected $fillable = ['name', 'composer', 'date'];
 
+    protected $table = "musics";
+
     public function composer(){
 
         return $this->belongsTo(Composer::class);
