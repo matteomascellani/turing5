@@ -9,9 +9,16 @@ class Composer extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     public function nation() {
 
         return $this->belongsTo(Nation::class);
 
+    }
+
+    public function music(){
+
+        return $this->hasOne(Music::class);
     }
 }

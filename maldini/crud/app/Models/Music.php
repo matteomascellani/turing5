@@ -10,4 +10,14 @@ class Music extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'composer', 'date'];
+
+    public function composer(){
+
+        return $this->belongsTo(Composer::class);
+    }
+
+    public function opera(){
+
+        return $this->belongsTo(Opera::class);
+    }
 }

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Music;
+use App\Models\Composer;
+use App\Models\Opera;
+use App\Models\Nation;
 
 class MusicController extends Controller
 {
@@ -14,8 +17,13 @@ class MusicController extends Controller
      */
     public function index()
     {
-        $music = new Music;
-        $items = $music->get();
+        $nation = Nation::find(1);
+        $composer = Composer::find(1);
+        $opera = Opera::find(1);
+
+        $musics = Music::with('composer.nation', 'opera')->get();
+
+        $composer = Composer::with('music')->first();
 
         return view('musics', compact('items'));
     }
