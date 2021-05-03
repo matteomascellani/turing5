@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\MusicRequest;
 use App\Models\Music;
 use App\Models\Composer;
 use App\Models\Opera;
@@ -45,7 +46,7 @@ class MusicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MusicRequest $request)
     {
         $name = $request->input('name');
         $composer = $request->input('composer');
