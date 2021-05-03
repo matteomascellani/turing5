@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Films;
+use App\Models\Film;
 use Illuminate\Http\Request;
+use App\Http\Requests\FilmRequest;
 
-class FilmsController extends Controller
+class FilmController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,10 @@ class FilmsController extends Controller
      */
     public function index()
     {
-        $film=new Films();
-        $items=$film->get();
-        return view('films',compact('items'));
+
+        $items = Film::get();
+
+        return view('films.index',compact('items'));
     }
 
     /**
@@ -26,7 +28,7 @@ class FilmsController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('films.create');
     }
 
     /**
@@ -35,21 +37,12 @@ class FilmsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FilmRequest $request)
     {
-        $titolo=$request->input('titolo');
-        $categoria=$request->input('categoria');
-        $tipologia=$request->input('tipologia');
-        $anno=$request->input('anno');
 
-        $film=new Films();
+        $film = new Film;
+        $film->create($request->input('film'));
 
-        $film->create([
-            'titolo'=>$titolo,
-            'categoria'=>$categoria,
-            'tipologia'=>$tipologia,
-            'anno'=>$anno
-        ]);
         return redirect('/films');
     }
 
@@ -61,7 +54,7 @@ class FilmsController extends Controller
      */
     public function show($id)
     {
-        $film=new Films();
+        $film=new Film();
         $items=$film->find($id);
         return view('show',compact('items'));
     }
@@ -72,11 +65,10 @@ class FilmsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Film $film)
     {
-        $film=new Films();
-        $items=$film->find($id);
-        return view('edit',compact('items'));
+
+        return view('films.edit',compact('film'));
     }
 
     /**
@@ -86,21 +78,11 @@ class FilmsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FilmRequest $request, Film $film)
     {
-        $titolo=$request->input('titolo');
-        $categoria=$request->input('categoria');
-        $tipologia=$request->input('tipologia');
-        $anno=$request->input('anno');
 
-        $film=new Films();
-        $film=$film->find($id);
-        $film->update([
-            'titolo'=>$titolo,
-            'categoria'=>$categoria,
-            'tipologia'=>$tipologia,
-            'anno'=>$anno
-        ]);
+        $film->update($request->input('film'));
+
         return redirect('/films');
     }
 
@@ -112,7 +94,7 @@ class FilmsController extends Controller
      */
     public function destroy($id)
     {
-        $film=new Films();
+        $film=new Film();
         $items=$film->find($id);
         $items->delete();
         return redirect('/films');
