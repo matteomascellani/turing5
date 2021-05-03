@@ -14,7 +14,7 @@ use App\Http\Controllers\MusicController;
 |
 */
 
-Route::resource('/musics', MusicController::class);
+route::resource('musics', MusicController::class);
 
 Route::get('/', function () {
     return view('welcome');

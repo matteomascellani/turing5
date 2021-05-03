@@ -39,7 +39,22 @@ class PlantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('input-name');
+        $sowing_month = $request->input('input-sowing');
+        $blooming_month = $request->input('input-blooming');
+        $height = $request->input('input-height');
+        $type_of_plant = $request->input('input-type');
+
+        $plant = new Plant;
+        $plant->create([
+          "name" => $name,
+          "sowing_month" => $sowing_month,
+          "blooming_month" => $blooming_month,
+          "height" => $height,
+          "type_of_plant" => $type_of_plant
+        ]);
+        return redirect('/plants');
+        //echo($sowing_month);
     }
 
     /**
@@ -60,11 +75,12 @@ class PlantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
-        //$plant=new plant;
-        //$item=$plant->find($id);
-        //return view ('edit',compact('item'));
+    {/** 
+        *$plant = new Plant;
+        *$item = $plant->find($id);
+
+       * return view('edit',compact('item'));
+       */
     }
 
     /**
@@ -76,7 +92,25 @@ class PlantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        /**
+        *$name = $request->input('name');
+        *$sowing_month = $request->input('sowing_month');
+        *$blooming_month = $request->input('blooming_month');
+        *$height = $request->input('height');
+        *$type_of_plant = $request->input('type_of_plant');
+
+        *$plant = new Plant;
+        *$plant = $plant->find($id);
+        *$plant->update([
+           * "name" => $name,
+            *"author" => $sowing_month,
+            *"pages" => $blooming_month,
+            *"height"=>$height,
+            *"type_of_plant"=>$type_of_plant
+        *]);
+
+        *return redirect('/books');
+       */
     }
 
     /**

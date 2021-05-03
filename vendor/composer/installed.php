@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'f02b7bfeb2f465f087d1aa6827ba48a494358ba4',
+    'reference' => '222c42d65cdc32408dbf4e383cf3b2dc63206a10',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'f02b7bfeb2f465f087d1aa6827ba48a494358ba4',
+      'reference' => '222c42d65cdc32408dbf4e383cf3b2dc63206a10',
     ),
     'bacon/bacon-qr-code' => 
     array (
@@ -49,26 +49,26 @@
     ),
     'illuminate/collections' => 
     array (
-      'pretty_version' => 'v8.38.0',
-      'version' => '8.38.0.0',
+      'pretty_version' => 'v8.40.0',
+      'version' => '8.40.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '21690cd5591f2d42d792e5e4a687f9beba829f1d',
+      'reference' => 'deccb956d38710f3f8baf36dd876c3fa1585ec22',
     ),
     'illuminate/contracts' => 
     array (
-      'pretty_version' => 'v8.38.0',
-      'version' => '8.38.0.0',
+      'pretty_version' => 'v8.40.0',
+      'version' => '8.40.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '5764f703ea8f74ced163125d810951cd5ef2b7e1',
+      'reference' => '5152041a5c4ac4dbebb3c8ee72d05666c592ae08',
     ),
     'illuminate/macroable' => 
     array (
-      'pretty_version' => 'v8.38.0',
-      'version' => '8.38.0.0',
+      'pretty_version' => 'v8.40.0',
+      'version' => '8.40.0.0',
       'aliases' => 
       array (
       ),
@@ -76,12 +76,12 @@
     ),
     'illuminate/support' => 
     array (
-      'pretty_version' => 'v8.38.0',
-      'version' => '8.38.0.0',
+      'pretty_version' => 'v8.40.0',
+      'version' => '8.40.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '735391f31e145aad4f7aff3d9736ef70452dd1fe',
+      'reference' => 'ce1682ef73ab28a61be01c24ec5b090bdf2c3256',
     ),
     'jaybizzle/crawler-detect' => 
     array (
@@ -103,21 +103,21 @@
     ),
     'laravel/fortify' => 
     array (
-      'pretty_version' => 'v1.7.11',
-      'version' => '1.7.11.0',
+      'pretty_version' => 'v1.7.12',
+      'version' => '1.7.12.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'db984992eea2286a81429c73a800c784e24e99ff',
+      'reference' => 'b45807430194c73aaa9b2f26cb76038cc747466f',
     ),
     'laravel/jetstream' => 
     array (
-      'pretty_version' => 'v2.3.3',
-      'version' => '2.3.3.0',
+      'pretty_version' => 'v2.3.4',
+      'version' => '2.3.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'fea3aa721de859b156c7b570b0a39d16e087d055',
+      'reference' => 'b6c585ec900531c35e4b83e65c044f4b2ce7f5dd',
     ),
     'league/commonmark' => 
     array (
