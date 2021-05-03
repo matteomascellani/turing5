@@ -29,4 +29,15 @@ class MusicRequest extends FormRequest
             'music.date' => 'requred|integer'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'music.name.required' => 'La musica è un campo obbligatorio',
+            'music.name.max' => 'Numero caratteri superato',
+            'music.composer.required' => 'Devi indicare il\'compositore',
+            'music.date.required' => 'Campo data mancante',
+            'music.date.integer' => 'La data può essere solo un numero intero'
+        ];
+    }
 }

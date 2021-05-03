@@ -22,11 +22,11 @@ class MusicController extends Controller
         $composer = Composer::find(1);
         $opera = Opera::find(1);
 
-        $musics = Music::with('composer.nation', 'opera')->get();
+        $items = Music::with('composer.nation', 'opera')->get();
 
         $composer = Composer::with('music')->first();
 
-        return view('musics', compact('items'));
+        return view('musics.index', compact('items'));
     }
 
     /**
@@ -37,7 +37,7 @@ class MusicController extends Controller
     public function create()
     {
 
-        return view('create');
+        return view('musics.create');
     }
 
     /**
@@ -84,7 +84,7 @@ class MusicController extends Controller
         $music = new Music;
         $item = $music->find($id);
 
-        return view('edit', compact('item'));
+        return view('musics.edit', compact('item'));
     }
 
     /**

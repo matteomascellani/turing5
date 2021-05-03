@@ -1,6 +1,6 @@
 <h3>Musica</h3>
 
-{{ $name }}
+
 
 <a href="/musics/create">Nuovo</a>
 <br /><br /><br />
@@ -11,7 +11,7 @@
     <td>{{ $item->date }}</td>
     <td>
 
-        <form method="post" action="/musics/{{$item->$id}}">
+        <form method="post" action="/musics/{{$item->id}}">
             @csrf
             @method('DELETE')
             <button type="submit">Cancella</button>
