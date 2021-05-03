@@ -13,16 +13,18 @@
 <form method="post" action="/plants">
 @csrf
 <table class="table">
-<td>Nome: <input type="text" name="name" value="" /> </td>
-<td>Sowing Month: <input type="text" name="sowing_month" value="" /></td>
-<td>Blooming Month: <input type="text" name="blooming_month" value="" /></td>
-<td>Height: <input type="text" name="height" value="" /></td>
-<td>Type of Plant: <input type="text" name="type_of_plant" value="" /></td>
+<td>Nome: <input type="text" name="input-name" value="" /> </td>
+<td>Sowing Month: <input type="text" name="input-sowing" value="" /></td>
+<td>Blooming Month: <input type="text" name="input-blooming" value="" /></td>
+<td>Height: <input type="text" name="input-height" value="" /></td>
+<td>Type of Plant: <input type="text" name="input-type" value="" /></td>
 </table>
 <br/>
-<a href="/plants"class="btn btn-danger">Go back</a>
-<div class="d-flex justify-content-end"><input type="submit" value=" Save "class="btn btn-success "></div>
-</form>
 
+<input type="submit" value=" Save " class="btn btn-success ">
+
+</form>
+<br/>
+<a href="/plants" class="btn btn-danger">Go back</a>
 </body>
 </html>

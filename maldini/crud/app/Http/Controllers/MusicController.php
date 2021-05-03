@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\MusicRequest;
+use App\Models\Music;
+use App\Models\Composer;
+use App\Models\Opera;
+use App\Models\Nation;
 
 class MusicController extends Controller
 {
@@ -13,7 +18,15 @@ class MusicController extends Controller
      */
     public function index()
     {
-        echo "index";
+        $nation = Nation::find(1);
+        $composer = Composer::find(1);
+        $opera = Opera::find(1);
+
+        $items = Music::with('composer.nation', 'opera')->get();
+
+        $composer = Composer::with('music')->first();
+
+        return view('musics.index', compact('items'));
     }
 
     /**
@@ -23,7 +36,8 @@ class MusicController extends Controller
      */
     public function create()
     {
-        echo "create";
+
+        return view('musics.create');
     }
 
     /**
@@ -32,9 +46,20 @@ class MusicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MusicRequest $request)
     {
-        echo "store";
+        $name = $request->input('name');
+        $composer = $request->input('composer');
+        $date = $request->input('date');
+
+        $music = new Music;
+        $music->create([
+            "name" => $name,
+            "composer" => $composer,
+            "date" => $date
+        ]);
+
+        return redirect('/musics');
     }
 
     /**
@@ -56,7 +81,10 @@ class MusicController extends Controller
      */
     public function edit($id)
     {
-        echo "edit";
+        $music = new Music;
+        $item = $music->find($id);
+
+        return view('musics.edit', compact('item'));
     }
 
     /**
@@ -68,7 +96,19 @@ class MusicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo "update";
+        $name = $request->input('name');
+        $composer = $request->input('composer');
+        $date = $request->input('date');
+
+        $music = new Music;
+        $music->find($id);
+        $music->update([
+            "name" => $name,
+            "composer" => $composer,
+            "date" => $date
+        ]);
+
+        return redirect('/musics');
     }
 
     /**
@@ -79,6 +119,10 @@ class MusicController extends Controller
      */
     public function destroy($id)
     {
-        echo "destroy";
+        $music = new Music;
+        $music = $music->find($id);
+        $music->delete();
+
+        return redirect('/musics');
     }
 }
