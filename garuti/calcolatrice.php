@@ -1,10 +1,46 @@
 <?php
 
+class Calcolatrice{
+
+    public $risultato;
+
+    public function inizio($integer){
+
+        $this->risultato = $integer;
+    }
+
+    public function sum($integer){
+        $this -> risultato += $integer;
+    }
+
+    public function sub($integer){
+        $this -> risultato -= $integer;
+    }
+
+    public function mol($integer){
+        $this -> risultato *= $integer;
+    }
+
+    public function div($integer){
+        $this -> risultato /= $integer;
+    }
+
+    public function risultato(){
+        return $this->risultato;
+    }
+}
+
+$calcolatrice = new Calcolatrice;
+$risultato = $calcolatrice->inizio(5);
+
+$risultato = $calcolatrice->risultato();
+
 ?>
 
 <html>
 <head>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
@@ -12,33 +48,80 @@
 
 </style>
 <script>
+
+$( document ).ready(function() {
+
+
+    $(document).on("click","button",function(){
+
+        if(
+            $(this).val() == "sum" ||
+            $(this).val() == "sub" ||
+            $(this).val() == "mol" ||
+            $(this).val() == "div" 
+        ) {
+            $.ajax({
+                method: "POST",
+                url: "calcolatrice.php",
+                data: { operator:  $(this).val() }
+            })
+            .done(function( data ) {
+                $("#risultato").val(data);
+            });
+            
+            } else {
+                $("#risultato").val($(this).val());
+            }
+    })
+});
+
 </script>
 </head>
 
 <body>
 
-<h3>calcolatrice</h3>
- 
-<div>La mia calcolatrice</div>
-
 <div class="container">
-    <table class="table table-bordered">
-    <tr>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-    </tr>
-    </table>
+    <h3>calcolatrice</h3>
+    <p>La mia calcolatrice</p>
+ 
+    <div class="row">
+        <div class="offset-3 col-6">
+            <table class="table table-bordered text-center">
+            <tr>
+                <td><button class="btn btn-primary" value="7">7</button></td>
+                <td><button class="btn btn-primary" value="8">8</button></td>
+                <td><button class="btn btn-primary" value="9">9</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-primary" value="4">4</button></td>
+                <td><button class="btn btn-primary" value="5">5</button></td>
+                <td><button class="btn btn-primary" value="6">6</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-primary" value="1">1</button></td>
+                <td><button class="btn btn-primary" value="2">2</button></td>
+                <td><button class="btn btn-primary" value="3">3</button></td>
+            </tr>
+            </table>
+        </div>
+
+        <div class="offset-3 col-6">
+            <table class="table table-bordered text-center">
+            <tr>
+                <td><button class="btn btn-primary" value="sum">+</button></td>
+                <td><button class="btn btn-success" value="sub">-</button></td>
+                <td><button class="btn btn-warning" value="mol">X</button></td>
+                <td><button class="btn btn-danger" value="div">÷</button></td>
+            </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 offset-4">
+            <input class="form-control" type="text" id="risultato" value="<?php echo $risultato ?? '' ?>" />
+        </div>
+    </div>
 </div>
 
 </body>
