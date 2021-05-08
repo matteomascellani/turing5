@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
+use Illuminate\View\Component;
 
 class BookController extends Controller
 {
@@ -12,19 +14,11 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function prova()
-    {
-        echo "prova";
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        echo "index";
+        $book = new Book;
+        $items = $book -> get();
+        return view('books',compact($items));
     }
 
     /**
