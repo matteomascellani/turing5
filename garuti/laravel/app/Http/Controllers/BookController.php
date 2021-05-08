@@ -30,7 +30,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        echo "create";
+        return view('create');
     }
 
     /**
@@ -41,7 +41,18 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        echo "store";
+        $name = $request->input('name');
+        $author = $request->input('author');
+        $pages = $request->input('pages');
+
+        $book = new Book;
+        $book->create([
+            "name"=> $name,
+            "author"=>$author,
+            "pages"=> $pages
+        ]);
+
+        return redirect('/books');
     }
 
     /**
@@ -78,8 +89,6 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
-
         $name = $request->input('name');
         $author = $request->input('author');
         $pages = $request->input('pages');
@@ -92,7 +101,7 @@ class BookController extends Controller
             "pages"=> $pages
         ]);
 
-        dd($book);
+        return redirect('/books');
     }
 
     /**
@@ -103,6 +112,10 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        echo "destroy";
+        $book = new Book;
+        $book = $book->find($id);
+        $book->delete();
+
+        return redirect('/books');
     }
 }

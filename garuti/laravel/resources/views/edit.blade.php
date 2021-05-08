@@ -6,4 +6,7 @@
     Pagine: <td><input type="integer" name="pages" value="{{$item->pages}}"/><br />
 
     <input type="submit" value="Salva" />
+    <form action="/books">
+        <button type="submit">Annulla</button>
+    </form>
     </form>
