@@ -1,6 +1,15 @@
 <html>
 
     <body style="background-color: rgb(194, 183, 91)">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <h2 style="color: rgb(74, 25, 112)">Creazione nuovo studente</h2>
 
     <form action="{{route ('students.update',$student->id)}}"  method="POST">
