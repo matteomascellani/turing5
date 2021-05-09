@@ -58,9 +58,9 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
-        //
+        return view('students.edit',compact('student'));
     }
 
     /**
@@ -70,9 +70,10 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        $student->update($request->input('student'));
+        return redirect('/students');
     }
 
     /**
@@ -83,6 +84,9 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student=new Student();
+        $items=$student->find($id);
+        $items->delete();
+        return redirect('/students');
     }
 }
