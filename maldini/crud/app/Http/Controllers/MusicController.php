@@ -83,10 +83,10 @@ class MusicController extends Controller
      */
     public function edit($id)
     {
-        $music = new Music;
-        $item = $music->find($id);
 
-        return view('musics.edit', compact('item'));
+        $music = Music::find($id);
+
+        return view('musics.edit', compact('music'));
     }
 
     /**

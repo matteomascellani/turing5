@@ -16,9 +16,11 @@ class BookController extends Controller
      */
     public function index()
     {
+
         $book = new Book;
-        $items = $book -> get();
-        return view('books',compact($items));
+        $items = $book->get();
+
+        return view('books',compact('items'));
     }
 
     /**
@@ -28,7 +30,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        echo "create";
+        return view('create');
     }
 
     /**
@@ -39,7 +41,18 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        echo "store";
+        $name = $request->input('name');
+        $author = $request->input('author');
+        $pages = $request->input('pages');
+
+        $book = new Book;
+        $book->create([
+            "name"=> $name,
+            "author"=>$author,
+            "pages"=> $pages
+        ]);
+
+        return redirect('/books');
     }
 
     /**
@@ -61,7 +74,10 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        echo "edit";
+        $book = new Book;
+        $item = $book-> find($id);
+        //$item = $book-> where('name',$name)->first();
+        return view('edit',compact('item'));
     }
 
     /**
@@ -73,7 +89,19 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo "update";
+        $name = $request->input('name');
+        $author = $request->input('author');
+        $pages = $request->input('pages');
+
+        $book = new Book;
+        $book = $book->find($id);
+        $book->update([
+            "name"=> $name,
+            "author"=>$author,
+            "pages"=> $pages
+        ]);
+
+        return redirect('/books');
     }
 
     /**
@@ -84,6 +112,10 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        echo "destroy";
+        $book = new Book;
+        $book = $book->find($id);
+        $book->delete();
+
+        return redirect('/books');
     }
 }
