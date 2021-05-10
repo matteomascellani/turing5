@@ -36,18 +36,18 @@ class StudentRequest extends FormRequest
     {
         return [
 
-          'student.nome.required' => 'il campo titolo è obbligatorio ',
-          'student.cognome.required'=>'il campo categoria è obbligatorio ',
-          'student.anno_immatricolazione.required'=>'il campo tipologia è obbligatorio ',
-          'student.facoltà.required'=>'il campo anno è obbligatorio',
-          'student.anno_corso.required'=>'il campo anno è obbligatorio',
-          'student.facoltà.required'=>'il campo anno è obbligatorio',
+          'student.nome.required' => 'il campo nome è obbligatorio ',
+          'student.cognome.required'=>'il campo cognome è obbligatorio ',
+          'student.anno_immatricolazione.required'=>'il campo  anno_immatricolazione è obbligatorio ',
+          'student.corso_frequentato.required'=>'il campo corso frequentata è obbligatorio',
+          'student.facoltà.required'=>'il campo facoltà è obbligatorio',
+          'student.anno_corso.required'=>'il campo anno corso è obbligatorio',
           'student.anno_immatricolazione.integer'=>'il campo anno è un numero',
           'student.anno_corso.integer'=>'il campo anno è un numero',
-          'film.anno_immatricolazione.lte'=>'il campo anno è massimo 2021',
-          'film.anno_immatricolazione.gte'=>'il campo anno è minimo 1900',
-          'film.anno_corso.lte'=>'il campo anno è massimo 5',
-          'film.anno_corso.gte'=>'il campo anno è minimo 1'
+          'student.anno_immatricolazione.lte'=>'il campo anno è massimo 2021',
+          'student.anno_immatricolazione.gte'=>'il campo anno è minimo 1900',
+          'student.anno_corso.lte'=>'il campo anno è massimo 5',
+          'student.anno_corso.gte'=>'il campo anno è minimo 1'
         ];
     }
 }

@@ -7,19 +7,23 @@
         h2{
             color: rgb(74, 16, 129)
         }
+
     </style>
 </head>
 
     <body>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+
+            @if ($errors->any())
+            <div class="alert alert-danger" style="background-color: rgb(241, 87, 87)">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+
         <h2>Creazione nuovo studente</h2>
 
     <form action="{{route ('students.store')}}"  method="post">
@@ -30,6 +34,7 @@
         Corso Frequentato: <input type="text" name="student[corso_frequentato]" value=""><br><br>
         Facoltà: <input type="text" name="student[facoltà]" value=""><br><br>
         Anno Corso: <input type="text" name="student[anno_corso]" value=""><br><br>
+        id Preside: <input type="text" name="student[idprof]" value="">
         <input type="submit" value="CREATE">
     </form>
 

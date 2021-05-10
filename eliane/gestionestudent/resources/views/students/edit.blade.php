@@ -2,7 +2,7 @@
 
     <body style="background-color: rgb(194, 183, 91)">
         @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger" style="background-color: rgb(189, 182, 182)">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -21,6 +21,7 @@
         Corso Frequentato: <input type="text" name="student[corso_frequentato]" value="{{$student->corso_frequentato}}"><br><br>
         Facoltà: <input type="text" name="student[facoltà]" value="{{$student->facoltà}}"><br><br>
         Anno Corso: <input type="text" name="student[anno_corso]" value="{{$student->anno_corso}}"><br><br>
+        Id preside corso: <input type="text" name="student[idprof]" value="{{$student->idprof}}"><br><br>
 
         <input type="submit" value="Salve Modifica">
     </form>

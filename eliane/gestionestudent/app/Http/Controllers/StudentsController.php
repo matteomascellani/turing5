@@ -14,7 +14,10 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $items=Student::get();
+        $items=Student::with('professor')->get();
+
+        dd($items);
+
         return view('students.index',compact('items'));
     }
 

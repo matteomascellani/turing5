@@ -19,6 +19,7 @@
   <tr>
     <th>Nome</th>
     <th>Cognome</th>
+    <th>Professore</th>
     <th>Anno Immatricolazione</th>
     <th>Corso Frequentato</th>
     <th>Facoltà</th>
@@ -28,6 +29,7 @@
   <tr>
     <td><a href="/students/{{$item->id}}/edit">{{$item->nome}}</a></td>
     <td><a href="/students/{{$item->id}}/edit">{{$item->cognome}}</a></td>
+    <td>{{$item->professor->nome}} {{$item->professor->cognome}}</td>
     <td>{{$item->anno_immatricolazione}}</td>
     <td>{{$item->corso_frequentato}}</td>
     <td>{{$item->facoltà}}</td>

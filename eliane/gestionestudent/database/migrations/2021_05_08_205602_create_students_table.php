@@ -22,7 +22,7 @@ class CreateStudentsTable extends Migration
             $table->string('facoltà');
             $table->integer('anno_corso');
 
-
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

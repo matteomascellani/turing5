@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\ProfessorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +14,13 @@ use App\Http\Controllers\StudentsController;
 |
 */
 
+Route::resource('professors',ProfessorController::class);
 Route::resource('students', StudentsController::class);
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
