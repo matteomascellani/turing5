@@ -98,12 +98,11 @@ class PlantController extends Controller
         $height = $request->input('height');
         $type_of_plant = $request->input('type_of_plant');
 
-        $plant = new Plant;
-        $plant = $plant->find($id);
-        $plant->update([
+        Plant::find($id)
+            ->update([
             "name" => $name,
-            "author" => $sowing_month,
-            "pages" => $blooming_month,
+            "sowing_month" => $sowing_month,
+            "blooming_month" => $blooming_month,
             "height"=>$height,
             "type_of_plant"=>$type_of_plant
         ]);

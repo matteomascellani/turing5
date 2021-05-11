@@ -13,12 +13,12 @@
     <div class="container p-4">
         <div class="row ">
             <div class="col-12 col-lg-8 mx-auto">
-                <h3>Edit a Plant</h3>
+                <h3>Edit this Plant</h3>
             </div>
             </br> </br> </br>
         </div>
         <div class="col-12 col-lg-8 mx-lg-auto">
-            <form method="put" action="/plants/{{$item->id}}">
+            <form method="post" action="/plants/{{$item->id}}">
                 @csrf
                 @method('PUT')
 
