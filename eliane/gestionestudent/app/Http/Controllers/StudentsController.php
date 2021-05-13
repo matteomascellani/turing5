@@ -16,7 +16,7 @@ class StudentsController extends Controller
     {
         $items=Student::with('professor')->get();
 
-        dd($items);
+       // dd($items);
 
         return view('students.index',compact('items'));
     }
