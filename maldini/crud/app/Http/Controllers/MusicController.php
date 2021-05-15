@@ -59,7 +59,9 @@ class MusicController extends Controller
             "date" => $date
         ]);
 
-        return redirect('/musics');
+        return redirect()->route('musics.index')
+            ->with('success', __('Musica creata correttamente'));
+
     }
 
     /**
@@ -81,10 +83,10 @@ class MusicController extends Controller
      */
     public function edit($id)
     {
-        $music = new Music;
-        $item = $music->find($id);
 
-        return view('musics.edit', compact('item'));
+        $music = Music::find($id);
+
+        return view('musics.edit', compact('music'));
     }
 
     /**
@@ -94,7 +96,7 @@ class MusicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MusicRequest $request, $id)
     {
         $name = $request->input('name');
         $composer = $request->input('composer');
@@ -108,7 +110,8 @@ class MusicController extends Controller
             "date" => $date
         ]);
 
-        return redirect('/musics');
+        return redirect()->route('musics.index')
+        ->with('success', __('Musica aggiornata correttamente'));
     }
 
     /**

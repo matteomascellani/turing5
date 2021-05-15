@@ -75,12 +75,11 @@ class PlantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {/** 
-        *$plant = new Plant;
-        *$item = $plant->find($id);
-
-       * return view('edit',compact('item'));
-       */
+    {
+    
+        return view('plant.edit')
+            ->with('item', Plant::find($id));
+       
     }
 
     /**
@@ -92,25 +91,23 @@ class PlantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /**
-        *$name = $request->input('name');
-        *$sowing_month = $request->input('sowing_month');
-        *$blooming_month = $request->input('blooming_month');
-        *$height = $request->input('height');
-        *$type_of_plant = $request->input('type_of_plant');
+        
+        $name = $request->input('name');
+        $sowing_month = $request->input('sowing_month');
+        $blooming_month = $request->input('blooming_month');
+        $height = $request->input('height');
+        $type_of_plant = $request->input('type_of_plant');
 
-        *$plant = new Plant;
-        *$plant = $plant->find($id);
-        *$plant->update([
-           * "name" => $name,
-            *"author" => $sowing_month,
-            *"pages" => $blooming_month,
-            *"height"=>$height,
-            *"type_of_plant"=>$type_of_plant
-        *]);
+        Plant::find($id)
+            ->update([
+            "name" => $name,
+            "sowing_month" => $sowing_month,
+            "blooming_month" => $blooming_month,
+            "height"=>$height,
+            "type_of_plant"=>$type_of_plant
+        ]);
 
-        *return redirect('/books');
-       */
+        return redirect('/plants');
     }
 
     /**
