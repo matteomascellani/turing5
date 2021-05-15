@@ -1,7 +1,5 @@
 <?php
 
-namespace vidhi\model;
-
 abstract class Veicolo {
 
      public $modello;
