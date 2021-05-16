@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArtistsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OriginsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('artists', ArtistsController::class);
+Route::resource('origins', OriginsController::class);
