@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Origin;
 use Illuminate\Http\Request;
+use App\Http\Requests\OriginRequest;
 
 class OriginsController extends Controller
 {
@@ -25,7 +26,7 @@ class OriginsController extends Controller
      */
     public function create()
     {
-        //
+        return view('origin.create');
     }
 
     /**
@@ -34,9 +35,11 @@ class OriginsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OriginRequest $request)
     {
-        //
+        $origine=new Origin();
+        $origine->create($request->input('origine'));
+        return redirect('/origins');
     }
 
     /**
@@ -56,9 +59,9 @@ class OriginsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Origin $origin)
     {
-        //
+        return view('origin.edit',compact('origin'));
     }
 
     /**
@@ -68,9 +71,11 @@ class OriginsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Origin $origin)
     {
-        //
+        $origin->update($request->input('origin'));
+        return redirect('/origins');
+
     }
 
     /**
@@ -79,8 +84,9 @@ class OriginsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Origin $origin)
     {
-        //
+        $origin->delete($origin);
+        return redirect('/origins');
     }
 }
