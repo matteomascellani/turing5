@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\StudentRequest;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentsController extends Controller
@@ -13,7 +14,8 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        //
+        $items=Student::get();
+        return view('student.index',compact('items'));
     }
 
     /**
@@ -23,7 +25,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('student.create');
     }
 
     /**
@@ -32,9 +34,11 @@ class StudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentRequest $request)
     {
-        //
+        $student=new Student();
+        $student->create($request->input('student'));
+        return redirect('/students');
     }
 
     /**
@@ -54,9 +58,9 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
-        //
+        return view('student.edit',compact('student'));
     }
 
     /**
@@ -66,9 +70,9 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Student $student)
     {
-        //
+        $student->update($request->input('student'));
     }
 
     /**
@@ -79,6 +83,8 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student=new Student();
+        $student->find($id)->delete();
+        return redirect('students');
     }
 }
