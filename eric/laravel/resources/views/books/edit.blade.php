@@ -1,4 +1,13 @@
-<form action="/books/{{$livres->id}}" method="post">
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<form action="{{route('books.update',$livres->id)}}" method="post">
 @csrf
 @method('PUT')
     Titolo: <input type="text" name="titolo" value="{{$livres->titolo}}"><br><br>
@@ -7,5 +16,5 @@
     <input type="submit" value="conferma modificare">
 
 </form>
-<a href="/books">indietro</a>
+<a href="{{route(books.index)}}">indietro</a>
 
