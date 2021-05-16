@@ -24,7 +24,7 @@ class ArtistsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+
         ];
     }
 }
