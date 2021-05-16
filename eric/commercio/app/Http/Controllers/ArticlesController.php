@@ -16,7 +16,7 @@ class ArticlesController extends Controller
     {
         $article=new Article();
         $items=$article->get();
-        return view('articles',compact('items'));
+        return view('/articles',compact('items'));
 
     }
 
@@ -27,7 +27,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('/create');
     }
 
     /**
@@ -38,21 +38,20 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        $newnome=$request-> input('nome');
-        $neworigine=$request-> input('origine');
-        $newquantità=$request-> input('quantità');
-        $newprezzo=$request-> input('prezzo');
-        $newdescrizione=$request-> input('descrizione');
+        $newnome=$request->input('nome');
+        $neworigine=$request->input('origine');
+        $newquantità=$request->input('quantità');
+        $newprezzo=$request->input('prezzo');
+        $newdescrizione=$request->input('descrizione');
 
         $article=new Article();
-        $article->create([
-             'nome'=>$newnome,
-             'origine'=>$neworigine,
-             'quantità'=>$newquantità,
-             'prezzo'=>$newprezzo,
-             'descrizione'=>$newdescrizione,
+        $article->create(['nome'=>$newnome,
+        'origine'=>$neworigine,
+        'quantita'=>$newquantità,
+        'prezzo'=>$newprezzo,
+        'descrizione'=>$newdescrizione,
         ]);
-        return redirect('/articles');
+        redirect('/articles');
 
     }
 
