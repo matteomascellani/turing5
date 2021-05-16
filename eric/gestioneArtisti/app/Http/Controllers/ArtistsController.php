@@ -84,8 +84,9 @@ class ArtistsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Artist $artist)
     {
-        //
+        $artist->delete('artist');
+        return redirect ('/artists');
     }
 }
