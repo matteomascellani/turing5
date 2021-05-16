@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Origin;
 use Illuminate\Http\Request;
 
 class OriginsController extends Controller
@@ -13,7 +14,8 @@ class OriginsController extends Controller
      */
     public function index()
     {
-        //
+        $items=Origin::get();
+        return view('origin.index',compact('items'));
     }
 
     /**
