@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProfessorsRequest;
 use App\Models\Professor;
 
-class ProfessorController extends Controller
+class ProfessorsController extends Controller
 {
     /**
      * Display a listing of the resource.

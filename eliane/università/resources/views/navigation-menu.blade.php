@@ -16,7 +16,11 @@
                         {{ __('Home page') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')">
-                        {{ __('students') }}
+                        {{ __('Studenti') }}
+
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('professors.index') }}" :active="request()->routeIs('professors.index')">
+                        {{ __('Docenti') }}
 
                     </x-jet-nav-link>
                 </div>
