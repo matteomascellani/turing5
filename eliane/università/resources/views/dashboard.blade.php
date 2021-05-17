@@ -2,8 +2,11 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Benvenuti sul nostro sito') }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="font-size: 35px">
+            <em style="color: rgb(170, 39, 68)">
+
+            {{ __('UNIVERSITA DI DOUALA') }}
+            </em>
         </h2>
     </x-slot>
 

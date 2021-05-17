@@ -26,7 +26,7 @@ class ProfessorsController extends Controller
      */
     public function create()
     {
-        //
+        return view('professor.create');
     }
 
     /**
@@ -35,9 +35,11 @@ class ProfessorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfessorsRequest $request)
     {
-        //
+        $professor=new Professor();
+        $professor->create($request->input('professor'));
+        return redirect('/professors');
     }
 
     /**
@@ -57,9 +59,9 @@ class ProfessorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Professor $professor)
     {
-        //
+        return view('professor.edit',compact('professor'));
     }
 
     /**
@@ -69,9 +71,10 @@ class ProfessorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Professor $professor)
     {
-        //
+        $professor->update($request->input('professor'));
+        return redirect('/professors');
     }
 
     /**
@@ -80,8 +83,9 @@ class ProfessorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Professor $professor)
     {
-        //
+        $professor->delete($professor);
+        return redirect('/professors');
     }
 }

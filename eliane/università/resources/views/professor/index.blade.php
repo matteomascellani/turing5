@@ -62,7 +62,7 @@
 
 
                     </table><br><br><br>
-                      <a href="/students/create">new Student</a>
+                      <a href="/professors/create">new Docente</a>
                 </body>
 
 
