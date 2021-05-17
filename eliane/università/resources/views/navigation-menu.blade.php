@@ -19,12 +19,6 @@
                         {{ __('students') }}
 
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('students.create') }}" :active="request()->routeIs('students.create')">
-                        {{ __('crea student') }}
-
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="/student/{student}/edit" :active="request()->routeIs('/student/{student}/edit')">
-                    </x-jet-nav-link>
                 </div>
             </div>
 

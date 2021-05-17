@@ -2,6 +2,12 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dati anagrafici Student') }}
+
+            <x-jet-nav-link href="{{ route('students.create') }}" :active="request()->routeIs('students.create')">
+                {{ __('create student') }}
+            </x-jet-nav-link>
+
+
         </h2>
     </x-slot>
 
