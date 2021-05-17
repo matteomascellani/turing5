@@ -1,3 +1,4 @@
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -36,7 +37,7 @@
 
                 <body>
 
-
+                    PROFESSORE:{{$professor->nome}} {{$professor->cognome}}
                     <table style="width: 102%">
                         <tr>
                             <th>ID</th>
@@ -55,9 +56,8 @@
                         </tr>
                         @foreach ($items as $item)
                             <tr>
-                                <td><a href="/students/{{$item->id}}/edit"> <strong>{{ $item->id }}</strong></a></td>
-
-                                <td><a href="/students/{{$item->id}}/edit">{{$item->nome}}</a></td>
+                                <td> <strong>{{ $item->id }}</strong></td>
+                                <td>{{$item->nome}}</td>
                                 <td>{{ $item->cognome }}</td>
                                 <td>{{ $item->data_nascita }}</td>
                                 <td>{{ $item->citta_residenza }}</td>
@@ -68,19 +68,30 @@
                                 <td>{{ $item->telephono }}</td>
                                 <td>{{ $item->corso_frequantato }}</td>
                                 <td>
-                                    <form action="/students/{{$item->id}}" method="post">
+                                    <form action="/professors/{{$professor->id}}/students" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete">
+                                        <input type="submit" value="delete">
                                     </form>
                                 </td>
-
                             </tr>
                         @endforeach
+                    </table><br><br><br><br>
+                   <form action="/professors/{{$professor->id}}/students" method="POST">
+                    @csrf
+                       <select name="studentId">
+                           @foreach ($allstudents as $student)
+                           <option value="{{$student->id}}">{{$student->nome}}  {{$student->cognome}}</option>
+
+                           @endforeach
+                       </select>
+                        <input type="submit" value="add">
+                    </form>
 
 
-                    </table><br><br><br>
-                      <a href="/students/create">new Student</a>
+
+
+
                 </body>
 
 

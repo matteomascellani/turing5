@@ -25,6 +25,7 @@ html>
                             Cognome: <input type="text" name="professor[cognome]" value=""><br><br>
                             Materia: <input type="text" name="professor[materia]" value=""><br><br>
                             Email: <input type="text" name="professor[email]" value=""><br><br>
+
                             <input type="submit" value="SALVA">
                         </form>
 

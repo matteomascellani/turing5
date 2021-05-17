@@ -41,6 +41,8 @@
                             <th>COGNOME</th>
                             <th>MATERIA</th>
                             <th>EMAIL</th>
+                            <th>STUDENTI</th>
+
                         </tr>
                         @foreach ($items as $item)
                             <tr>
@@ -49,6 +51,7 @@
                                 <td>{{ $item->cognome }}</td>
                                 <td>{{ $item->materia}}</td>
                                 <td>{{ $item->email}}</td>
+                                <td><a href="/professors/{{$item->id}}/students">students</a></td>
                                 <td>
                                     <form action="/professors/{{$item->id}}" method="post">
                                     @csrf

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfessorsRequest;
 use App\Models\Professor;
+use App\Models\Student;
 
 class ProfessorsController extends Controller
 {
@@ -15,7 +16,8 @@ class ProfessorsController extends Controller
      */
     public function index()
     {
-        $items=Professor::get();
+         $items=Professor::all();
+
         return view('professor.index',compact('items'));
     }
 
@@ -26,7 +28,8 @@ class ProfessorsController extends Controller
      */
     public function create()
     {
-        return view('professor.create');
+        $student=Student::all();
+        return view('professor.create',compact('student'));
     }
 
     /**
