@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use App\http\Requests\Bookrequest;
+
 
 class BookController extends Controller
 {
@@ -14,11 +16,10 @@ class BookController extends Controller
      */
     public function index()
     {
-        $book=new Book;
+        $book=new Book();
+
         $livres=$book->get();
-        return view('books',compact('livres'));
-
-
+        return view('books.index',compact('livres'));
     }
 
     /**
@@ -28,7 +29,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        echo 'create';
+        return view('books.create');
     }
 
     /**
@@ -37,9 +38,14 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
-        echo 'eric';
+
+        $book=new Book();
+        $book->create(
+          $request->input('books')
+        );
+        return redirect('/books');
     }
 
     /**
@@ -59,9 +65,10 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
-        //
+
+        return view('books.edit',compact('book'));
     }
 
     /**
@@ -71,9 +78,13 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BookRequest $request, Book $book)
     {
-        //
+
+        $book->update(
+           $request->input('books')
+        );
+        return redirect('/books');
     }
 
     /**
@@ -84,6 +95,10 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book=new Book();
+        $livres=$book->find($id);
+        $livres->delete();
+        return redirect('/books');
+
     }
 }
