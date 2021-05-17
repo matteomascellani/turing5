@@ -73,6 +73,7 @@ class StudentsController extends Controller
     public function update(Request $request,Student $student)
     {
         $student->update($request->input('student'));
+        return redirect('/students');
     }
 
     /**

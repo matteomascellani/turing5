@@ -1,18 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Dati anagrafici Student') }}
         </h2>
     </x-slot>
 
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-5">
 
                 <head>
                     <style>
-                        body {
-                            background-color: rgb(74, 124, 107)
+                        div{
+                            background-color: rgb(131, 228, 196)
                         }
 
                         th {
@@ -20,12 +21,17 @@
                             color: rgb(2, 36, 25)
                         }
 
+                        tr:nth-child(even) {
+                            background-color: #d3d1d1;
+                        }
+
                     </style>
                 </head>
 
                 <body>
-                    <table style="width: 100%">
+                    <table style="width: 101%">
                         <tr>
+                            <th>ID</th>
                             <th>NOME</th>
                             <th>COGNOME</th>
                             <th>ANNO NASCITA</th>
@@ -40,7 +46,8 @@
                         </tr>
                         @foreach ($items as $item)
                             <tr>
-                                <td>{{ $item->nome }}</td>
+                                <td><a href="/students/{{$item->id}}/edit"> <strong>{{ $item->id }}</strong></a></td>
+                                <td><a href="/students/{{$item->id}}/edit">{{$item->nome}}</a></td>
                                 <td>{{ $item->cognome }}</td>
                                 <td>{{ $item->data_nascita }}</td>
                                 <td>{{ $item->citta_residenza }}</td>
@@ -50,17 +57,22 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->telephono }}</td>
                                 <td>{{ $item->corso_frequantato }}</td>
+                                <td>
+                                    <form action="/students/{{$item->id}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" value="Delete">
+                                    </form>
+                                </td>
 
                             </tr>
                         @endforeach
 
 
-                    </table>
-
-
-
-
+                    </table><br><br><br>
+                      <a href="/students/create">new Student</a>
                 </body>
+
 
             </div>
         </div>

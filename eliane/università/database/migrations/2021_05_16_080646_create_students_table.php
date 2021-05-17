@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
 
             $table->string('nome');
             $table->string('cognome');
-            $table->integer('data_nascita');
+            $table->string('data_nascita');
             $table->string('citta_residenza');
             $table->string('indirizzo');
             $table->integer('cap');
