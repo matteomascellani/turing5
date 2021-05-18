@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistsController;
 use App\Http\Controllers\OriginController;
+use App\Http\Controllers\CountriesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,7 @@ use App\Http\Controllers\OriginController;
 |
 */
 Route::resource('origins', OriginController::class);
+Route::resource('countries', countriesController::class);
 Route::resource('artists', ArtistsController::class);
 Route::get('/', function () {
     return view('welcome');
