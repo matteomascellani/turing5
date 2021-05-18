@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistsController;
+use App\Http\Controllers\OriginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,7 @@ use App\Http\Controllers\ArtistsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('origins', OriginController::class);
 Route::resource('artists', ArtistsController::class);
 Route::get('/', function () {
     return view('welcome');
