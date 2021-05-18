@@ -17,7 +17,7 @@ use App\Http\Controllers\CountriesController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Welcome');
 });
 Route::resource('artists', ArtistsController::class);
 Route::resource('origins', OriginsController::class);

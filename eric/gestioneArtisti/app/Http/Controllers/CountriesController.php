@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Countrie;
 use Illuminate\Http\Request;
+use App\Http\Requests\CountrieRequest;
 
 class CountriesController extends Controller
 {
@@ -13,7 +15,8 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        //
+        $items=Countrie::get();
+       return view('views.countrie.index',compact('items'));
     }
 
     /**
@@ -23,7 +26,7 @@ class CountriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('countrie.create');
     }
 
     /**
@@ -32,9 +35,11 @@ class CountriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CountrieRequest $request)
     {
-        //
+        $countrie=new Countrie();
+        $countrie->create($request->input('countrie'));
+        return redirect('/countries');
     }
 
     /**
@@ -54,9 +59,9 @@ class CountriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Countrie $countrie)
     {
-        //
+        return view('countrie.edit',compact('countrie'));
     }
 
     /**
