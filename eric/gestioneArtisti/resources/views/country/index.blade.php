@@ -8,6 +8,7 @@
         </style>
     </head>
     <body>
+        @include('pages.page')
         <table>
             <th>PAESE</th>
             <th>CAPITALE</th>

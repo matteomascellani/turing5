@@ -8,15 +8,18 @@
         </style>
     </head>
     <body>
+        @include('pages.page')
         <table>
             <th>NOME</th>
             <th>COGNOME</th>
             <th>BRANO</th>
             <th>ANNO</th>
+            <th>NOME PAESE</th>
             @foreach ($items as $item)
                 <tr>
                     <td> <a href="/artists/{{$item->id}}/edit">{{$item->nome}}</a></td>
                     <td>{{$item->cognome}}</td>
+                    <td>{{$item->country_id}}</td>
                     <td>{{$item->brano}}</td>
                     <td>{{$item->anno}}</td>
                     <td>

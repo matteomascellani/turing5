@@ -11,7 +11,9 @@
             ORIGINE: <input type="text" name="origin[origine]" value=""><br><br>
 
             <input type="submit" value=" create">
-        </form>
+        </form><br><br>
+        <a href="/origins">indietro</a>
+
 
     </body>
 </html>

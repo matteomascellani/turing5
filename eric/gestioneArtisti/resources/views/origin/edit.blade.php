@@ -12,7 +12,7 @@
             ORIGINE: <input type="text" name="origin[origine]" value="{{$origin->origine}}"><br><br>
 
             <input type="submit" value="sava modifica">
-        </form>
-
+        </form><br><br>
+        <a href="/origins">indietro</a>
     </body>
 </html>

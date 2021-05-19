@@ -9,4 +9,8 @@ class Country extends Model
 {
     use HasFactory;
     protected $fillable=['paese','capitale','lingua','presidente'];
+
+    public function artists(){
+      return $this->hasmany(Artist::class);
+    }
 }

@@ -18,5 +18,5 @@ Route::resource('origins', OriginController::class);
 Route::resource('countries', countriesController::class);
 Route::resource('artists', ArtistsController::class);
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
