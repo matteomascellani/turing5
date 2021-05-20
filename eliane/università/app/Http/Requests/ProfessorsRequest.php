@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FilmRequest extends FormRequest
+class ProfessorsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,7 @@ class FilmRequest extends FormRequest
     public function rules()
     {
         return [
-
-
-        ];
-    }
-    public function messages()
-    {
-        return [
-
+            //
         ];
     }
 }
