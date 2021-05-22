@@ -20,6 +20,14 @@ class ProfessorsController extends Controller
 
         return view('professor.index',compact('items'));
     }
+    public function listprofessors($studentId)
+    {
+
+        $student=Student::find($studentId);
+        $professor=Professor::all();
+        $items=Student::find($studentId)->professors()->get();
+        return view('professor.student_prof',compact('student','professor','items'));
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -22,8 +22,8 @@ class StudentsController extends Controller
     public function listProfessorStudents($professorId)
     {
         $allstudents=Student::all();//recupere tous les etudiants
-        $professor=Professor::find($professorId);
-        $items=Professor::find($professorId)->students()->get();
+        $professor=Professor::find($professorId);//recupere le prof avec vcet id
+        $items=Professor::find($professorId)->students()->get();// tous les eleves du prof qu a cet id
 
        //$items=Professor::find($professorId)->students();//tous les etudiants dun professor
        //$items=Student::get();
@@ -60,10 +60,11 @@ class StudentsController extends Controller
         return redirect()->route('professors.student.index',['professorId'=> $professorId]);
 
     }
-    public function deleteProfessorStudents(Request $request, $professorId)
+    public function deleteProfessorStudents($professorId,Student $student)
     {
         $professor=Professor::find($professorId);//recupere le professor
-        $professor->students()->detach($request->input('studentId'));//lie l'etudiant au prof
+       // $professor->students()->detach($request->input('studentId'));//delie l'etudiant au prof
+       $professor->students()->detach($student);
         return redirect()->route('professors.student.index',['professorId'=> $professorId]);
 
     }

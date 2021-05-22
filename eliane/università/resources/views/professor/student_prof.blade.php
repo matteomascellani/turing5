@@ -1,16 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dati anagrafici Student') }}
+            {{ __('Dati anagrafici Docenti') }}
 
-            <x-jet-nav-link href="{{ route('students.create') }}" :active="request()->routeIs('students.create')">
-                {{ __('create student') }}
+            <x-jet-nav-link href="{{ route('professors.create') }}" :active="request()->routeIs('professors.create')">
+                {{ __('Nuovo Docente') }}
             </x-jet-nav-link>
 
 
         </h2>
     </x-slot>
-
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -35,42 +34,26 @@
                 </head>
 
                 <body>
-
-
-                    <table style="width: 102%">
+                    <table style="width: 101%">
                         <tr>
                             <th>ID</th>
                             <th>NOME</th>
                             <th>COGNOME</th>
-                            <th>ANNO NASCITA</th>
-                            <th>RESIDENZA</th>
-                            <th>INDIRIZZO</th>
-                            <th>CAP</th>
-                            <th>PAESE</th>
+                            <th>MATERIA</th>
                             <th>EMAIL</th>
-                            <th>TELEFONO</th>
-                            <th>CORSO FREQUENTATO</th>
-                            <th>PROFESSORI</th>
-
+                            <th>STUDENTI</th>
 
                         </tr>
                         @foreach ($items as $item)
                             <tr>
-                                <td><a href="/students/{{$item->id}}/edit"> <strong>{{ $item->id }}</strong></a></td>
-
-                                <td><a href="/students/{{$item->id}}/edit">{{$item->nome}}</a></td>
+                                <td><a href="/professors/{{$item->id}}/edit"> <strong>{{ $item->id }}</strong></a></td>
+                                <td><a href="/professors/{{$item->id}}/edit">{{$item->nome}}</a></td>
                                 <td>{{ $item->cognome }}</td>
-                                <td>{{ $item->data_nascita }}</td>
-                                <td>{{ $item->citta_residenza }}</td>
-                                <td>{{ $item->indirizzo }}</td>
-                                <td>{{ $item->cap }}</td>
-                                <td>{{ $item->paese }}</td>
-                                <td>{{ $item->email }}</td>
-                                <td>{{ $item->telephono }}</td>
-                                <td>{{ $item->corso_frequantato }}</td>
-                                <td><a href="/students/{{ $item->id}}/professors">professori</a></td>
+                                <td>{{ $item->materia}}</td>
+                                <td>{{ $item->email}}</td>
+                                <td><a href="/professors/{{$item->id}}/students">students</a></td>
                                 <td>
-                                    <form action="/students/{{$item->id}}" method="post">
+                                    <form action="/professors/{{$item->id}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" value="Delete">
@@ -82,7 +65,7 @@
 
 
                     </table><br><br><br>
-                      <a href="/students/create">new Student</a>
+                      <a href="/professors/create">new Docente</a>
                 </body>
 
 
