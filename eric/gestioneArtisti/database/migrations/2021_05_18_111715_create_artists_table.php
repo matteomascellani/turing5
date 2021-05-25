@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArtistiTable extends Migration
+class CreateArtistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ class CreateArtistiTable extends Migration
             $table->string('nome');
             $table->string('cognome');
             $table->string('brano');
-            $table->integer('anno');
+            $table->string('anno');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateArtistiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('artisti');
+        Schema::dropIfExists('artists');
     }
 }

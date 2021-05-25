@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OriginRequest;
 use App\Models\Origin;
 use Illuminate\Http\Request;
-use App\Http\Requests\OriginRequest;
 
-class OriginsController extends Controller
+class OriginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,8 +37,8 @@ class OriginsController extends Controller
      */
     public function store(OriginRequest $request)
     {
-        $origine=new Origin();
-        $origine->create($request->input('origine'));
+        $origin=new Origin();
+        $origin->create($request->input('origin'));
         return redirect('/origins');
     }
 
@@ -59,7 +59,7 @@ class OriginsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Origin $origin)
+    public function edit( Origin $origin)
     {
         return view('origin.edit',compact('origin'));
     }
@@ -75,7 +75,6 @@ class OriginsController extends Controller
     {
         $origin->update($request->input('origin'));
         return redirect('/origins');
-
     }
 
     /**

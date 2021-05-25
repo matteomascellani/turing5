@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artist;
+use App\Models\Country;
+use App\Http\Requests\ArtistRequest;
 use Illuminate\Http\Request;
-use App\Http\Requests\ArtistsRequest;
 
 class ArtistsController extends Controller
 {
@@ -15,9 +16,9 @@ class ArtistsController extends Controller
      */
     public function index()
     {
-        $artiste=new Artist();
-        $items=$artiste->get();
-        return view('artist.index',compact('items'));
+       $items=Artist::get();
+
+       return view('artist.index',compact('items'));
     }
 
     /**
@@ -27,7 +28,8 @@ class ArtistsController extends Controller
      */
     public function create()
     {
-        return view('artist.create');
+        $country=Country::all();
+        return view('artist.create',compact('country'));
     }
 
     /**
@@ -36,7 +38,7 @@ class ArtistsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ArtistsRequest $request)
+    public function store(ArtistRequest $request)
     {
         $artist=new Artist();
         $artist->create($request->input('artist'));
@@ -60,7 +62,7 @@ class ArtistsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Artist $artist)
+    public function edit( Artist $artist)
     {
         return view('artist.edit',compact('artist'));
     }
@@ -86,7 +88,7 @@ class ArtistsController extends Controller
      */
     public function destroy(Artist $artist)
     {
-        $artist->delete('artist');
-        return redirect ('/artists');
+        $artist->delete($artist);
+        return redirect('/artists');
     }
 }

@@ -1,9 +1,19 @@
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <form action="{{route('origins.store')}}" method="post">
+            @csrf
+            GENERE: <input type="text" name="origin[genere]" value=""><br><br>
+            ORIGINE: <input type="text" name="origin[origine]" value=""><br><br>
+
+            <input type="submit" value=" create">
+        </form><br><br>
+        <a href="/origins">indietro</a>
 
 
-<form action="{{route('origins.store')}}" method="POST">
-    @csrf
-    Genere:<input type="text" name="origine[genere]" value=""><br><br>
-    Origine:<input type="text" name="origine[origine]" value=""><br><br>
-
-    <input type="submit" value="salva">
-</form>
+    </body>
+</html>

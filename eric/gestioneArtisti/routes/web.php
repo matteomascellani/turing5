@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\ArtistsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OriginsController;
-
+use App\Http\Controllers\ArtistsController;
+use App\Http\Controllers\OriginController;
+use App\Http\Controllers\CountriesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,9 @@ use App\Http\Controllers\OriginsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('origins', OriginController::class);
+Route::resource('countries', countriesController::class);
 Route::resource('artists', ArtistsController::class);
-Route::resource('origins', OriginsController::class);
+Route::get('/', function () {
+    return view('homepage');
+});

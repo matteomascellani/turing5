@@ -42,9 +42,7 @@ class BookController extends Controller
     {
 
         $book=new Book();
-        $book->create(
-          $request->input('books')
-        );
+        $book->create($request->input('book'));
         return redirect('/books');
     }
 

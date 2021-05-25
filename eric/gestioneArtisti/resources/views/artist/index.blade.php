@@ -1,64 +1,39 @@
 <html>
+    <head>
+        <style>
+            th{
+                text-align: center;
+            }
 
-<head>
-    <style>
-        th {
-            color: blue;
-            text-align: left;
-        }
+        </style>
+    </head>
+    <body>
+        @include('pages.page')
+        <table>
+            <th>NOME</th>
+            <th>COGNOME</th>
+            <th>BRANO</th>
+            <th>ANNO</th>
+            <th>NOME PAESE</th>
+            @foreach ($items as $item)
+                <tr>
+                    <td> <a href="/artists/{{$item->id}}/edit">{{$item->nome}}</a></td>
+                    <td>{{$item->cognome}}</td>
+                    <td>{{$item->country_id}}</td>
+                    <td>{{$item->brano}}</td>
+                    <td>{{$item->anno}}</td>
+                    <td>
+                        <form action="/artists/{{$item->id}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="delete" >
+                        </form>
+                    </td>
+                </tr>
 
-        table {
+            @endforeach
+        </table><br><br><br>
 
-            width: 60%;
-        }
-
-        body {
-            background-color: rgb(220, 231, 233);
-        }
-
-        td {
-            color: brown;
-        }
-
-        h2 {
-            color: blueviolet;
-
-        }
-
-        a {
-            color: rgb(6, 59, 17)
-        }
-
-    </style>
-</head>
-
-<body>
-    <h2>Lista Artisti</h2>
-    <table>
-        <tr>
-            <th>nome</th>
-            <th>cognome</th>
-            <th>brano</th>
-            <th>anno</th>
-        </tr>
-        @foreach ($items as $item)
-            <tr>
-                <td><a href="/artists/{{ $item->id }}/edit">{{ $item->nome }}</a></td>
-                <td>{{ $item->cognome }}</td>
-                <td>{{ $item->brano }}</td>
-                <td>{{ $item->anno }}</td>
-                <td>
-                    <form action="/artists/{{ $item->id }}" method='POST'>
-                        @csrf
-                        @method('DELETE')
-                        <input type="submit" value="cancella">
-                    </form>
-                </td>
-            </tr>
-
-        @endforeach
-    </table>
-    <a href="/artists/create">crea un artista</a>
-</body>
-
+        <a href="/artists/create">New Artist</a>
+    </body>
 </html>

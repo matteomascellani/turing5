@@ -47,11 +47,11 @@ class ArticlesController extends Controller
         $article=new Article();
         $article->create(['nome'=>$newnome,
         'origine'=>$neworigine,
-        'quantita'=>$newquantità,
+        'quantità'=>$newquantità,
         'prezzo'=>$newprezzo,
         'descrizione'=>$newdescrizione,
         ]);
-        redirect('/articles');
+        return redirect('/articles');
 
     }
 
@@ -119,6 +119,6 @@ class ArticlesController extends Controller
         $article=new Article();
         $items=$article->find($id);
         $items->delete();
-        return redirect('/articles/create');
+        return redirect('/articles');
     }
 }
