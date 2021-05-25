@@ -27,6 +27,9 @@
                         body {
                             background-color: blanchedalmond;
                         }
+                        div {
+                            background-color: rgb(131, 228, 196)
+                        }
 
                     </style>
 

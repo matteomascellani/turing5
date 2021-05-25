@@ -20,6 +20,14 @@ html>
                         div{
                             background-color: rgb(131, 228, 196)
                         }
+                        input[type=text] {
+                            width: 90%;
+                            padding: 12px 20px;
+                            margin: 8px 0;
+                            box-sizing: border-box;
+                            border: 2px solid rgb(46, 189, 117);
+                            border-radius: 4px;
+
 
                     </style>
                 </head>

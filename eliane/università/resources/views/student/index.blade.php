@@ -19,7 +19,8 @@
                 <head>
                     <style>
                         div{
-                            background-color: rgb(131, 228, 196)
+                            background-color: rgb(131, 228, 196);
+
                         }
 
                         th {
@@ -34,6 +35,7 @@
                             background-color: rgb(59, 92, 238);
                             color: white;
                             border-radius: 10%;
+
 
                         }
                         .button2{
@@ -95,7 +97,7 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="/students/{{$item->id}}" method="post">
+                                    <form action="/students/{{$item->id}}" method="post" id="del">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" form="del" value="delete" class="button button2">Delete</button>
