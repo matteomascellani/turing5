@@ -59,9 +59,9 @@ class ProfessorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Professor $professor)
     {
-        //
+        return view('professor.show',compact('professor'));
     }
 
     /**
@@ -86,6 +86,7 @@ class ProfessorsController extends Controller
     {
         $professor->update($request->input('professor'));
         return redirect('/professors');
+
     }
 
     /**

@@ -23,6 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+
+
 Route::get('professors/{professorId}/students',[StudentsController::class,'listProfessorStudents'])->name('professors.student.index');//METHOD prendre tous les eleves dun prof
 Route::post('professors/{professorId}/students',[StudentsController::class,'addProfessorStudents']);
 Route::delete('professors/{professorId}/students',[StudentsController::class,'deleteProfessorStudents']);

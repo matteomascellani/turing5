@@ -18,7 +18,7 @@
                 <head>
                     <style>
                         div{
-                            background-color: rgb(131, 228, 196)
+                            background-color: rgb(243, 222, 104)
                         }
 
                         th {
@@ -29,12 +29,30 @@
                         tr:nth-child(even) {
                             background-color: #d3d1d1;
                         }
+                        .button1{
+                            background-color: rgb(59, 92, 238);
+                            color: white;
+                            border-radius: 10%;
+
+                        }
+                        .button2{
+                            background-color: rgb(241, 43, 43);
+                            color: white;
+                            border-radius: 10%;
+
+                        }
+                        .button3{
+                            background-color: rgb(26, 153, 26);
+                            color: white;
+                            border-radius: 5%;
+
+                        }
 
                     </style>
                 </head>
 
                 <body>
-                    <table style="width: 101%">
+                    <table style="width: 105%">
                         <tr>
                             <th>ID</th>
                             <th>NOME</th>
@@ -51,12 +69,18 @@
                                 <td>{{ $item->cognome }}</td>
                                 <td>{{ $item->materia}}</td>
                                 <td>{{ $item->email}}</td>
-                                <td><a href="/professors/{{$item->id}}/students">students</a></td>
+                                <td><a href="/professors/{{$item->id}}/students" style="color: rgb(82, 173, 123)">students</a></td>
                                 <td>
-                                    <form action="/professors/{{$item->id}}" method="post">
+                                    <form action="{{route('professors.show',$item->id)}}" id="stamp" method="GET">
+                                    @csrf
+                                        <button type="submit" form="stamp" value="stampa" class="button button1"> stampa </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="/professors/{{$item->id}}" method="post" id="del">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete">
+                                   <button type="submit" value="delete" form="del" class="button button2">delete</button>
                                     </form>
                                 </td>
 
@@ -65,7 +89,10 @@
 
 
                     </table><br><br><br>
-                      <a href="/professors/create">new Docente</a>
+                       <form action="{{route('professors.create')}}" method="get" id="crea">
+                        @csrf
+                        <button form="crea" value="nuovo studente" class="button button3">nuovo Docente</button>
+                    </form>
                 </body>
 
 

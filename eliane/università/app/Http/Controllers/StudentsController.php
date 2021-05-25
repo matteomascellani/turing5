@@ -27,6 +27,7 @@ class StudentsController extends Controller
 
        //$items=Professor::find($professorId)->students();//tous les etudiants dun professor
        //$items=Student::get();
+
         return view('student.professor_student',compact('items','professor','allstudents'));
     }
 
@@ -77,9 +78,9 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Student $student)
     {
-        //
+        return view('student.show',compact('student'));
     }
 
     /**

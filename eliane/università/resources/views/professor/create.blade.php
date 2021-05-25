@@ -14,12 +14,22 @@
                         body{
                             background-color: rgb(131, 228, 196)
                         }
+                        button{
+                            background-color: green;
+                            color: beige;
+                            border-radius: 8%;
+                            font-size: 20px;
+
+                        }
+                        div{
+                            background-color: rgb(243, 222, 104)
+                        }
 
                     </style>
                 </head>
                 <body>
 
-                    <form action="{{ route('professors.store') }}" method="post" >
+                    <form action="{{ route('professors.store') }}" method="post" id="nameform">
                         @csrf
                         <table>
                             <tr>
@@ -27,16 +37,17 @@
                                 <td>Cognome: <input type="text" name="professor[cognome]" value=""><br><br></td>
                                 <td>Materia: <input type="text" name="professor[materia]" value=""><br><br></td>
                                 <td>Email: <input type="text" name="professor[email]" value=""><br><br></td>
-                                <td></td>
+
                             </tr>
                         </table>
 
-                            <input type="submit" value="SALVA">
+                        <button type="submit" form="nameform" value="Submit">Submit</button>
+
                         </form>
 
-                </body>
+                </body><br><br><br>
 
-            <a href="{{ route('professors.index') }}">Indietro</a>
+            <a href="{{ route('professors.index') }}" style="color: blue">Indietro</a>
             </div>
         </div>
     </div>

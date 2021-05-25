@@ -30,6 +30,25 @@
                         tr:nth-child(even) {
                             background-color: #d3d1d1;
                         }
+                        .button1{
+                            background-color: rgb(59, 92, 238);
+                            color: white;
+                            border-radius: 10%;
+
+                        }
+                        .button2{
+                            background-color: rgb(241, 43, 43);
+                            color: white;
+                            border-radius: 10%;
+
+                        }
+                        .button3{
+                            background-color: rgb(26, 153, 26);
+                            color: white;
+                            border-radius: 10%;
+
+                        }
+
 
                     </style>
                 </head>
@@ -68,12 +87,18 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->telephono }}</td>
                                 <td>{{ $item->corso_frequantato }}</td>
-                                <td><a href="/students/{{ $item->id}}/professors">professori</a></td>
+                                <td><a href="/students/{{ $item->id}}/professors" style="color: mediumseagreen">professori</a></td>
+                                <td>
+                                    <form action="{{route('students.show',$item->id)}}" method="get" id="stamp">
+                                        @csrf
+                                        <button type="submit" form="stamp" value="stampa" class="button button1">Stampa</button>
+                                    </form>
+                                </td>
                                 <td>
                                     <form action="/students/{{$item->id}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete">
+                                    <button type="submit" form="del" value="delete" class="button button2">Delete</button>
                                     </form>
                                 </td>
 
@@ -82,7 +107,9 @@
 
 
                     </table><br><br><br>
-                      <a href="/students/create">new Student</a>
+                    <form action="{{route('students.create')}}" method="get" id="crea">
+                        <button type="submit" form="crea" class="button button3">Create</button>
+                    </form>
                 </body>
 
 

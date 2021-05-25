@@ -37,7 +37,7 @@
 
                 <body>
 
-                    PROFESSORE:{{$professor->nome}} {{$professor->cognome}}
+                    <p style="text-align: center"><u> Elenco studenti Professore:</u>  <strong style="font-size: 22px">{{$professor->nome}} {{$professor->cognome}}</strong></p> <br><br>
                     <table style="width: 102%">
                         <tr>
                             <th>ID</th>

@@ -18,7 +18,7 @@
                 <head>
                     <style>
                         div{
-                            background-color: rgb(131, 228, 196)
+                            background-color: rgb(243, 222, 104)
                         }
 
                         th {
@@ -29,11 +29,19 @@
                         tr:nth-child(even) {
                             background-color: #d3d1d1;
                         }
+                        .button{
+                            background-color: rgb(26, 153, 26);
+                            color: white;
+                            border-radius: 10%;
+
+                        }
+
 
                     </style>
                 </head>
 
                 <body>
+                    <p style="text-align: center"><u> Elenco Professore studente:</u>  <strong style="font-size: 22px">{{$student->nome}} {{$student->cognome}}</strong></p> <br><br>
                     <table style="width: 101%">
                         <tr>
                             <th>ID</th>
@@ -51,7 +59,7 @@
                                 <td>{{ $item->cognome }}</td>
                                 <td>{{ $item->materia}}</td>
                                 <td>{{ $item->email}}</td>
-                                <td><a href="/professors/{{$item->id}}/students">students</a></td>
+                                <td><a href="/professors/{{$item->id}}/students" style="color: rgb(55, 179, 55)">students</a></td>
                                 <td>
                                     <form action="/professors/{{$item->id}}" method="post">
                                     @csrf
@@ -65,7 +73,11 @@
 
 
                     </table><br><br><br>
-                      <a href="/professors/create">new Docente</a>
+                    <form action="{{route('professors.create')}}" method="get" id="crea">
+                    @csrf
+                    <button form="crea" value="nuovo docente" class="button button">nuovo docente</button>
+                    </form>
+
                 </body>
 
 

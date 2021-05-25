@@ -14,29 +14,79 @@
                         body{
                             background-color: rgb(131, 228, 196)
                         }
+                        button{
+                            font-size: 15px;
+                            background-color: rgb(50, 206, 50);
+                            border-radius: 4px;
+                            color: white;
+
+                        }
+                        div{
+                            background-color: rgb(131, 228, 196)
+                        }
 
                     </style>
                 </head>
                 <body>
 
-                    <form action="{{ route('students.store') }}" method="post" >
+                    <form action="{{ route('students.store') }}" method="post" id="crea">
                         @csrf
-                            Nome: <input type="text" name="student[nome]" value=""><br><br>
-                            Cognome: <input type="text" name="student[cognome]" value=""><br><br>
-                            Anno Nascita: <input type="text" name="student[data_nascita]" value=""><br><br>
-                            Città di residenza: <input type="text" name="student[citta_residenza]" value=""><br><br>
-                            Indirizzo: <input type="text" name="student[indirizzo]" value="">
-                            Cap: <input type="text" name="student[cap]" value=""><br><br>
-                            Paese: <input type="text" name="student[paese]" value=""><br><br>
-                            Email: <input type="text" name="student[email]" value=""><br><br>
-                            Telefono: <input type="text" name="student[telephono]" value=""><br><br>
-                            Corso frequentato: <input type="text" name="student[corso_frequantato]" value=""><br><br>
-                            <input type="submit" value="SALVA">
+                        <table>
+                            <td>
+                                <tr>
+                                    Nome: <input type="text" name="student[nome]" value=""><br><br>
+                                </tr>
+                            </td>
+                            <td>
+                                <tr>
+                                    Cognome: <input type="text" name="student[cognome]" value=""><br><br>
+
+                                </tr>
+                            </td>
+
+                                <tr>
+                                    Anno Nascita: <input type="text" name="student[data_nascita]" value=""><br><br>
+
+                                </tr>
+                                <tr>
+                                    Città di residenza: <input type="text" name="student[citta_residenza]" value=""><br><br>
+
+                                </tr>
+                                <tr>
+                                    Indirizzo: <input type="text" name="student[indirizzo]" value="">
+
+                                </tr>
+                                <tr>
+                                    Cap: <input type="text" name="student[cap]" value=""><br><br>
+
+                                </tr>
+                                <tr>
+                                    Paese: <input type="text" name="student[paese]" value=""><br><br>
+
+                                </tr>
+                                <tr>
+                                    Email: <input type="text" name="student[email]" value=""><br><br>
+
+                                </tr>
+                                <tr>
+                                    Telefono: <input type="text" name="student[telephono]" value=""><br><br>
+
+                                </tr>
+                                <tr>
+                                    Corso frequentato: <input type="text" name="student[corso_frequantato]" value=""><br><br>
+
+                                </tr>
+                                <tr>
+                                    <button type="submit" form="crea" value="salva">SALVA</button>
+                                </tr>
+                            </td>
+                        </table>
+
                         </form>
 
                 </body>
 
-            <a href="{{ route('students.index') }}">Indietro</a>
+            <a href="{{ route('students.index') }}" style="color: blue">Indietro</a>
             </div>
         </div>
     </div>
