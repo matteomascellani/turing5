@@ -1,5 +1,7 @@
 <html>
-<head></head>
+<head>
+    @livewireStyles
+</head>
     <body style="background-color:rgb(141, 177, 141)">
 
         @if ($errors->any())
@@ -20,7 +22,7 @@
                 Anno: <input type="text" name="film[anno]" value="">
                 <input type="submit" value="SALVA">
             </form>
-
+    @livewireScripts
     </body>
 
 <a href="{{ route('films.index') }}">Indietro</a>
