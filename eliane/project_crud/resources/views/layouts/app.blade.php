@@ -43,5 +43,10 @@
         @stack('modals')
 
         @livewireScripts
+        <script>
+            window.livewire.on('filmadded',()=>{
+                $('#addFilmModal').modal('hide');
+            })
+        </script>
     </body>
 </html>

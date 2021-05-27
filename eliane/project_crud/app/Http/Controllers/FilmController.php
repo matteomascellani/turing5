@@ -17,9 +17,9 @@ class FilmController extends Controller
     {
 
         $items = Film::orderBy('titolo','ASC')->get();
-
-        //return view('films.index',compact('items'));
         return view('livewire.films',compact('items'));
+        //return view('films.index',compact('items'));
+
     }
 
     /**
@@ -29,7 +29,8 @@ class FilmController extends Controller
      */
     public function create()
     {
-        return view('films.create');
+       // return view('films.create');
+
     }
 
     /**
@@ -41,10 +42,9 @@ class FilmController extends Controller
     public function store(FilmRequest $request)
     {
 
-        $film = new Film;
+       /* $film = new Film;
         $film->create($request->input('film'));
-
-        return redirect('/films');
+        return redirect('/films');*/
     }
 
     /**

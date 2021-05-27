@@ -7,16 +7,29 @@
 
 <body>
     <div>
+        @include('livewire.create')
         <section>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-10">
+                        @if (session()->has('message'))
+                            <div class="alert alert-success">{{session('message')}}</div>
+
+                        @endif
+
                         <div class="card">
                             <div class="card-header">
-                                <h2>Elenco dei films</h2>
+                                <h2 class="table table-bordered">
+                                    Elenco dei films
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addFilmModal">
+                                        nuovo film
+                                    </button>
+                                </h2>
+
                             </div>
+
                             <div class="card-body">
-                                <table class="table table-striped">
+                                <table class="table table-striped table-hover table-bordered table-condensed">
                                     <thead>
                                         <th>titolo</th>
                                         <th>categoria</th>
