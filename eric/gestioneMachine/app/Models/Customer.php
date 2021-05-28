@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Car extends Model
+class Customer extends Model
 {
     use HasFactory;
-    protected $fillable=['marca','colore'];
+    protected $fillable=['nome','cognome','paese'];
 
-    public function customer(){
-        return $this->belongsTo(customer::class);
+    public function car(){
+        return $this->hasMany(Car::class);
     }
 }
