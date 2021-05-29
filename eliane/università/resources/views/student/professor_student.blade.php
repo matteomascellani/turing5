@@ -1,3 +1,4 @@
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -19,8 +20,7 @@
                 <head>
                     <style>
                         div{
-                            background-color: rgb(131, 228, 196);
-
+                            background-color: rgb(131, 228, 196)
                         }
 
                         th {
@@ -31,25 +31,6 @@
                         tr:nth-child(even) {
                             background-color: #d3d1d1;
                         }
-                        .button1{
-                            background-color: rgb(59, 92, 238);
-                            color: white;
-                            border-radius: 10%;
-
-
-                        }
-                        .button2{
-                            background-color: rgb(241, 43, 43);
-                            color: white;
-                            border-radius: 10%;
-
-                        }
-                        .button3{
-                            background-color: rgb(26, 153, 26);
-                            color: white;
-                            border-radius: 10%;
-
-                        }
 
 
                     </style>
@@ -57,7 +38,7 @@
 
                 <body>
 
-
+                    <p style="text-align: center"><u> Elenco studenti Professore:</u>  <strong style="font-size: 22px">{{$professor->nome}} {{$professor->cognome}}</strong></p> <br><br>
                     <table style="width: 102%">
                         <tr>
                             <th>ID</th>
@@ -71,15 +52,13 @@
                             <th>EMAIL</th>
                             <th>TELEFONO</th>
                             <th>CORSO FREQUENTATO</th>
-                            <th>PROFESSORI</th>
 
 
                         </tr>
                         @foreach ($items as $item)
                             <tr>
-                                <td><a href="/students/{{$item->id}}/edit"> <strong>{{ $item->id }}</strong></a></td>
-
-                                <td><a href="/students/{{$item->id}}/edit">{{$item->nome}}</a></td>
+                                <td> <strong>{{ $item->id }}</strong></td>
+                                <td>{{$item->nome}}</td>
                                 <td>{{ $item->cognome }}</td>
                                 <td>{{ $item->data_nascita }}</td>
                                 <td>{{ $item->citta_residenza }}</td>
@@ -89,29 +68,31 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->telephono }}</td>
                                 <td>{{ $item->corso_frequantato }}</td>
-                                <td><a href="/students/{{ $item->id}}/professors" style="color: mediumseagreen">professori</a></td>
                                 <td>
-                                    <form action="{{route('students.show',$item->id)}}" method="get" id="stamp">
-                                        @csrf
-                                        <button type="submit" form="stamp" value="stampa" class="button button1">Stampa</button>
-                                    </form>
-                                </td>
-                                <td>
-                                    <form action="/students/{{$item->id}}" method="post" id="del">
+                                    <form action="/professors/{{$professor->id}}/students" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" form="del" value="delete" class="button button2">Delete</button>
+                                        <input type="submit" value="delete">
                                     </form>
                                 </td>
-
                             </tr>
                         @endforeach
+                    </table><br><br><br><br>
+                   <form action="/professors/{{$professor->id}}/students" method="POST">
+                    @csrf
+                       <select name="studentId">
+                           @foreach ($allstudents as $student)
+                           <option value="{{$student->id}}">{{$student->nome}}  {{$student->cognome}}</option>
 
-
-                    </table><br><br><br>
-                    <form action="{{route('students.create')}}" method="get" id="crea">
-                        <button type="submit" form="crea" class="button button3">Create</button>
+                           @endforeach
+                       </select>
+                        <input type="submit" value="add">
                     </form>
+
+
+
+
+
                 </body>
 
 

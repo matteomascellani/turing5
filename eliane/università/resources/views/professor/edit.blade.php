@@ -9,21 +9,61 @@ html>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+
+                <head>
+                    <style>
+                        div {
+                            background-color: rgb(243, 222, 104)
+                        }
+
+                        .button {
+                            background-color: rgb(26, 153, 26);
+                            color: white;
+                            border-radius: 10%;
+
+                        }
+
+                        input[type=text] {
+                            width: 100%;
+                            padding: 12px 20px;
+                            margin: 8px 0;
+                            box-sizing: border-box;
+                            border: 2px solid rgb(46, 189, 117);
+                            border-radius: 4px;
+                        }
+
+                        a:visited {
+                            color: green;
+                        }
+
+                        /* mouse over link */
+                        a:hover {
+                            color: hotpink;
+                        }
+
+                        /* selected link */
+                        a:active {
+                            color: blue;
+
+                    </style>
+                </head>
+
                 <body>
 
-                    <form action="{{ route('professors.update',$professor->id) }}" method="post" >
+                    <form action="{{ route('professors.update', $professor->id) }}" method="post">
                         @csrf
                         @method('PUT')
-                            Nome: <input type="text" name="professor[nome]" value="{{$professor->nome}}"><br><br>
-                            Cognome: <input type="text" name="professor[cognome]" value="{{$professor->cognome}}"><br><br>
-                            Materia: <input type="text" name="professor[materia]" value="{{$professor->materia}}">
-                            Email: <input type="text" name="professor[email]" value="{{$professor->email}}"><br><br>
-                            <input type="submit" value="SALVA">
-                        </form>
+                        Nome: <input type="text" name="professor[nome]" value="{{ $professor->nome }}"><br><br>
+                        Cognome: <input type="text" name="professor[cognome]" value="{{ $professor->cognome }}"><br><br>
+                        Materia: <input type="text" name="professor[materia]" value="{{ $professor->materia }}">
+                        Email: <input type="text" name="professor[email]" value="{{ $professor->email }}"><br><br>
+                        <button type="submit" form="sal" value="salva modifiche" class="button button">Salva
+                            modifiche</button>
+                    </form>
 
                 </body>
 
-            <a href="{{ route('professors.index') }}">Indietro</a>
+                <a href="{{ route('professors.index') }}">Indietro</a>
             </div>
         </div>
     </div>
