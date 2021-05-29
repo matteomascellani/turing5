@@ -20,3 +20,6 @@ Route::resource('artists', ArtistsController::class);
 Route::get('/', function () {
     return view('homepage');
 });
+Route::get('/', function () {
+    return view('welcome');
+});

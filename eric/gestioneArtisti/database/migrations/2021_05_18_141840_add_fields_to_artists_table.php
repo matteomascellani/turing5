@@ -15,6 +15,8 @@ class AddFieldsToArtistsTable extends Migration
     {
         Schema::table('artists', function (Blueprint $table) {
             $table->integer('country_id');
+            $table->integer('origin_id');
+
         });
     }
 

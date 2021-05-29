@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artist;
 use App\Models\Country;
 use App\Http\Requests\ArtistRequest;
+use App\Models\Origin;
 use Illuminate\Http\Request;
 
 class ArtistsController extends Controller
@@ -16,7 +17,7 @@ class ArtistsController extends Controller
      */
     public function index()
     {
-       $items=Artist::get();
+       $items=Artist::with('country','origin')->get();
 
        return view('artist.index',compact('items'));
     }
@@ -29,7 +30,8 @@ class ArtistsController extends Controller
     public function create()
     {
         $country=Country::all();
-        return view('artist.create',compact('country'));
+        $origin=Origin::all();
+        return view('artist.create',compact('country','origin'));
     }
 
     /**
@@ -64,7 +66,9 @@ class ArtistsController extends Controller
      */
     public function edit( Artist $artist)
     {
-        return view('artist.edit',compact('artist'));
+        $country=Country::all();
+        $origin=Origin::all();
+        return view('artist.edit',compact('artist','country','origin'));
     }
 
     /**

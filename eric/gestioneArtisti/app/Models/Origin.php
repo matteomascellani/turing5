@@ -9,4 +9,8 @@ class Origin extends Model
 {
     use HasFactory;
     protected $fillable=['origine','genere'];
+
+    public function artist(){
+        return $this->hasMany(Artist::class);
+    }
 }
