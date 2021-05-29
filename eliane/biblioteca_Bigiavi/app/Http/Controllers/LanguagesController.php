@@ -14,8 +14,8 @@ class LanguagesController extends Controller
      */
     public function index()
     {
-        $items=Language::get();
-        return view('language.index');
+        $items=Language::orderBy('language','ASC')->get();
+        return view('language.index',compact('items'));
     }
 
     /**
