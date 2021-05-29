@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::resource('films', FilmController::class);
-Route::get('films', Films::class);
+Route::resource('films', FilmController::class);
+//Route::get('films', Films::class);
 Route::get('/', function () {
     return view('welcome');
 });

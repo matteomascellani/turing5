@@ -10,6 +10,7 @@
         @include('livewire.create')
         <section>
             <div class="container">
+
                 <div class="row">
                     <div class="col-md-10">
                         @if (session()->has('message'))
