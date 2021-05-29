@@ -8,6 +8,7 @@
 
     </head>
         <body>
+            @include('link.pages')
             <h2>LISTA MACHINE DISPONIBILI</h2>
             <table style="width: 100%" >
                 <tr>

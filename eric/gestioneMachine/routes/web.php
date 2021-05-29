@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::resource('customers', CustomersController::class);
 Route::resource('cars', CarsController::class);
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });

@@ -1,6 +1,7 @@
 <html>
     <head></head>
     <body>
+        @include('link.pages')
         <form action="{{route('cars.update',$car->id)}}" method="POST">
             @csrf
             @method('PUT')

@@ -1,6 +1,7 @@
 <html>
     <head></head>
     <body>
+        @include('link.pages')
         <form action="{{route('customers.update',$customer->id)}}" method="POST">
             @csrf
             @method('PUT')

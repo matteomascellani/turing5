@@ -1,6 +1,7 @@
 <html>
     <head></head>
     <body>
+        @include('link.pages')
         <form action="{{route('customers.store')}}" method="POST">
             @csrf
             NOME:<input type="text" name="customer[nome]" value=""><br><br>

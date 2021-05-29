@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Car;
 use Illuminate\Http\Request;
 use App\Http\Requests\CarRequest;
+use App\Models\Customer;
 
 class CarsController extends Controller
 {
@@ -23,9 +24,10 @@ class CarsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Customer $customer)
     {
-        return view('car.create');
+        $customer=Customer::all();
+        return view('car.create',compact('customer'));
     }
 
     /**
