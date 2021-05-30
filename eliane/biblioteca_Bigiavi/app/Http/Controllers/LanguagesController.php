@@ -47,9 +47,10 @@ class LanguagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(language $language)
     {
-        //
+
+        return view('language.show',compact('language'));
     }
 
     /**
@@ -60,7 +61,7 @@ class LanguagesController extends Controller
      */
     public function edit(Language $language)
     {
-        return view('langguage.edit',compact('language'));
+        return view('language.edit',compact('language'));
     }
 
     /**

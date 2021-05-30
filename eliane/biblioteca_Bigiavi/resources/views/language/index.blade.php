@@ -10,9 +10,6 @@
             th {
                 text-align: left;
             }
-            thead{
-                background-color: gray;
-            }
 
         </style>
     </head>
@@ -27,7 +24,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="card" style="width: 40%">
-                                        <div class="card-header bg-info text-white">
+                                        <div class="card-header">
                                             <h2>
                                                 elenco lingue
                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addLanguageModal">aggiungi lingua</button>
@@ -39,15 +36,31 @@
                                                 <thead>
                                                     <th>ID</th>
                                                     <th>lingue</th>
+                                                    <th>detagli</th>
+                                                    <th>action</th>
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($items as $item)
                                                         <tr>
                                                             <td>
-                                                                {{ $item->id }}
+                                                                <a href="/languages/{{$item->id}}/edit">{{ $item->id }}</a>
                                                             </td>
                                                             <td>
-                                                                {{ $item->language }}
+                                                               <a href="/languages/{{$item->id}}/edit">{{ $item->language }}</a>
+                                                            </td>
+                                                            <td>
+                                                                <form action="{{route('languages.show',$item->id)}}" method="get" id="sh">
+                                                                    @csrf
+
+                                                                        <button type="submit" class="button btn-info" style="border-radius: 10%" form="sh"> read</button>
+                                                                </form>
+                                                            <td>
+                                                                <form action="{{route('languages.destroy',$item->id)}}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+
+                                                                        <button type="button" class="button btn-danger" style="border-radius: 10%" > Cancella</button>
+                                                                    </form>
                                                             </td>
                                                         </tr>
                                                     @endforeach
