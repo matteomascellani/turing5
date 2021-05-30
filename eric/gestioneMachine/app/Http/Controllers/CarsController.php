@@ -15,7 +15,7 @@ class CarsController extends Controller
      */
     public function index()
     {
-        $items=Car::get();
+        $items=Car::orderBy('colore','DESC')->get();
         return view('car.index',compact('items'));
     }
 
