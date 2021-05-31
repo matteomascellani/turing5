@@ -38,8 +38,18 @@ class CountriesController extends Controller
     public function store(CountryRequest $request)
     {
         $country=new Country();
-        $country->create($request->input('country'));
-        return redirect('/countries');
+        //$country->create($request->input('country'))
+        //return redirect ('/countries')
+
+        $inputRequestCountry=$request->input('country');
+
+        $count=Country::where('state',$inputRequestCountry['state'])->count();
+        if($count==0){
+            $country->create($request->input('country'));
+        }
+
+        return redirect('/countries')->with('count',$count)
+                                     ->with('target',$inputRequestCountry['state']);
     }
 
     /**
