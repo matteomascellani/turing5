@@ -30,7 +30,7 @@
                                     @method('PUT')
                                     <div class="form-group">
                                         <label for="titolo">Modifica lingua</label>
-                                        <input type="text" name="language[language]" class="form-control"
+                                        <input type="text" name="language[name]" class="form-control"
                                             value="{{ $language->language }}" />
                                     </div> <br><br>
                                     <div>

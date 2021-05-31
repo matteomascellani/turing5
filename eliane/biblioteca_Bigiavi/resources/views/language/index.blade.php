@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +17,24 @@
 
     <body>
         @include('language.create')
+        <div>
+            @if (strlen(session('target')) > 0)
+
+            @if (session('count') == 0)
+                <div class="alert alert-success">
+                    MESSAGE:le languange {{ session('target') }} a bien ete cree;
+                </div>
+            @else
+                <div class="alert alert-warning">
+                    MESSAGE:le languange {{ session('target') }} existe deja
+                </div>
+            @endif
+
+        @endif
+        </div>
+
+
+
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
@@ -23,11 +42,12 @@
                         <section>
                             <div class="container">
                                 <div class="row">
-                                    <div class="card" style="width: 40%">
+                                    <div class="card" style="width: 100%">
                                         <div class="card-header">
                                             <h2>
                                                 elenco lingue
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addLanguageModal">aggiungi lingua</button>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#addLanguageModal">aggiungi lingua</button>
                                             </h2>
 
                                         </div>
@@ -43,24 +63,30 @@
                                                     @foreach ($items as $item)
                                                         <tr>
                                                             <td>
-                                                                <a href="/languages/{{$item->id}}/edit">{{ $item->id }}</a>
+                                                                <a
+                                                                    href="/languages/{{ $item->id }}/edit">{{ $item->id }}</a>
                                                             </td>
                                                             <td>
-                                                               <a href="/languages/{{$item->id}}/edit">{{ $item->language }}</a>
+                                                                <a
+                                                                    href="/languages/{{ $item->id }}/edit">{{ $item->name }}</a>
                                                             </td>
                                                             <td>
-                                                                <form action="{{route('languages.show',$item->id)}}" method="get" id="sh">
+                                                                <form action="{{ route('languages.show', $item->id) }}"
+                                                                    method="get">
                                                                     @csrf
 
-                                                                        <button type="submit" class="button btn-info" style="border-radius: 10%" form="sh"> read</button>
+                                                                    <input type="submit" value="read"
+                                                                        class="button btn-info">
                                                                 </form>
+                                                            </td>
                                                             <td>
-                                                                <form action="{{route('languages.destroy',$item->id)}}" method="POST">
+                                                                <form action="/languages/{{ $item->id }}"
+                                                                    method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
-
-                                                                        <button type="button" class="button btn-danger" style="border-radius: 10%" > Cancella</button>
-                                                                    </form>
+                                                                    <input type="submit" class="button btn-danger"
+                                                                        value="cancella">
+                                                                </form>
                                                             </td>
                                                         </tr>
                                                     @endforeach

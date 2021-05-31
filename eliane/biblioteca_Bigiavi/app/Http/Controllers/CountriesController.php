@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use Illuminate\Http\Request;
-use App\Models\Language;
-use App\Http\Requests\LanguageRequest;
-class LanguagesController extends Controller
+use App\Http\Requests\CountryRequest;
+
+class CountriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,7 @@ class LanguagesController extends Controller
      */
     public function index()
     {
-
-        $items=Language::orderBy('name','ASC')->get();
-        return view('language.index',compact('items'));
+        $items=Country::orderBy('state','ASC')->get();
     }
 
     /**
@@ -26,7 +25,7 @@ class LanguagesController extends Controller
      */
     public function create()
     {
-        return view('language.create');
+        return view('country.create');
     }
 
     /**
@@ -35,21 +34,11 @@ class LanguagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LanguageRequest $request)
+    public function store(CountryRequest $request)
     {
-
-        $language=new Language();
-        $languageInput=$request->input('language');//
-
-        $count=Language::where('name',$languageInput['name'])->count();
-
-        if($count== 0){
-            $language->create($request->input('language'));
-        }
-        return redirect('/languages')->with('count',$count)
-                                     ->with('target',$languageInput['name']);
-
-
+        $country=new Country();
+        $country->create($request->input('country'));
+        return redirect('');
     }
 
     /**
@@ -58,10 +47,9 @@ class LanguagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(language $language)
+    public function show($id)
     {
-
-        return view('language.show',compact('language'));
+        //
     }
 
     /**
@@ -70,9 +58,9 @@ class LanguagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Language $language)
+    public function edit($id)
     {
-        return view('language.edit',compact('language'));
+        //
     }
 
     /**
@@ -82,10 +70,9 @@ class LanguagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Language $language)
+    public function update(Request $request, $id)
     {
-        $language->update($request->input('language'));
-        return redirect('/languages');
+        //
     }
 
     /**
@@ -94,10 +81,8 @@ class LanguagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Language $language)
+    public function destroy($id)
     {
-       $language->delete();
-        return redirect('/languages');
-
+        //
     }
 }
