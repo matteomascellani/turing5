@@ -18,19 +18,25 @@
     <body>
         @include('language.create')
         <div>
+
             @if (strlen(session('target')) > 0)
 
-            @if (session('count') == 0)
-                <div class="alert alert-success">
-                    MESSAGE:le languange {{ session('target') }} a bien ete cree;
-                </div>
-            @else
-                <div class="alert alert-warning">
-                    MESSAGE:le languange {{ session('target') }} existe deja
-                </div>
+                @if (session('count') == 0)
+
+                    <div class="alert alert-success" style="color: rgb(35, 233, 35) ,font-size:45%">
+                        <u>MESSAGE </u>: Il <strong style="font-size: 25px"> {{ session('target')}} </strong> è stato creato con successo;
+                    </div>
+
+                @else
+
+                    <div class="alert alert-warning" style="color: rgb(197, 27, 27)">
+                        <u> Attenzione</u>: La lingua <strong style="font-size: 25px"> {{ session('target')}} </strong> esiste già!!!!!!!!!!
+                    </div>
+
+                @endif
+
             @endif
 
-        @endif
         </div>
 
 
@@ -68,10 +74,11 @@
                                                             </td>
                                                             <td>
                                                                 <a
-                                                                    href="/languages/{{ $item->id }}/edit">{{ $item->name }}</a>
+                                                                    href="/languages/{{ $item->id }}/edit">{{strtoupper($item->name)}}</a>
                                                             </td>
                                                             <td>
-                                                                <form action="{{ route('languages.show', $item->id) }}"
+                                                                <form
+                                                                    action="{{ route('languages.show', $item->id) }}"
                                                                     method="get">
                                                                     @csrf
 

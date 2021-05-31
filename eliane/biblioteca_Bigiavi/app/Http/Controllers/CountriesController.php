@@ -16,6 +16,7 @@ class CountriesController extends Controller
     public function index()
     {
         $items=Country::orderBy('state','ASC')->get();
+        return view('country.index',compact('items'));
     }
 
     /**
@@ -38,7 +39,7 @@ class CountriesController extends Controller
     {
         $country=new Country();
         $country->create($request->input('country'));
-        return redirect('');
+        return redirect('/countries');
     }
 
     /**
@@ -47,9 +48,9 @@ class CountriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Country $country)
     {
-        //
+        return view('country.show',compact('country'));
     }
 
     /**
@@ -58,9 +59,9 @@ class CountriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Country $country)
     {
-        //
+        return view('country.edit',compact('country'));
     }
 
     /**
@@ -70,9 +71,10 @@ class CountriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Country $country)
     {
-        //
+        $country->update($request->input('country'));
+        return redirect('/countries');
     }
 
     /**
@@ -81,8 +83,9 @@ class CountriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( Country $country)
     {
-        //
+        $country->delete();
+        return redirect('/countries');
     }
 }

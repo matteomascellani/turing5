@@ -49,7 +49,6 @@ class LanguagesController extends Controller
         return redirect('/languages')->with('count',$count)
                                      ->with('target',$languageInput['name']);
 
-
     }
 
     /**
