@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorsController;
 use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguagesController;
@@ -28,3 +29,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::resource('languages', LanguagesController::class);
 Route::resource('countries',CountriesController::class);
 Route::resource('categories', CategoriesController::class);
+Route::resource('authors',AuthorsController::class);
