@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" value="Salva" class="button btn-primary">salva</button>
+                                <button type="submit" value="Salva" class="btn btn-primary">salva modifiche</button>
                             </div>
                     </form>
                 </div>

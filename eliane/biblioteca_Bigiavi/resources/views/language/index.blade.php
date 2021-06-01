@@ -83,7 +83,7 @@
                                                                     @csrf
 
                                                                     <input type="submit" value="read"
-                                                                        class="button btn-info">
+                                                                        class="btn btn-info">
                                                                 </form>
                                                             </td>
                                                             <td>
@@ -91,7 +91,7 @@
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <input type="submit" class="button btn-danger"
+                                                                    <input type="submit" class="btn btn-danger"
                                                                         value="cancella">
                                                                 </form>
                                                             </td>

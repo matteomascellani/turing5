@@ -63,20 +63,21 @@
                                            <td><a href="/authors/{{$item->id}}/edit">{{ Str::ucfirst ($item->nome)}}</a></td>
                                            <td><a href="/authors/{{$item->id}}/edit">{{ Str::ucfirst($item->cognome)}}</a></td>
                                            <td>{{ Str::ucfirst($item->country->state)}}</td>
+
                                            <td><a href="/authors/{{$item}}/books">Lista libri</a></td>
                                            <td>{{$item->email}}</td>
                                             <td>
                                                 <form action="{{ route('authors.show', $item->id) }}" method="get">
                                                     @csrf
 
-                                                    <input type="submit" value="read" class="button btn-info">
+                                                    <input type="submit" value="read" class="btn btn-info">
                                                 </form>
                                             </td>
                                             <td>
                                                 <form action="{{route('authors.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <input type="submit" class="button btn-danger" value="cancella">
+                                                    <input type="submit" class="btn btn-danger" value="cancella">
                                                 </form>
                                             </td>
                                         </tr>
@@ -88,7 +89,7 @@
                             <div class="card-footer">
                                 <form action="{{route('authors.create')}}" method="get">
                                     @csrf
-                                    <input type="submit" class="button btn-success" value="new author">
+                                    <input type="submit" class="btn btn-success" value="new author">
                                 </form>
                             </div>
                         </div>

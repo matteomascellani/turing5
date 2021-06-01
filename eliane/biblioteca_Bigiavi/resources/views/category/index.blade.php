@@ -67,20 +67,18 @@
                                                 <form action="{{ route('categories.show', $item->id) }}" method="get">
                                                     @csrf
 
-                                                    <input type="submit" value="read" class="button btn-info">
+                                                    <input type="submit" value="read" class="btn btn-info">
                                                 </form>
                                             </td>
                                             <td>
                                                 <form action="{{route('categories.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <input type="submit" class="button btn-danger" value="cancella">
+                                                    <input type="submit" class="btn btn-danger" value="cancella">
                                                 </form>
                                             </td>
                                         </tr>
-
-
-                                    @endforeach
+                                   @endforeach
                                 </tbody>
                             </table>
                         </div>
