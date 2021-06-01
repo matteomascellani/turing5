@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     use HasFactory;
-    protected $fillable=['nome','cognome','book_id','country_id','email'];
+    protected $fillable=['nome','cognome','country_id','email','codice'];
+
+    public function country(){
+        return $this->belongsTo(Country::class);
+    }
 }

@@ -19,7 +19,6 @@ class CreateAuthorsTable extends Migration
 
             $table->string('nome');
             $table->string('cognome');
-            $table->bigInteger('book_id')->unsigned();
             $table->bigInteger('country_id')->unsigned();
             $table->string('email')->nullable();
 

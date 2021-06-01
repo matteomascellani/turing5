@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthorRequest;
 use App\Models\Author;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class AuthorsController extends Controller
@@ -16,7 +17,8 @@ class AuthorsController extends Controller
     public function index()
     {
         $items=Author::orderBy('cognome','ASC')->get();
-        return view('author.index',compact('items'));
+        $country=Country::get();
+        return view('author.index',compact('items','country'));
     }
 
     /**
@@ -26,7 +28,8 @@ class AuthorsController extends Controller
      */
     public function create()
     {
-        return view('author.create');
+        $country=Country::orderBy('state','ASC')->get();
+        return view('author.create', compact('country'));
     }
 
     /**
@@ -41,7 +44,7 @@ class AuthorsController extends Controller
         $inputAuthor=$request->input('author');
         $count=Author::where('codice',$inputAuthor['codice'])->count();
 
-        if ($count) {
+        if ($count==0) {
             $author->create($inputAuthor);
         }
 
@@ -69,7 +72,8 @@ class AuthorsController extends Controller
      */
     public function edit(Author $author)
     {
-        return view('author.edit',compact('author'));
+        $country=Country::orderBy('state','ASC')->get();
+        return view('author.edit',compact('author','country'));
     }
 
     /**
