@@ -84,6 +84,8 @@ class LanguagesController extends Controller
     public function update(Request $request, Language $language)
     {
         $language->update($request->input('language'));
+
+        $request->session()->flash('message', 'Update Succeful!!!!!!!!');
         return redirect('/languages');
     }
 
@@ -93,9 +95,11 @@ class LanguagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Language $language)
+    public function destroy(Language $language,Request $request)
     {
+
        $language->delete();
+       $request->session()->flash('delete', 'Cancel Succeful!!!!!!!!!');
         return redirect('/languages');
 
     }

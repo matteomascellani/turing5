@@ -84,6 +84,7 @@ class CountriesController extends Controller
     public function update(Request $request,Country $country)
     {
         $country->update($request->input('country'));
+        $request->session()->flash('message','update success !!!!!!!');
         return redirect('/countries');
     }
 
@@ -93,9 +94,10 @@ class CountriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( Country $country)
+    public function destroy( Country $country, Request $request)
     {
         $country->delete();
+        $request->session()->flash('delete','Delete Succeful !!!!!!!!');
         return redirect('/countries');
     }
 }

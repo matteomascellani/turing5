@@ -26,6 +26,17 @@ class BooksController extends Controller
         return view('book.index',compact('items','category','author','language'));
 
     }
+    public function libriAuthor($authorId)
+    {
+
+        $book=Book::get();
+        $author=Author::find($authorId);
+
+        $items=Author::find($authorId)->book()->get();
+        return view('book.livres_author',compact('book','items','author','language'));
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -96,7 +107,9 @@ class BooksController extends Controller
     public function update(Request $request,Book $book )
     {
         $book->update($request->input('book'));
+        $request->session()->flash('update','update Succeful!!!!!!!!!!!!!!');
         return redirect('/books');
+
     }
 
     /**
@@ -105,9 +118,10 @@ class BooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy(Book $book, Request $request)
     {
         $book->delete();
+        $request->session()->flash('delete','Delete Succeful!!!!!!!!!!!!!');
         return redirect('/books');
     }
 }

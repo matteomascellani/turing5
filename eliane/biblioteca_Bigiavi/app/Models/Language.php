@@ -13,4 +13,5 @@ class Language extends Model
     public function book(){
         return $this->hasMany(Book::class);
     }
+
 }

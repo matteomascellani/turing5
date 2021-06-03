@@ -31,7 +31,7 @@
                                     <div class="form-group">
                                         <label for="titolo">Modifica lingua</label>
                                         <input type="text" name="language[name]" class="form-control"
-                                            value="{{ $language->language }}" />
+                                            value="{{ $language->name }}" />
                                     </div> <br><br>
                                     <div>
                                         <button type="submit" class="btn btn-primary" form="add">

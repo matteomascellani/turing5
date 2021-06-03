@@ -24,13 +24,15 @@
                 @if (session('count') == 0)
 
                     <div class="alert alert-success" style="color: rgb(35, 233, 35) ,font-size:45%">
-                        <u>MESSAGE </u>: Il <strong style="font-size: 25px"> {{ session('target')}} </strong> è stato creato con successo;
+                        <u>MESSAGE </u>: Il <strong style="font-size: 25px"> {{ session('target') }} </strong> è stato
+                        creato con successo;
                     </div>
 
                 @else
 
                     <div class="alert alert-warning" style="color: rgb(197, 27, 27)">
-                        <u> Attenzione</u>: La lingua <strong style="font-size: 25px"> {{ session('target')}} </strong> esiste già!!!!!!!!!!
+                        <u> Attenzione</u>: La lingua <strong style="font-size: 25px"> {{ session('target') }}
+                        </strong> esiste già!!!!!!!!!!
                     </div>
 
                 @endif
@@ -38,6 +40,17 @@
             @endif
 
         </div>
+        <div>
+            @if (session('message'))
+                <div class="alert alert-success">{{ session('message') }}</div>
+            @endif
+        </div>
+        <div>
+            @if (session('delete'))
+                <div class="alert alert-success">{{ session('delete') }}</div>
+            @endif
+        </div>
+
 
 
 
@@ -74,7 +87,7 @@
                                                             </td>
                                                             <td>
                                                                 <a
-                                                                    href="/languages/{{ $item->id }}/edit">{{strtoupper($item->name)}}</a>
+                                                                    href="/languages/{{ $item->id }}/edit">{{ strtoupper($item->name) }}</a>
                                                             </td>
                                                             <td>
                                                                 <form

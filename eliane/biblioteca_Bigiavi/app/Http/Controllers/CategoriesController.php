@@ -79,6 +79,8 @@ class CategoriesController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update($request->input('category'));
+        $request->session()->flash('update','update Succeful!!!!!!!!!!');
+
         return redirect('/categories');
     }
 
@@ -88,9 +90,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category , Request $request)
     {
        $category->delete();
+       $request->session()->flash('delete','Delete Succeful!!!!!!!!!!');
        return redirect('/categories');
     }
 }

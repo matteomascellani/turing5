@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AuthorRequest;
 use App\Models\Author;
 use App\Models\Country;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class AuthorsController extends Controller
@@ -20,6 +21,8 @@ class AuthorsController extends Controller
         $country=Country::get();
         return view('author.index',compact('items','country'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -45,12 +48,12 @@ class AuthorsController extends Controller
         $count=Author::where('codice',$inputAuthor['codice'])->count();
 
         if ($count==0) {
-            $author->create($inputAuthor);
+            $author=$author::create($inputAuthor);
         }
+
 
         return redirect('/authors')->with('count',$count)
                                    ->with('target',$inputAuthor['codice']);
-
     }
 
     /**

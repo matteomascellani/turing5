@@ -24,7 +24,13 @@ class LanguageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'language.name'=>'required|max:191'
+        ];
+    }
+    public function messages()
+    {
+        return[
+            'language.name.required'=>'il campo del linguaggio è obbligatorio'
         ];
     }
 }

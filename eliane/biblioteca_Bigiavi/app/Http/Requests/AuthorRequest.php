@@ -24,7 +24,22 @@ class AuthorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'author.nome'=>'required|max:191',
+            'author.cognome'=>'required|max:191',
+            'author.codice'=>'required|max:191',
+            'author.email'=>'required|email|max:191'
+
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'author.nome.required'=>'il campo nome è obbligatorio',
+            'author.cognome.required'=>'il campo cognome è obbligatorio',
+            'author.codice.required'=>'il campo nome è obbligatorio',
+            'author.email.required'=>'il campo nome è obbligatorio',
+            'author.nome.email'=>'il campo email invalid ,form example: example@example.com',
+
         ];
     }
 }

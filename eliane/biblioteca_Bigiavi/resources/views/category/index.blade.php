@@ -32,6 +32,17 @@
                 @endif
             @endif
         </div>
+        <div>
+            @if (session('message'))
+                <div class="alert alert-success">{{ session('message') }}</div>
+            @endif
+        </div>
+        <div>
+            @if (session('delete'))
+                <div class="alert alert-success">{{ session('delete') }}</div>
+            @endif
+        </div>
+
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -71,14 +82,15 @@
                                                 </form>
                                             </td>
                                             <td>
-                                                <form action="{{route('categories.destroy', $item->id) }}" method="POST">
+                                                <form action="{{ route('categories.destroy', $item->id) }}"
+                                                    method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <input type="submit" class="btn btn-danger" value="cancella">
                                                 </form>
                                             </td>
                                         </tr>
-                                   @endforeach
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

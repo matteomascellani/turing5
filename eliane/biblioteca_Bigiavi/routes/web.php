@@ -32,3 +32,5 @@ Route::resource('countries',CountriesController::class);
 Route::resource('categories', CategoriesController::class);
 Route::resource('authors',AuthorsController::class);
 Route::resource('books',BooksController::class);
+
+Route::get('authors/{authorId}/books',[BooksController::class,'libriAuthor'] );

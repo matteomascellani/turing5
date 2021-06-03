@@ -64,7 +64,7 @@
                                            <td><a href="/authors/{{$item->id}}/edit">{{ Str::ucfirst($item->cognome)}}</a></td>
                                            <td>{{ Str::ucfirst($item->country->state)}}</td>
 
-                                           <td><a href="/authors/{{$item}}/books">Lista libri</a></td>
+                                           <td><a href="/authors/{{$item->id}}/books">Lista libri</a></td>
                                            <td>{{$item->email}}</td>
                                             <td>
                                                 <form action="{{ route('authors.show', $item->id) }}" method="get">

@@ -30,6 +30,16 @@
 
            @endif
         </div>
+        <div>
+            @if (session('message'))
+                <div class="alert alert-success">{{ session('message') }}</div>
+            @endif
+        </div>
+        <div>
+            @if (session('delete'))
+                <div class="alert alert-success">{{ session('delete') }}</div>
+            @endif
+        </div>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
