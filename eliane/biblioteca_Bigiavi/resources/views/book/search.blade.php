@@ -49,8 +49,8 @@
                         <div class="container">
                             <div class="row">
                                 <div class="card" style="width: 100%">
-                                    <div class="card-header">
-                                        <h2> {{$search}}</h2>
+                                    <div class="card-header" style="background-color: rgb(106, 233, 106)">
+                                        <h3>Stai cercando il libro: " {{Str::ucfirst($search)}} "</h3>
                                     </div>
                                     <div class="card-body">
 

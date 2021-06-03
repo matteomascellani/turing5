@@ -39,8 +39,15 @@ class AuthorsController extends Controller
 
       $search=$_GET['query'];
       $items=Author::where('cognome','LIKE','%'.$search.'%')->get();
+      $count=$items->count();
+      if ($count>0) {
+        return view('author.search',compact('items','search'));
+      }
+      else{
+          return view('author.notfound',compact('search','items'));
+      }
 
-      return view('author.search',compact('items'));
+
     }
 
     /**
@@ -97,6 +104,7 @@ class AuthorsController extends Controller
     public function update(Request $request, Author $author)
     {
         $author->update($request->input('author'));
+        $request->session()->flash('update','update Succeful!!!!!!!!!!!!!!');
         return redirect('/authors');
     }
 
@@ -106,9 +114,10 @@ class AuthorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Author $author)
+    public function destroy(Author $author,Request $request)
     {
         $author->delete();
+        $request->session()->flash('update','update Succeful!!!!!!!!!!!!!!');
         return redirect('/authors');
 
     }

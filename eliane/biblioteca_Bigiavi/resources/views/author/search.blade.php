@@ -40,9 +40,13 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="card">
-                        <div class="card-header">
-                            <h2>
-                                elenco Authors
+                        <div class="card-header"  style="background-color: rgb(126, 250, 147)">
+                            <div>
+                                <h3>
+                                    Stai cercando l'autore : {{ucfirst($search)}}
+                                </h3>
+                            </div>
+
                         </div>
                         <div class="card-body">
                             <table class="table table-striper table-hover">

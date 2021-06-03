@@ -50,14 +50,19 @@
                             <div class="row">
                                 <div class="card" style="width: 100%">
                                     <div class="card-header">
-                                        <h2> Elenco Books</h2>
+                                        <div style="float: left">
+                                            <h2> Elenco Books</h2>
+                                        </div>
+                                        <div style="float: right">
+                                            <form class="form-inline m-0 my-lg-0" method="GET" action="/searchBooks" id="searc">
+                                                @csrf
+                                                <input type="search" name="query"  class="form-control rounded" placeholder="Search book" aria-label="Search" />
+                                              <button type="submit" class="btn btn-primary" form="searc">search</button>
+                                            </form>
+                                        </div>
 
                                     </div>
-                                    <form class="form-inline m-0 my-lg-0" method="GET" action="/searchBooks" id="searc">
-                                        @csrf
-                                        <input type="search" name="query"  class="form-control rounded" placeholder="Search book" aria-label="Search" />
-                                      <button type="submit" class="btn btn-outline-primary" form="searc">search</button>
-                                    </form>
+
 
                                     <div class="card-body">
 

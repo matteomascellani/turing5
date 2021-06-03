@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
 
-
     </x-slot>
 
     <head>
@@ -18,6 +17,7 @@
     </head>
 
     <body>
+
         <div>
             @if (Str::length(session('target')) > 0)
                 @if (session('count') == 0)
@@ -35,36 +35,17 @@
                 @endif
             @endif
         </div>
-        <div>
-            @if (session('message'))
-            <div class="alert alert-success">{{ session('message') }}</div>
-            @endif
-        </div>
-        <div>
-            @if (session('delete'))
-                <div class="alert alert-success">{{ session('delete') }}</div>
-            @endif
-        </div>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="card">
-                        <div class="card-header">
-
-                            <div style="float: left">
-                                <h2>
-                                    elenco Authors
-                                </h2>
+                        <div class="card-header"  style="background-color: rgb(126, 250, 147)">
+                            <div>
+                                <h3>
+                                    Stai cercando l'autore : {{ucfirst($search)}}
+                                </h3>
                             </div>
-                            <div style="float: right">
-                                <form class="form-inline m-0 my-lg-0" method="GET" action="/search" id="searc">
-                                    @csrf
-                                    <input type="search" name="query"  class="form-control rounded" placeholder="Search Author" aria-label="Search" />
-                                  <button type="submit" class="btn btn-outline-primary" form="searc">search</button>
-                                </form>
-                            </div>
-
 
                         </div>
                         <div class="card-body">
@@ -80,32 +61,12 @@
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
-                                    @foreach ($items as $item)
-
-                                        <tr>
-                                           <td>{{ strtoupper($item->codice) }}</td>
-                                           <td><a href="/authors/{{$item->id}}/edit">{{ Str::ucfirst ($item->nome)}}</a></td>
-                                           <td><a href="/authors/{{$item->id}}/edit">{{ Str::ucfirst($item->cognome)}}</a></td>
-                                           <td>{{ Str::ucfirst($item->country->state)}}</td>
-
-                                           <td><a href="/authors/{{$item->id}}/books">Lista libri</a></td>
-                                           <td>{{$item->email}}</td>
-                                            <td>
-                                                <form action="{{ route('authors.show', $item->id) }}" method="get">
-                                                    @csrf
-
-                                                    <input type="submit" value="read" class="btn btn-info">
-                                                </form>
-                                            </td>
-                                            <td>
-                                                <form action="{{route('authors.destroy', $item->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <input type="submit" class="btn btn-danger" value="cancella">
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: center">Non trovato</td>
+                                 </tr>
                                 </tbody>
                             </table>
                         </div>
