@@ -26,6 +26,14 @@ class BooksController extends Controller
         return view('book.index',compact('items','category','author','language'));
 
     }
+
+    public function searchBooks(){
+        $search=$_GET['query'];
+        $items=Book::where('titolo','LIKE','%'.$search.'%')->get();
+
+        return view('book.search',compact('items','search'));
+    }
+
     public function libriAuthor($authorId)
     {
 

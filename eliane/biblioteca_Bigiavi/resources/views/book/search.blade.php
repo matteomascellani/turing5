@@ -50,15 +50,8 @@
                             <div class="row">
                                 <div class="card" style="width: 100%">
                                     <div class="card-header">
-                                        <h2> Elenco Books</h2>
-
+                                        <h2> {{$search}}</h2>
                                     </div>
-                                    <form class="form-inline m-0 my-lg-0" method="GET" action="/searchBooks" id="searc">
-                                        @csrf
-                                        <input type="search" name="query"  class="form-control rounded" placeholder="Search book" aria-label="Search" />
-                                      <button type="submit" class="btn btn-outline-primary" form="searc">search</button>
-                                    </form>
-
                                     <div class="card-body">
 
                                         <table class="table table-striped table-hover">
