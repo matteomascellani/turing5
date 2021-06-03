@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
 
-
     </x-slot>
 
     <head>
@@ -18,6 +17,7 @@
     </head>
 
     <body>
+
         <div>
             @if (Str::length(session('target')) > 0)
                 @if (session('count') == 0)
@@ -43,13 +43,6 @@
                         <div class="card-header">
                             <h2>
                                 elenco Authors
-                            </h2>
-                            <form class="form-inline m-0 my-lg-0" method="GET" action="/search" id="searc">
-                                @csrf
-                                <input type="search" name="query"  class="form-control rounded" placeholder="Search Author" aria-label="Search" />
-                              <button type="submit" class="btn btn-outline-primary" form="searc">search</button>
-                            </form>
-
                         </div>
                         <div class="card-body">
                             <table class="table table-striper table-hover">

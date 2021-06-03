@@ -57,7 +57,7 @@
                                         <select name="book[language_id]"  class="form-control">
                                             <option value="0">-- seleziona lingua -- </option>
                                             @foreach ($language as $row)
-                                                <option value="{{ $row->id }}">{{Str::ucfirst($row->name) }}</option>
+                                                <option value="{{ $row->id }}">{{Str::ucfirst($row->name)}}</option>
                                             @endforeach
                                         </select>
                                     </div>

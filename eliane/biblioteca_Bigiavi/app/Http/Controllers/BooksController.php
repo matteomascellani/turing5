@@ -33,7 +33,7 @@ class BooksController extends Controller
         $author=Author::find($authorId);
 
         $items=Author::find($authorId)->book()->get();
-        return view('book.livres_author',compact('book','items','author','language'));
+        return view('book.livres_author',compact('book','items','author'));
 
     }
 

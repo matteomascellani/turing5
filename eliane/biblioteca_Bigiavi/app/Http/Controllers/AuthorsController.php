@@ -34,6 +34,14 @@ class AuthorsController extends Controller
         $country=Country::orderBy('state','ASC')->get();
         return view('author.create', compact('country'));
     }
+    public function search()
+    {
+
+      $search=$_GET['query'];
+      $items=Author::where('cognome','LIKE','%'.$search.'%')->get();
+
+      return view('author.search',compact('items'));
+    }
 
     /**
      * Store a newly created resource in storage.

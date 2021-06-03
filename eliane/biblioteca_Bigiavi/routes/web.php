@@ -34,3 +34,4 @@ Route::resource('authors',AuthorsController::class);
 Route::resource('books',BooksController::class);
 
 Route::get('authors/{authorId}/books',[BooksController::class,'libriAuthor'] );
+Route::get('/search',[AuthorsController::class,'search']);
