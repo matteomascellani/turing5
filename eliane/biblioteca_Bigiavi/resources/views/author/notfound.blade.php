@@ -17,25 +17,6 @@
     </head>
 
     <body>
-
-        <div>
-            @if (Str::length(session('target')) > 0)
-                @if (session('count') == 0)
-
-                    <div class="alert alert-success " style="color: rgb(13, 97, 13)">
-
-                        <u>MESSAGE </u>: <strong style="font-size: 25px"> {{ session('target') }}</strong> è stato
-                        creato correttemente!!!!
-                    </div>
-                @else
-                    <div class="alert alert-danger">
-                        <u> Attenzione</u>: <strong style="font-size: 25px">{{ session('target') }}</strong> esiste
-                        già!!!!!!!!
-                    </div>
-                @endif
-            @endif
-        </div>
-
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">

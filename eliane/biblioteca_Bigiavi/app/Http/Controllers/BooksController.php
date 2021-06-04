@@ -31,8 +31,17 @@ class BooksController extends Controller
     public function searchBooks(){
         $search=$_GET['query'];
         $items=Book::where('titolo','LIKE','%'.$search.'%')->get();
+        $count=$items->count();
 
-        return view('book.search',compact('items','search'));
+        if ($count>0)
+        {
+            return view('book.search',compact('items','search'));
+        }
+        else{
+            return view('book.notfound',compact('search'));
+        }
+
+
     }
 
     public function libriAuthor($authorId)
