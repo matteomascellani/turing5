@@ -22,8 +22,9 @@ class BooksController extends Controller
         $category=Category::get();
         $author=Author::get();
         $language=Language::get();
+        $allbooks=Book::all()->count();
 
-        return view('book.index',compact('items','category','author','language'));
+        return view('book.index',compact('items','category','author','language','allbooks'));
 
     }
 
@@ -76,6 +77,7 @@ class BooksController extends Controller
         {
             $book->create($inputBook);
         }
+
         return redirect('/books')->with('count',$count)
                                  ->with('target',$inputBook['titolo']);
     }
@@ -132,4 +134,5 @@ class BooksController extends Controller
         $request->session()->flash('delete','Delete Succeful!!!!!!!!!!!!!');
         return redirect('/books');
     }
+
 }

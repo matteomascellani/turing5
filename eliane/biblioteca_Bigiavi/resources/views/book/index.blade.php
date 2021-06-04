@@ -115,10 +115,16 @@
                                     </div>
 
                                     <div class="card-footer">
-                                        <form action="{{route('books.create')}}" method="get">
-                                            @csrf
-                                            <input type="submit" value="new book" class="btn btn-primary">
-                                        </form>
+                                        <div style="float: left">
+                                            <form action="{{route('books.create')}}" method="get">
+                                                @csrf
+                                                <input type="submit" value="new book" class="btn btn-primary">
+                                            </form>
+                                        </div>
+                                        <div style="float: right">
+                                           <h5><strong style="font-family: 'Times New Roman', Times, serif">Total Books:  {{($allbooks)}}</strong></h5>
+                                        </div>
+
                                     </div>
 
                                 </div>

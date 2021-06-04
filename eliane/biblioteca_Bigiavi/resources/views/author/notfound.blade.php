@@ -40,7 +40,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="card">
-                        <div class="card-header"  style="background-color: rgb(126, 250, 147)">
+                        <div class="card-header"  style="background-color: beige">
                             <div>
                                 <h3>
                                     Stai cercando l'autore : {{ucfirst($search)}}
@@ -49,7 +49,7 @@
 
                         </div>
                         <div class="card-body">
-                            <table class="table table-striper table-hover">
+                            <table class="table table-striped">
                                 <thead>
                                     <th>Codice</th>
                                     <th>Nome</th>
@@ -61,11 +61,8 @@
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
-                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td style="text-align: center">Non trovato</td>
+                                 <tr style="background-color: rgb(248, 215, 215)">
+                                    <td colspan="8" style="text-align: center"><em style="font-size: 20px"> Autore Non trovato !!!!!!</em></td>
                                  </tr>
                                 </tbody>
                             </table>
