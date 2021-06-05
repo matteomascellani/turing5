@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldsToArtistsTable extends Migration
+class CreateCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class AddFieldsToArtistsTable extends Migration
      */
     public function up()
     {
-        Schema::table('artists', function (Blueprint $table) {
-            $table->integer('country_id');
-            $table->integer('origin_id');
-
+        Schema::create('customers', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('cognome');
+            $table->string('paese');
+            $table->timestamps();
         });
     }
 
@@ -27,8 +29,6 @@ class AddFieldsToArtistsTable extends Migration
      */
     public function down()
     {
-        Schema::table('artists', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('customers');
     }
 }

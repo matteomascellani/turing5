@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Artist;
-use App\Models\Country;
-use App\Http\Requests\ArtistRequest;
-use App\Models\Origin;
 use Illuminate\Http\Request;
-
-class ArtistsController extends Controller
+use App\Http\Requests\CustomerRequest;
+use App\Models\Customer;
+class CustomersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +14,8 @@ class ArtistsController extends Controller
      */
     public function index()
     {
-       $items=Artist::with('country','origin')->get();
-
-       return view('artist.index',compact('items'));
+       $items=Customer::get();
+       return view('customer.index',compact('items'));
     }
 
     /**
@@ -29,9 +25,7 @@ class ArtistsController extends Controller
      */
     public function create()
     {
-        $country=Country::all();
-        $origin=Origin::all();
-        return view('artist.create',compact('country','origin'));
+        return view('customer.create');
     }
 
     /**
@@ -40,11 +34,11 @@ class ArtistsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ArtistRequest $request)
+    public function store(customerRequest $request)
     {
-        $artist=new Artist();
-        $artist->create($request->input('artist'));
-        return redirect('/artists');
+        $customer=new Customer();
+        $customer->create($request->input('customer'));
+        return redirect('/customers');
     }
 
     /**
@@ -64,11 +58,9 @@ class ArtistsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( Artist $artist)
+    public function edit(Customer $customer)
     {
-        $country=Country::all();
-        $origin=Origin::all();
-        return view('artist.edit',compact('artist','country','origin'));
+        return view('customer.edit',compact('customer'));
     }
 
     /**
@@ -78,10 +70,10 @@ class ArtistsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Artist $artist)
+    public function update(Request $request, Customer $customer)
     {
-        $artist->update($request->input('artist'));
-        return redirect('/artists');
+        $customer->update($request->input('customer'));
+        return redirect('/customers');
     }
 
     /**
@@ -90,9 +82,9 @@ class ArtistsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Artist $artist)
+    public function destroy(Customer $customer)
     {
-        $artist->delete($artist);
-        return redirect('/artists');
+        $customer->delete('customer');
+        return redirect('/customers');
     }
 }

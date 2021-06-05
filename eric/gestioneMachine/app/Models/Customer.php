@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Origin extends Model
+class Customer extends Model
 {
     use HasFactory;
-    protected $fillable=['origine','genere'];
+    protected $fillable=['nome','cognome','paese'];
 
-    public function artist(){
-        return $this->hasMany(Artist::class);
+    public function car(){
+        return $this->hasMany(Car::class);
     }
 }
