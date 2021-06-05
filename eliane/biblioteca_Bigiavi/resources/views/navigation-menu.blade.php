@@ -36,6 +36,14 @@
                         {{ __('Books') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('subscribers.index') }}" :active="request()->routeIs('subscribers.index')">
+                        {{ __('Subscribers') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('loans.index') }}" :active="request()->routeIs('loans.index')">
+                        {{ __('Loans') }}
+                    </x-jet-nav-link>
+
                 </div>
 
 

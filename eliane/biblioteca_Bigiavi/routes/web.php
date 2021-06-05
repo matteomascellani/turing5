@@ -6,7 +6,8 @@ use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguagesController;
 use App\Http\Controllers\CountriesController;
-
+use App\Http\Controllers\LoansController;
+use App\Http\Controllers\SubscribersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::resource('countries',CountriesController::class);
 Route::resource('categories', CategoriesController::class);
 Route::resource('authors',AuthorsController::class);
 Route::resource('books',BooksController::class);
+Route::resource('subscribers',SubscribersController::class);
+Route::resource('loans',LoansController::class);
 
 Route::get('authors/{authorId}/books',[BooksController::class,'libriAuthor'] );
 Route::get('/search',[AuthorsController::class,'search']);
