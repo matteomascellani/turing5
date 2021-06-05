@@ -83,7 +83,7 @@
 
                                     <div class="form-group">
                                         <label for="">Anno Publicazione</label>
-                                        <input type="text" name="book[peso]" class="form-control" />
+                                        <input type="text" name="book[anno]" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="card-footer">

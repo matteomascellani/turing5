@@ -69,16 +69,24 @@
 
                                         <tr>
                                             <td>
-                                                <a href="/countries/{{$item->id}}/edit"> {{strtoupper($item->code)}} </a>
+                                                {{strtoupper($item->code)}}
                                             </td>
                                             <td>
-                                                <a href="/countries/{{$item->id}}/edit"> {{Str::ucfirst($item->state)}} </a>
+                                                 {{Str::ucfirst($item->state)}}
                                             </td>
+
                                             <td>
                                                 <form action="{{ route('countries.show', $item->id) }}" method="get">
                                                     @csrf
 
                                                     <input type="submit" value="read" class="btn btn-info">
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="/countries/{{ $item->id }}/edit" method="get">
+                                                    @csrf
+
+                                                    <input type="submit" value="edit" class="btn btn-info">
                                                 </form>
                                             </td>
                                             <td>

@@ -29,8 +29,8 @@
             @endif
         </div>
         <div>
-            @if (session('message'))
-                <div class="alert alert-success">{{ session('message') }}</div>
+            @if (session('update'))
+                <div class="alert alert-success">{{ session('update') }}</div>
             @endif
         </div>
         <div>
@@ -58,7 +58,6 @@
                                     <th>
                                         Categoria
                                     </th>
-                                    <th> details</th>
                                     <th>action</th>
                                 </thead>
                                 <tbody>
@@ -67,9 +66,17 @@
                                         <tr>
                                             <td>
 
-                                                <a href="/categories/{{ $item->id }}/edit">
-                                                    {{ Str::ucfirst($item->nome) }}</a>
+                                                {{ Str::ucfirst($item->nome) }}
 
+                                            </td>
+
+
+                                            <td>
+                                                <form action="/categories/{{ $item->id }}/edit" method="get">
+                                                    @csrf
+
+                                                    <input type="submit" value="edit" class="btn btn-info">
+                                                </form>
                                             </td>
                                             <td>
                                                 <form action="{{ route('categories.show', $item->id) }}" method="get">
@@ -78,6 +85,8 @@
                                                     <input type="submit" value="read" class="btn btn-info">
                                                 </form>
                                             </td>
+
+
                                             <td>
                                                 <form action="{{ route('categories.destroy', $item->id) }}"
                                                     method="POST">

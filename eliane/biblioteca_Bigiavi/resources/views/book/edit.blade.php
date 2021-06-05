@@ -13,9 +13,9 @@
                             <div class="card-header">
                                 <h2>Modifica book</h2>
                             </div>
-                            <form action="{{route('books.store')}}" method="post">
+                            <form action="{{route('books.update',$book->id)}}" method="post">
                                 @csrf
-
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="">Inserisci Titolo</label>
@@ -25,7 +25,7 @@
                                         <label for="">Inserisci Categoria</label>
                                         <select name="book[category_id]" class="form-control" >
 
-                                            <option value="0">-- seleziona Categoria -- </option>
+                                            <option value="0">--select Categoria</option>
                                             @foreach ($category as $row)
 
                                                 <option value="{{ $row->id }}">{{ Str::ucfirst($row->nome)  }}</option>
@@ -36,7 +36,7 @@
                                     <div class="form-group">
                                         <label for="">Inserisci Author</label>
                                         <select name="book[author_id]"  class="form-control">
-                                            <option value="0">-- seleziona autore -- </option>
+                                            <option value="0">--- select author --- </option>
                                             @foreach ($author as $row)
                                                 <option value="{{ $row->id }}">{{Str::ucfirst($row->cognome) }} {{ Str::ucfirst($row->nome)  }}</option>
                                             @endforeach
@@ -50,9 +50,9 @@
                                     <div class="form-group">
                                         <label for="">Inserisci lingua libro</label>
                                         <select name="book[language_id]"  class="form-control">
-                                            <option value="0">-- seleziona lingua -- </option>
+                                            <option value="">--- select lingua---</option>
                                             @foreach ($language as $row)
-                                                <option value="{{ $row->id }}">{{Str::ucfirst($row->name) }}</option>
+                                                <option value="{{ $row->id }}">{{Str::ucfirst($row->name)}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -60,7 +60,7 @@
                                     <div class="form-group">
                                         <label for="">Stato Libro</label>
                                         <select name="book[stato]" class="form-control">
-                                           <option value="scelta">--Scelgli Stato-----</option>
+                                           <option value="{{$book->stato}}">{{$book->stato}}</option>
                                            <option value="nuovo">NUOVO</option>
                                            <option value="vecchio">VECCHIO</option>
                                         </select>
@@ -83,7 +83,7 @@
 
                                     <div class="form-group">
                                         <label for="">Anno Publicazione</label>
-                                        <input type="text" name="book[peso]" class="form-control"  value="{{$book->peso}}"/>
+                                        <input type="text" name="book[anno]" class="form-control"  value="{{$book->anno}}"/>
                                     </div>
                                 </div>
                                 <div class="card-footer">

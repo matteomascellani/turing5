@@ -79,16 +79,8 @@ class BooksController extends Controller
     public function store(BookRequest $request)
     {
         $book=new Book();
-        $inputBook=$request->input('book');
-        $count=Book::where('titolo',$inputBook['titolo'])->count();
-
-        if ($count==0)
-        {
-            $book->create($inputBook);
-        }
-
-        return redirect('/books')->with('count',$count)
-                                 ->with('target',$inputBook['titolo']);
+        $book=Book::create($request->input('book'));
+        return redirect('/books');
     }
 
     /**
@@ -139,7 +131,7 @@ class BooksController extends Controller
      */
     public function destroy(Book $book, Request $request)
     {
-        $book->delete();
+        $book->delete($book);
         $request->session()->flash('delete','Delete Succeful!!!!!!!!!!!!!');
         return redirect('/books');
     }

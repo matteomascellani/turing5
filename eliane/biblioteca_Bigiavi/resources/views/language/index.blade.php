@@ -78,12 +78,10 @@
                                                     @foreach ($items as $item)
                                                         <tr>
                                                             <td>
-                                                                <a
-                                                                    href="/languages/{{ $item->id }}/edit">{{ $item->id }}</a>
+                                                                {{ $item->id }}
                                                             </td>
                                                             <td>
-                                                                <a
-                                                                    href="/languages/{{ $item->id }}/edit">{{ strtoupper($item->name) }}</a>
+                                                                {{ strtoupper($item->name) }}
                                                             </td>
                                                             <td>
                                                                 <form
@@ -93,6 +91,13 @@
 
                                                                     <input type="submit" value="read"
                                                                         class="btn btn-info">
+                                                                </form>
+                                                            </td>
+                                                            <td>
+                                                                <form action="/languages/{{ $item->id }}/edit" method="get">
+                                                                    @csrf
+
+                                                                    <input type="submit" value="edit" class="btn btn-info">
                                                                 </form>
                                                             </td>
                                                             <td>

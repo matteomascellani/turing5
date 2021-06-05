@@ -81,8 +81,8 @@
 
                                         <tr>
                                            <td>{{ strtoupper($item->codice) }}</td>
-                                           <td><a href="/authors/{{$item->id}}/edit">{{ Str::ucfirst ($item->nome)}}</a></td>
-                                           <td><a href="/authors/{{$item->id}}/edit">{{ Str::ucfirst($item->cognome)}}</a></td>
+                                           <td>{{ Str::ucfirst ($item->nome)}}</td>
+                                           <td>{{ Str::ucfirst($item->cognome)}}</td>
                                            <td>{{ Str::ucfirst($item->country->state)}}</td>
 
                                            <td><a href="/authors/{{$item->id}}/books">Lista libri</a></td>
@@ -92,6 +92,13 @@
                                                     @csrf
 
                                                     <input type="submit" value="read" class="btn btn-info">
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="/authors/{{ $item->id }}/edit" method="get">
+                                                    @csrf
+
+                                                    <input type="submit" value="edit" class="btn btn-info">
                                                 </form>
                                             </td>
                                             <td>
