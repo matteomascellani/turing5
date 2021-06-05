@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\subscriberRequest;
+use App\Models\Subscriber;
 use Illuminate\Http\Request;
 
 class SubscribersController extends Controller
@@ -13,7 +15,8 @@ class SubscribersController extends Controller
      */
     public function index()
     {
-        //
+        $items=Subscriber::orderBy('nome','ASC')->get();
+        return view('subscriber.index',compact('items'));
     }
 
     /**
@@ -23,7 +26,7 @@ class SubscribersController extends Controller
      */
     public function create()
     {
-        //
+        return view('subscriber.create');
     }
 
     /**
@@ -32,9 +35,11 @@ class SubscribersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(subscriberRequest $request)
     {
-        //
+        $subscriber=new Subscriber();
+        $subscriber=Subscriber::create($request->input('subscriber'));
+        return redirect('/subscribers');
     }
 
     /**

@@ -67,7 +67,7 @@
 
                                         </div>
                                         <div class="card-body">
-                                            <table class="table table-striped table-bordered table-hover">
+                                            <table class="table table-striped table-bordered table-hover table-auto">
                                                 <thead>
                                                     <th>ID</th>
                                                     <th>lingue</th>
