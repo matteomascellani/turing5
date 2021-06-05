@@ -48,7 +48,7 @@ class SubscribersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Subscriber $subscriber)
     {
         //
     }
@@ -59,9 +59,9 @@ class SubscribersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Subscriber $subscriber)
     {
-        //
+        return view('subscriber.edit',compact('subscriber'));
     }
 
     /**
@@ -71,9 +71,11 @@ class SubscribersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Subscriber $subscriber)
     {
-        //
+        $subscriber->update($request->input('subscriber'));
+        return redirect('/subscribers');
+
     }
 
     /**
@@ -82,8 +84,10 @@ class SubscribersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Subscriber $subscriber)
     {
-        //
+        $subscriber->delete($subscriber);
+        return redirect('/subscribers');
+
     }
 }

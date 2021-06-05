@@ -54,7 +54,7 @@
                                     <td>
                                         <form action="{{route('subscribers.destroy',$item->id)}}" method="post">
                                         @csrf
-                                        @method('PUT')
+                                        @method('DELETE')
                                         <input type="submit" class="btn btn-danger" value="Delete">
                                         </form>
                                     </td>
