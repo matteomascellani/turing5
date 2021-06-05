@@ -22,7 +22,7 @@ class BooksController extends Controller
         $category=Category::get();
         $author=Author::get();
         $language=Language::get();
-        $allbooks=Book::all()->count();
+        $allbooks=$items->count();
 
         return view('book.index',compact('items','category','author','language','allbooks'));
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -18,6 +19,8 @@ class CategoriesController extends Controller
         $items=Category::orderBy('nome','ASC')->get();
         return view('category.index',compact('items'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
