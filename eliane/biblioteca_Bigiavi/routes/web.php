@@ -24,9 +24,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/bigiavi', function () {
+    return view('bigiavi');
+})->name('bigiavi');
 
 Route::resource('languages', LanguagesController::class);
 Route::resource('countries',CountriesController::class);

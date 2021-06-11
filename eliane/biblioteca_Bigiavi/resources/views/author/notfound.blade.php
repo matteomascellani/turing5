@@ -47,7 +47,7 @@
                                 </thead>
                                 <tbody>
                                  <tr style="background-color: rgb(248, 215, 215)">
-                                    <td colspan="8" style="text-align: center"><em style="font-size: 20px"> Autore Non trovato !!!!!!</em></td>
+                                    <td colspan="8" style="text-align: center"><em style="font-size: 20px"> Autore <strong class="underline"> {{$search}}</strong>  Non trovato !!!!!!</em></td>
                                  </tr>
                                 </tbody>
                             </table>

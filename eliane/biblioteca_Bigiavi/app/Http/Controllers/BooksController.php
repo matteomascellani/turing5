@@ -40,8 +40,6 @@ class BooksController extends Controller
         else{
             return view('book.notfound',compact('search'));
         }
-
-
     }
 
     public function libriAuthor($authorId)

@@ -4,15 +4,13 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-
-                    </a>
+                <div class="flex-shrink-0 flex items-center" style="font-size:18px">
+                    <em style="color: goldenrod" class="block h-9 w-auto "><strong  style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"> BGV </strong><sub>since2021</sub></em>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                    <x-jet-nav-link href="{{ route('bigiavi') }}" :active="request()->routeIs('bigiavi')">
                         {{ __('Home') }}
                     </x-jet-nav-link>
 
@@ -40,7 +38,7 @@
                         {{ __('Subscribers') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('loans.index') }}" :active="request()->routeIs('loans.index')">
+                    <x-jet-nav-link href="{{ route('loans.create') }}" :active="request()->routeIs('loans.create')">
                         {{ __('Loans') }}
                     </x-jet-nav-link>
 
@@ -171,8 +169,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-jet-responsive-nav-link href="{{ route('bigiavi') }}" :active="request()->routeIs('bigiavi')">
+                {{ __('bigiavi') }}
             </x-jet-responsive-nav-link>
         </div>
 

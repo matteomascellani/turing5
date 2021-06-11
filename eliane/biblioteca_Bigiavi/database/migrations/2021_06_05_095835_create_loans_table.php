@@ -21,6 +21,7 @@ class CreateLoansTable extends Migration
             $table->string('data_prestito');
             $table->string('data_scadenza');
 
+
             $table->timestamps();
         });
     }

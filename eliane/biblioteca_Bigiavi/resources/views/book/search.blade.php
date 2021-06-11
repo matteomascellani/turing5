@@ -35,7 +35,7 @@
         </div>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-12">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -74,6 +74,12 @@
                                                    <td>{{$item->peso}}</td>
                                                    <td>{{$item->dimensioni}}</td>
                                                    <td>{{$item->anno}}</td>
+                                                   <td>
+                                                    <form action="{{route('loans.create')}}" method="get">
+                                                        @csrf
+                                                        <input type="submit" class="btn btn-info " value="penotare">
+                                                    </form>
+                                                </td>
                                                    <td>
                                                        <form action="" method="post">
                                                            <input type="submit" class="btn btn-info " value="read">

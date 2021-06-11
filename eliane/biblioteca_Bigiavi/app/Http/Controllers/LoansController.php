@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\loanRequest;
+use App\Models\Book;
+use App\Models\Loan;
 use Illuminate\Http\Request;
 
 class LoansController extends Controller
@@ -13,7 +16,7 @@ class LoansController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -23,7 +26,7 @@ class LoansController extends Controller
      */
     public function create()
     {
-        //
+        return view('loan.create');
     }
 
     /**
@@ -32,9 +35,11 @@ class LoansController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(loanRequest $request)
     {
-        //
+        $loan=new Loan();
+        $loan=Loan::create($request->input('loan'));
+        return view('loan.create');
     }
 
     /**
@@ -81,4 +86,5 @@ class LoansController extends Controller
     {
         //
     }
+
 }

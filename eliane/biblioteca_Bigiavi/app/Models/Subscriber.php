@@ -9,4 +9,9 @@ class Subscriber extends Model
 {
     use HasFactory;
      protected $fillable=['nome','cognome','indirizzo','cap','city','country','phone','email'];
+
+    public function loan()
+    {
+      return $this->hasMany(Loan::class);
+    }
 }
