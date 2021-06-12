@@ -11,7 +11,20 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="card">
                     <div class="card-header">
-                        <h2> Subscribers</h2>
+
+                        <div style="float: left">
+                            <h1>
+                                <b style="font-style: italic;font-family:georgia,sherif ; font-size:23px">Subscrivers</b>
+                            </h1>
+                        </div>
+                        <div style="float: right">
+                            <form class="form-inline m-0 my-lg-0" method="GET" action="/searchSubscriber" id="searc">
+                                @csrf
+                                <input type="search" name="query"  class="form-control rounded" placeholder="Search Subscriber" aria-label="Search" />
+                              <button type="submit" class="btn btn-outline-primary" form="searc">search</button>
+                            </form>
+                        </div>
+
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-hover">

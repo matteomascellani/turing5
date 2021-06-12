@@ -41,7 +41,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h2>
-                                elenco country
+                                <b style="font-style: italic;font-family:georgia,sherif ; font-size:23px">Country</b>
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#addCountryModal">aggiungi country</button>
                             </h2>

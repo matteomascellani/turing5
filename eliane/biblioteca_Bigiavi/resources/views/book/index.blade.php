@@ -48,12 +48,12 @@
                     <div class="card">
                         <div class="card-header">
                             <div style="float: left">
-                                <h4> Elenco Books:( {{ $allbooks }} libri) </h4>
+                                <h4 ><b class="underline" style="color: blue ;font-style: italic;font-family:georgia,sherif ; font-size:23px">Libri disponibili:</b>( {{ $allbooks }} libri) </h4>
                             </div>
                             <div style="float: right">
                                 <form class="form-inline m-0 my-lg-0" method="GET" action="/searchBooks" id="searc">
                                     @csrf
-                                    <label for="search">Inserire titolo libro: </label>
+
                                     <input type="search" name="query" class="form-control rounded"
                                         placeholder="Search book" aria-label="Search" />
                                     <button type="submit" class="btn btn-primary" form="searc">search</button>
@@ -129,7 +129,7 @@
                                 </form>
                             </div>
                             <div style="float: right">
-                                <h5><strong style="font-family: 'Times New Roman', Times, serif">Total Books:
+                                <h5><strong class="font-family: 'Times New Roman', Times, serif" style="color:rgb(85, 12, 85)" >Total Books:
                                         {{ $allbooks }}</strong></h5>
                             </div>
 

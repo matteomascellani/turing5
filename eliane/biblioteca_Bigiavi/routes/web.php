@@ -8,6 +8,8 @@ use App\Http\Controllers\LanguagesController;
 use App\Http\Controllers\CountriesController;
 use App\Http\Controllers\LoansController;
 use App\Http\Controllers\SubscribersController;
+use App\Http\Requests\subscriberRequest;
+use App\Models\Subscriber;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +26,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/bigiavi', function () {
-    return view('bigiavi');
-})->name('bigiavi');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 Route::resource('languages', LanguagesController::class);
 Route::resource('countries',CountriesController::class);
@@ -39,4 +41,5 @@ Route::resource('loans',LoansController::class);
 Route::get('authors/{authorId}/books',[BooksController::class,'libriAuthor'] );
 Route::get('/search',[AuthorsController::class,'search']);
 Route::get('/searchBooks', [BooksController::class,'searchBooks']);
+Route::get('searchSubscriber',[SubscribersController::class,'searchSubscriber']);
 

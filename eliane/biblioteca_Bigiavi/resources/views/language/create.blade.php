@@ -31,7 +31,7 @@
                 @csrf
                   <div class="form-group">
                     <label for="titolo">inserisci lingua</label>
-                    <input type="text" name="language[name]" class="form-control" />
+                    <input type="text" name="language[name]" class="form-control" placeholder="lingua"/>
                   </div>
 
                   <div class="modal-footer">

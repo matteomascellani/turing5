@@ -90,4 +90,19 @@ class SubscribersController extends Controller
         return redirect('/subscribers');
 
     }
+    public function searchSubscriber()
+    {
+        $search=$_GET['query'];
+        $items=Subscriber::where('cognome','LIKE','%'.$search.'%')->get();
+        $count=$items->count();
+
+        if ($count>0)
+        {
+            return view('subscriber.search',compact('items','search'));
+        }
+        else{
+            return view('subscriber.notfound',compact('search'));
+        }
+
+    }
 }

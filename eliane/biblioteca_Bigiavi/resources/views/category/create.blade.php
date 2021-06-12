@@ -18,7 +18,7 @@
             @csrf
             <div class="form-group">
                 <label for="titolo">inserisci Category</label>
-                <input type="text" name="category[nome]" class="form-control" />
+                <input type="text" name="category[nome]" class="form-control" placeholder="fantasy" />
               </div>
               <div class="modal-footer">
 

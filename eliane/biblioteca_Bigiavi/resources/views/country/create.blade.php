@@ -18,11 +18,11 @@
             @csrf
             <div class="form-group">
                 <label for="titolo">inserisci codice</label>
-                <input type="text" name="country[code]" class="form-control" />
+                <input type="text" name="country[code]" class="form-control" placeholder="IT"/>
               </div>
               <div class="form-group">
                 <label for="titolo">inserisci country</label>
-                <input type="text" name="country[state]" class="form-control" />
+                <input type="text" name="country[state]" class="form-control" placeholder="ITALIA"/>
               </div>
 
               <div class="modal-footer">

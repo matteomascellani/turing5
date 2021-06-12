@@ -65,10 +65,10 @@
 
                                                <tr>
                                                    <td><a href="/books/{{$item->id}}/edit">{{Str::upper($item->titolo) }}</a></td>
-                                                   <td>{{Str::ucfirst($item->category->nome) }}</td>
-                                                   <td>{{Str::ucfirst($item->author->cognome)}} {{Str::ucfirst($item->author->nome)}}</td>
+                                                   <td>{{Str::ucfirst(!empty($item->category) ? $item->category->nome : '') }}</td>
+                                                   <td>{{Str::ucfirst(!empty($item->author) ? $item->author->cognome : '')}} {{Str::ucfirst(!empty($item->author) ? $item->author->nome : '')}}</td>
                                                    <td>{{Str::ucfirst($item->editor)}}</td>
-                                                   <td>{{Str::ucfirst($item->language_id)}}</td>
+                                                   <td>{{Str::ucfirst($item->language) ? $item->language->name : '')}}</td>
                                                    <td>{{$item->stato}}</td>
                                                    <td>{{$item->pages}}</td>
                                                    <td>{{$item->peso}}</td>

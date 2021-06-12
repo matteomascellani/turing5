@@ -57,7 +57,7 @@
                                     <div class="card" style="width: 100%">
                                         <div class="card-header">
                                             <h2>
-                                                elenco lingue
+                                                <b style="font-style: italic;font-family:georgia,sherif ; font-size:23px">Languages</b>
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                                     data-target="#addLanguageModal">aggiungi lingua</button>
                                             </h2>
