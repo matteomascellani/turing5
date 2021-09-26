@@ -16,7 +16,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = Movie::get();
+        $movies = Movie::with('genre')->get();
 
         //dd($movies);
 
