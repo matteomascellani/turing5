@@ -14,7 +14,11 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return view('genres.index');
+        $genres = Genre::get();
+
+        //dd($genres);
+
+        return view('genres.index', compact('genres'));
     }
 
     /**
@@ -24,7 +28,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view('genre.edit');
     }
 
     /**
@@ -35,7 +39,10 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Genre::create($request->get('genre'));
+
+        return redirect()->route('genres.index')
+            ->with('success', ('Genere creato'));
     }
 
     /**
@@ -55,9 +62,9 @@ class GenreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Genre $genre)
     {
-        //
+        return view('genre.edit', compact('genre'));
     }
 
     /**
@@ -67,9 +74,12 @@ class GenreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Genre $genre)
     {
-        //
+        $genre->update($request->get('genre'));
+
+        return redirect()->route('genres.index')
+            ->with('success', ('Genere modificato'));
     }
 
     /**
@@ -80,6 +90,15 @@ class GenreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $genre = Genre::find($id);
+
+        //if(is_null($genre->deleted_at)) {
+            $genre->delete();
+        //}else {
+           // $genre->forceDelete();
+        //}
+
+        return redirect()->route('genres.index')
+        ->with('success', ('Genere eliminato'));
     }
 }
