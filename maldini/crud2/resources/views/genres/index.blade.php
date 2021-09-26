@@ -9,7 +9,7 @@
 
     <tr>
         <td>{{ $genre->id}}</td>
-        <td><a href="{{ route('genres.edit', $genre->id) }}">$genre->title}}</a></td>
+        <td><a href="{{ route('genres.edit', $genre->id) }}">{{ $genre->title}}</a></td>
         <td>
             <form action="{{ route('genres.destroy', $genre->id) }}" method="POST">
                 @csrf

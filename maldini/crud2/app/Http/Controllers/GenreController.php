@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Genre;
+use App\Models\movies;
 
 class GenreController extends Controller
 {
@@ -14,7 +15,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        $genres = Genre::get();
+        $genres = Genre::with('movies.genre')->get();
 
         //dd($genres);
 

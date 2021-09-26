@@ -5,7 +5,6 @@
     @method('PUT')
 @endif
 
-@endisset
 <label>Nome</label>
 <input type="text" id="title" name="genre[title]" value="{{ $genre->title ?? '' }}"/>
 

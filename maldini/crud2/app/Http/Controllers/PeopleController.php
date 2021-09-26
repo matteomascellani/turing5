@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\People;
-use App\Models\MoviePeople;
 
 class PeopleController extends Controller
 {
@@ -15,7 +14,11 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        //
+        $peoples = People::get();
+
+        //dd($peoples);
+
+        return view('peoples.index', compact('peoples'));
     }
 
     /**
@@ -25,7 +28,7 @@ class PeopleController extends Controller
      */
     public function create()
     {
-        //
+        return view('people.edit');
     }
 
     /**
@@ -36,7 +39,10 @@ class PeopleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        People::create($request->get('people'));
+
+        return redirect()->route('peoples.index')
+            ->with('success', ('Persona creata'));
     }
 
     /**
@@ -56,9 +62,9 @@ class PeopleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(People $people)
     {
-        //
+        return view('people.edit', compact('people'));
     }
 
     /**
@@ -68,9 +74,12 @@ class PeopleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, People $people)
     {
-        //
+        $people->update($request->get('people'));
+
+        return redirect()->route('peoples.index')
+            ->with('success', ('Persona modificata'));
     }
 
     /**
@@ -81,6 +90,15 @@ class PeopleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $people = People::find($id);
+
+        //if(is_null($genre->deleted_at)) {
+            $people->delete();
+        //}else {
+           // $genre->forceDelete();
+        //}
+
+        return redirect()->route('peoples.index')
+        ->with('success', ('Persona eliminata'));
     }
 }
