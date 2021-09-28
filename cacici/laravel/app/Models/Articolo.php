@@ -9,4 +9,10 @@ class Articolo extends Model
 {
     use HasFactory;
     protected $fillable = ['Lean','Sku','Tipologia','Marca'];
+
+
+    public function tipologia()
+    {
+        return $this->belongsTo(tipologia::class);
+    }
 }

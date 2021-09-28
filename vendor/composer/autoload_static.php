@@ -4,11 +4,12 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit35a597750887b2e0caf1e59111e677dd
+class ComposerStaticInit92d1706f25b7db777003c2b87d684fc5
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
@@ -35,7 +36,6 @@ class ComposerStaticInit35a597750887b2e0caf1e59111e677dd
         ),
         'L' => 
         array (
-            'League\\CommonMark\\' => 18,
             'Laravel\\Jetstream\\' => 18,
             'Laravel\\Fortify\\' => 16,
         ),
@@ -101,10 +101,6 @@ class ComposerStaticInit35a597750887b2e0caf1e59111e677dd
         array (
             0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
         ),
-        'League\\CommonMark\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/commonmark/src',
-        ),
         'Laravel\\Jetstream\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/jetstream/src',
@@ -123,8 +119,8 @@ class ComposerStaticInit35a597750887b2e0caf1e59111e677dd
         ),
         'Illuminate\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/illuminate/collections',
-            1 => __DIR__ . '/..' . '/illuminate/macroable',
+            0 => __DIR__ . '/..' . '/illuminate/macroable',
+            1 => __DIR__ . '/..' . '/illuminate/collections',
             2 => __DIR__ . '/..' . '/illuminate/support',
         ),
         'Illuminate\\Contracts\\' => 
@@ -171,10 +167,10 @@ class ComposerStaticInit35a597750887b2e0caf1e59111e677dd
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit35a597750887b2e0caf1e59111e677dd::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit35a597750887b2e0caf1e59111e677dd::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit35a597750887b2e0caf1e59111e677dd::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit35a597750887b2e0caf1e59111e677dd::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit92d1706f25b7db777003c2b87d684fc5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit92d1706f25b7db777003c2b87d684fc5::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit92d1706f25b7db777003c2b87d684fc5::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit92d1706f25b7db777003c2b87d684fc5::$classMap;
 
         }, null, ClassLoader::class);
     }
