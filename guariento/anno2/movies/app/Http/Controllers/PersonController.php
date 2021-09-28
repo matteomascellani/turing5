@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Person;
+use App\Models\MoviePerson;
 
 class PersonController extends Controller
 {

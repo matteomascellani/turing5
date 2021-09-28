@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movie;
+use App\Models\MoviePerson;
 
 class MovieController extends Controller
 {
@@ -13,7 +15,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        echo 'test';
     }
 
     /**
