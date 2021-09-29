@@ -16,8 +16,6 @@ class PeopleController extends Controller
     {
         $peoples = People::get();
 
-        //dd($peoples);
-
         return view('peoples.index', compact('peoples'));
     }
 
@@ -28,7 +26,7 @@ class PeopleController extends Controller
      */
     public function create()
     {
-        return view('people.edit');
+        return view('peoples.edit');
     }
 
     /**
@@ -42,7 +40,7 @@ class PeopleController extends Controller
         People::create($request->get('people'));
 
         return redirect()->route('peoples.index')
-            ->with('success', ('Persona creata'));
+            ->with('success', __('Persona creata'));
     }
 
     /**
@@ -64,7 +62,7 @@ class PeopleController extends Controller
      */
     public function edit(People $people)
     {
-        return view('people.edit', compact('people'));
+        return view('peoples.edit', compact('people'));
     }
 
     /**
@@ -79,7 +77,7 @@ class PeopleController extends Controller
         $people->update($request->get('people'));
 
         return redirect()->route('peoples.index')
-            ->with('success', ('Persona modificata'));
+            ->with('success', __('Persona modificata'));
     }
 
     /**
@@ -92,13 +90,9 @@ class PeopleController extends Controller
     {
         $people = People::find($id);
 
-        //if(is_null($genre->deleted_at)) {
-            $people->delete();
-        //}else {
-           // $genre->forceDelete();
-        //}
+        $people->delete();
 
         return redirect()->route('peoples.index')
-        ->with('success', ('Persona eliminata'));
+        ->with('success', __('Persona eliminata'));
     }
 }

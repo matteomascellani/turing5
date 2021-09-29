@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\RequestMovie;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Genre;
@@ -14,13 +14,17 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $movies = Movie::with('genre')->get();
+        $genres = Genre::get();
 
-        //dd($movies);
+        if ($request->get('genre_id')){
+            $movies = Movie::with('genre')->where('genre_id', $request->get('genre_id'))->get();
+        } else {
+            $movies = Movie::with('genre')->get();
+        }
 
-        return view('movies.index', compact('movies'));
+        return view('movies.index', compact('movies', 'genres'));
     }
 
     /**
@@ -32,7 +36,7 @@ class MovieController extends Controller
     {
         $genres = Genre::get()->pluck('title', 'id');
 
-        return view('movie.edit', compact('genres'));
+        return view('movies.edit', compact('genres'));
     }
 
     /**
@@ -70,7 +74,7 @@ class MovieController extends Controller
     {
         $genres = Genre::get()->pluck('title', 'id');
 
-        return view('movie.edit', compact('movie', 'genres'));
+        return view('movies.edit', compact('movie', 'genres'));
     }
 
     /**
@@ -80,7 +84,7 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movie $movie)
+    public function update(RequestMovie $request, Movie $movie)
     {
         $movie->update($request->get('movie'));
 
@@ -98,11 +102,7 @@ class MovieController extends Controller
     {
         $movie = Movie::find($id);
 
-        //if(is_null($genre->deleted_at)) {
-            $movie->delete();
-        //}else {
-           // $genre->forceDelete();
-        //}
+        $movie->delete();
 
         return redirect()->route('movies.index')
         ->with('success', ('Film eliminato'));
