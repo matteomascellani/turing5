@@ -40,7 +40,7 @@ class GenreController extends Controller
         Genre::create($request->get('genre'));
 
         return redirect()->route('genres.index')
-            ->with('success', __('Genere creatos'));
+            ->with('success', __('Genere creato'));
     }
 
     /**

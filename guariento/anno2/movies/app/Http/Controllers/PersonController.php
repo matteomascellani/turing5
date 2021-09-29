@@ -15,7 +15,9 @@ class PersonController extends Controller
      */
     public function index()
     {
-        //
+        $persons = Person::get();
+
+        return view('persons.index', compact('persons'));
     }
 
     /**
@@ -25,7 +27,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        //
+        return view('persons.edit');
     }
 
     /**
@@ -36,7 +38,10 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Person::create($request->get('person'));
+
+        return redirect()->route('persons.index')
+            ->with('success', __('Persona creata'));
     }
 
     /**
@@ -56,9 +61,9 @@ class PersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Person $person)
     {
-        //
+        return view('persons.edit', compact('person'));
     }
 
     /**
@@ -68,9 +73,12 @@ class PersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Person $person)
     {
-        //
+        $person->update($request->get('person'));
+
+        return redirect()->route('persons.index')
+            ->with('success', __('Persona modificata'));
     }
 
     /**
@@ -81,6 +89,11 @@ class PersonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $person = Person::find($id);
+
+        $person->delete();
+
+        return redirect()->route('persons.index')
+            ->with('success', __('Persona eliminata'));
     }
 }
