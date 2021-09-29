@@ -90,11 +90,7 @@ class GenreController extends Controller
     {
         $genre = Genre::find($id);
 
-        //if (is_null($genre->deleted_at)) {
-            $genre->delete();
-        //} else {
-            //$genre->forceDelete();
-        //}
+        $genre->delete();
 
         return redirect()->route('genres.index')
             ->with('success', __('Genere eliminato'));
