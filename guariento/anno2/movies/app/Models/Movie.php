@@ -17,4 +17,9 @@ class Movie extends Model
     {
         return $this->belongsTo(Genre::class);
     }
+
+    public function getFormattedCreatedAtAttribute()
+    {
+        return $this->created_at->format('d/m/Y');
+    }
 }
