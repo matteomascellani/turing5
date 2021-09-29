@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\Genre;
 use App\Models\MoviePerson;
 
 class MovieController extends Controller
@@ -15,7 +16,9 @@ class MovieController extends Controller
      */
     public function index()
     {
-        echo 'test';
+        $movies = Movie::with('genre')->get();
+
+        return view('movies.index', compact('movies'));
     }
 
     /**
@@ -25,7 +28,9 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        $genres = Genre::get()->pluck('title', 'id');
+
+        return view('movies.edit', compact('genres'));
     }
 
     /**
@@ -36,7 +41,10 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Movie::create($request->get('movie'));
+
+        return redirect()->route('movies.index')
+            ->with('success', __('Film creato'));
     }
 
     /**
@@ -56,9 +64,11 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Movie $movie)
     {
-        //
+        $genres = Genre::get()->pluck('title', 'id');
+
+        return view('movies.edit', compact('movie', 'genres'));
     }
 
     /**
@@ -68,9 +78,12 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Movie $movie)
     {
-        //
+        $movie->update($request->get('movie'));
+
+        return redirect()->route('movies.index')
+            ->with('success', __('Film modificato'));
     }
 
     /**
@@ -81,6 +94,11 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $movie = Movie::find($id);
+
+        $movie->delete();
+
+        return redirect()->route('movies.index')
+            ->with('success', __('Film eliminato'));
     }
 }

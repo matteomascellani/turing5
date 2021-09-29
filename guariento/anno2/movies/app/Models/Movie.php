@@ -12,4 +12,9 @@ class Movie extends Model
     protected $fillable = ['title', 'alias', 'genre_id', 'minutes', 'plot'];
 
     protected $dates = ['released_at'];
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
 }

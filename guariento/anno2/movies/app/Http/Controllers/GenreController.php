@@ -14,7 +14,9 @@ class GenreController extends Controller
      */
     public function index()
     {
-        $genres = Genre::get();
+        $genres = Genre::with('movies')->get();
+
+        dd($genres);
 
         return view('genres.index', compact('genres'));
     }
