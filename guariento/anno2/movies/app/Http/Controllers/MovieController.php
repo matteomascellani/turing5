@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\RequestMovie;
 use App\Models\Movie;
 use App\Models\Genre;
 use App\Models\MoviePerson;
@@ -23,8 +24,6 @@ class MovieController extends Controller
         } else {
             $movies = Movie::with('genre')->get();
         }
-
-        dd($movies);
 
         return view('movies.index', compact('movies', 'genres'));
     }
@@ -82,11 +81,11 @@ class MovieController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\RequestMovie  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movie $movie)
+    public function update(RequestMovie $request, Movie $movie)
     {
         $movie->update($request->get('movie'));
 
