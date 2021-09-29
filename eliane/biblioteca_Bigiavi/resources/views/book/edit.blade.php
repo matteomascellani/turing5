@@ -28,7 +28,7 @@
                                             <option value="0">--select Categoria</option>
                                             @foreach ($category as $row)
 
-                                                <option value="{{ $row->id }}">{{ Str::ucfirst($row->nome)  }}</option>
+                                                <option value="{{ $row->id }}" @if($row->id == $book->category_id) selected="selected" @endif>{{ Str::ucfirst($row->nome)  }}</option>
 
                                             @endforeach
                                         </select>
@@ -38,7 +38,7 @@
                                         <select name="book[author_id]"  class="form-control">
                                             <option value="0">--- select author --- </option>
                                             @foreach ($author as $row)
-                                                <option value="{{ $row->id }}">{{Str::ucfirst($row->cognome) }} {{ Str::ucfirst($row->nome)  }}</option>
+                                                <option value="{{ $row->id }}" @if($row->id == $book->author_id) selected="selected" @endif>{{Str::ucfirst($row->cognome) }} {{ Str::ucfirst($row->nome)  }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -52,7 +52,7 @@
                                         <select name="book[language_id]"  class="form-control">
                                             <option value="">--- select lingua---</option>
                                             @foreach ($language as $row)
-                                                <option value="{{ $row->id }}">{{Str::ucfirst($row->name)}}</option>
+                                                <option value="{{ $row->id }}" @if($row->id == $book->language_id) selected="selected" @endif>{{Str::ucfirst($row->name)}}</option>
                                             @endforeach
                                         </select>
                                     </div>

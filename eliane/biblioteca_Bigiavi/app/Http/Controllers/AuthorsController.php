@@ -15,11 +15,19 @@ class AuthorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items=Author::orderBy('cognome','ASC')->get();
+
+        $query = $request->get('query','');
+
+        $items = Author::orderBy('cognome','ASC');
+        if($query) {
+            $items = $items->where('cognome','LIKE','%'.$query.'%');
+        }
+        $items = $items->get();
+
         $country=Country::get();
-        return view('author.index',compact('items','country'));
+        return view('author.index',compact('items','country','query'));
     }
 
 
@@ -34,21 +42,8 @@ class AuthorsController extends Controller
         $country=Country::orderBy('state','ASC')->get();
         return view('author.create', compact('country'));
     }
-    public function search()
-    {
-
-      $search=$_GET['query'];
-      $items=Author::where('cognome','LIKE','%'.$search.'%')->get();
-      $count=$items->count();
-      if ($count>0) {
-        return view('author.search',compact('items','search'));
-      }
-      else{
-          return view('author.notfound',compact('search','items'));
-      }
 
 
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -58,17 +53,12 @@ class AuthorsController extends Controller
      */
     public function store(AuthorRequest $request)
     {
-        $author=new Author();
-        $inputAuthor=$request->input('author');
-        $count=Author::where('codice',$inputAuthor['codice'])->count();
 
-        if ($count==0) {
-            $author=$author::create($inputAuthor);
+        if(!$author = Author::where('codice',$request->input('author.codice'))->first()) {
+            $author = Author::create($request->input('author'));
         }
 
-
-        return redirect('/authors')->with('count',$count)
-                                   ->with('target',$inputAuthor['codice']);
+        return redirect()->route('authors.index')->with('message', $author->wasRecentlyCreated ? "Autore creato" : "Autore già presente");
     }
 
     /**

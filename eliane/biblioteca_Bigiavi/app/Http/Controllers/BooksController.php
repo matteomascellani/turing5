@@ -100,6 +100,7 @@ class BooksController extends Controller
      */
     public function edit(Book $book)
     {
+
         $category=Category::orderBy('nome','ASC')->get();
         $author=Author::orderBy('cognome','ASC')->get();
         $language=Language::orderBy('name','ASC')->get();

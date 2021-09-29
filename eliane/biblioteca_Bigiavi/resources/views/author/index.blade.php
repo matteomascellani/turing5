@@ -15,23 +15,6 @@
 
     <body>
         <div>
-            @if (Str::length(session('target')) > 0)
-                @if (session('count') == 0)
-
-                    <div class="alert alert-success " style="color: rgb(13, 97, 13)">
-
-                        <u>MESSAGE </u>: <strong style="font-size: 25px"> {{ session('target') }}</strong> è stato
-                        creato correttemente!!!!
-                    </div>
-                @else
-                    <div class="alert alert-danger">
-                        <u> Attenzione</u>: <strong style="font-size: 25px">{{ session('target') }}</strong> esiste
-                        già!!!!!!!!
-                    </div>
-                @endif
-            @endif
-        </div>
-        <div>
             @if (session('message'))
             <div class="alert alert-success">{{ session('message') }}</div>
             @endif
@@ -41,6 +24,9 @@
                 <div class="alert alert-success">{{ session('delete') }}</div>
             @endif
         </div>
+        @if(!$items->count())
+            Nessun risultato trovato
+        @endif
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -54,10 +40,11 @@
                                 </h1>
                             </div>
                             <div style="float: right">
-                                <form class="form-inline m-0 my-lg-0" method="GET" action="/search" id="searc">
+                                <form class="form-inline m-0 my-lg-0" method="GET" action="{{ route('authors.index') }}" id="searc">
                                     @csrf
-                                    <input type="search" name="query"  class="form-control rounded" placeholder="Search Author" aria-label="Search" />
-                                  <button type="submit" class="btn btn-outline-primary" form="searc">search</button>
+                                    <input type="search" name="query" value="{{ $query ?? '' }}" class="form-control rounded" placeholder="Search Author" aria-label="Search" />
+                                    <button type="submit" class="btn btn-outline-primary" form="searc">search</button>
+                                    <a class="btn btn-info" href="{{ route('authors.index') }}">Resetta</a>
                                 </form>
                             </div>
 

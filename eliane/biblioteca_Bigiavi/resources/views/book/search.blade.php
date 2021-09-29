@@ -51,7 +51,7 @@
                                                 <th>Category</th>
                                                 <th>Author</th>
                                                 <th>Editor</th>
-                                                <th>Lingua</th>
+
                                                 <th>Stato</th>
                                                 <th>Pages</th>
                                                 <th>Peso(g)</th>
@@ -68,7 +68,7 @@
                                                    <td>{{Str::ucfirst(!empty($item->category) ? $item->category->nome : '') }}</td>
                                                    <td>{{Str::ucfirst(!empty($item->author) ? $item->author->cognome : '')}} {{Str::ucfirst(!empty($item->author) ? $item->author->nome : '')}}</td>
                                                    <td>{{Str::ucfirst($item->editor)}}</td>
-                                                   <td>{{Str::ucfirst($item->language) ? $item->language->name : '')}}</td>
+
                                                    <td>{{$item->stato}}</td>
                                                    <td>{{$item->pages}}</td>
                                                    <td>{{$item->peso}}</td>
