@@ -32,7 +32,7 @@ class RequestMovie extends FormRequest
     public function messages()
     {
         return [
-            'movie.title.required' => 'Il titolo è richiesto',
+            'movie.title.required' => __('custom.movies.title'),
             'movie.minutes.required' => 'I minuti sono richiesti',
             'movie.minutes.integer' => 'I minuti devono essere un numero intero'
         ];
