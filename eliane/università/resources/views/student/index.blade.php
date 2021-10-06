@@ -17,6 +17,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-5">
 
                 <head>
+                    @livewireStyles
                     <style>
                         div{
                             background-color: rgb(131, 228, 196);
@@ -112,6 +113,14 @@
                     <form action="{{route('students.create')}}" method="get" id="crea">
                         <button type="submit" form="crea" class="button button3">Create</button>
                     </form>
+
+
+                    <div>
+
+                        <livewire:counter />
+                    </div>
+
+                    @livewireScripts
                 </body>
 
 

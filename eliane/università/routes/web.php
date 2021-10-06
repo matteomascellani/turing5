@@ -1,6 +1,9 @@
 <?php
+
+use App\Http\Controllers\BooksController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\ProfessorsController;
+use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,5 +32,27 @@ Route::get('professors/{professorId}/students',[StudentsController::class,'listP
 Route::post('professors/{professorId}/students',[StudentsController::class,'addProfessorStudents']);
 Route::delete('professors/{professorId}/students',[StudentsController::class,'deleteProfessorStudents']);
 Route::get('students/{studentId}/professors', [ProfessorsController::class,'listprofessors']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
