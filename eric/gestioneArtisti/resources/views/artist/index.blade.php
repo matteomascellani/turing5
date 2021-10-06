@@ -6,6 +6,7 @@
             }
 
         </style>
+         @livewireStyles
     </head>
     <body>
         @include('pages.page')
@@ -39,5 +40,8 @@
         </table><br><br><br>
 
         <a href="/artists/create">New Artist</a>
+
+        <livewire:meteo />
+        @livewireScripts
     </body>
 </html>

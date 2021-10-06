@@ -12,11 +12,11 @@
                 text-align: left
             }
             .button1{
-                background-color: blueviolet;
+                background-color: rgb(226, 43, 43);
                 border-radius: 4px;
             }
             .button2{
-                background-color: olivedrab;
+                background-color: rgb(35, 142, 40);
             }
 
         </style>
@@ -50,8 +50,7 @@
                                             <form action="{{route('cars.destroy',$item->id)}}" method="POST" id="del">
                                                 @csrf
                                                 @method('DELETE')
-
-                                                <button value="delete" form="del" class="button button1" >cancella </button>
+                                                <button value="delete" form="del" class="button button1">cancella </button>
 
                                             </form>
                                         </td>
@@ -66,9 +65,11 @@
                             <div class="card-footer">
                              <form action="{{route('cars.create')}}" method="get" id="new">
                                  @csrf
+                                 <div class="alert alert-success" role="alert">
                                 <button class="button button2" form="new">
                                     NEW CAR
                                 </button  >
+                                 </div>
                              </form>
 
 

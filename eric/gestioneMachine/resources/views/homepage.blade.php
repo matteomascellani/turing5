@@ -1,18 +1,18 @@
 <head>
     <style>
       h2{
-          padding: 150px;
+          padding: 50px;
           font-size: 85px;
       }
       body{
-          background-color: rgb(155, 155, 236)
+          background-color: rgb(200, 216, 179)
       }
     </style>
 </head>
 <body>
-    @include('link.pages')
-<h2>
-    concessionario
+     @include('link.pages')
+<h2 style="text-align: center">
+    concessionario automobile
 </h2>
 
 </body>
