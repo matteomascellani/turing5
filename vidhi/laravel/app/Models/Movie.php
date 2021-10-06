@@ -15,5 +15,12 @@ class Movie extends Model
     //$date = \Carbon\Carbon::now();
     //$date->parse('next thursday')->format(Y-m-d);
     //released_at = \Carbon\Carbon::parse($released_at);
+    public function genre(){
+        return $this->belongsTo(Genre::class);
+    }
+    public function FormattedCreatedAtAttribute(){
+                return $this->created_at->format('d/m/Y');
+    }
+
 
 }
