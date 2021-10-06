@@ -16,9 +16,9 @@ class FilmController extends Controller
     public function index()
     {
 
-        $items = Film::get();
-
+        $items = Film::orderBy('titolo','ASC')->get();
         return view('films.index',compact('items'));
+
     }
 
     /**
@@ -28,7 +28,8 @@ class FilmController extends Controller
      */
     public function create()
     {
-        return view('films.create');
+       // return view('films.create');
+
     }
 
     /**
@@ -42,7 +43,6 @@ class FilmController extends Controller
 
         $film = new Film;
         $film->create($request->input('film'));
-
         return redirect('/films');
     }
 

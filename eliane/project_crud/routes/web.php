@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FilmController;
+use App\Http\Livewire\Films;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::resource('films', FilmController::class);
+//Route::get('films', Films::class);
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
