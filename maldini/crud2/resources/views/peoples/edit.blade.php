@@ -1,4 +1,4 @@
-<form action="{{ isset($people) ? route('peoples.update', $people->id) : route('peoples.store') }}" method="{{ isset($people->id) ? 'get' : 'post'}}">
+<form action="{{ isset($people) ? route('peoples.update', $people->id) : route('peoples.store') }}" method='post'>
 
     @csrf
     @if(isset($people))

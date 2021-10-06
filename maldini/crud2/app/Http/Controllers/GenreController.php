@@ -15,9 +15,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        $genres = Genre::with('movies.genre')->get();
-
-        //dd($genres);
+        $genres = Genre::with('movies')->get();
 
         return view('genres.index', compact('genres'));
     }
@@ -29,7 +27,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        return view('genre.edit');
+        return view('genres.edit');
     }
 
     /**
@@ -43,7 +41,7 @@ class GenreController extends Controller
         Genre::create($request->get('genre'));
 
         return redirect()->route('genres.index')
-            ->with('success', ('Genere creato'));
+            ->with('success', __('Genere creato'));
     }
 
     /**
@@ -65,7 +63,7 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        return view('genre.edit', compact('genre'));
+        return view('genres.edit', compact('genre'));
     }
 
     /**
@@ -80,7 +78,7 @@ class GenreController extends Controller
         $genre->update($request->get('genre'));
 
         return redirect()->route('genres.index')
-            ->with('success', ('Genere modificato'));
+            ->with('success', __('Genere modificato'));
     }
 
     /**
@@ -93,13 +91,9 @@ class GenreController extends Controller
     {
         $genre = Genre::find($id);
 
-        //if(is_null($genre->deleted_at)) {
-            $genre->delete();
-        //}else {
-           // $genre->forceDelete();
-        //}
+        $genre->delete();
 
         return redirect()->route('genres.index')
-        ->with('success', ('Genere eliminato'));
+        ->with('success', __('Genere eliminato'));
     }
 }

@@ -1,6 +1,7 @@
-<form action="{{ isset($genre) ? route('genres.update', $genre->id) : route('genres.store') }}" method="{{ isset($genre->id) ? 'get' : 'post'}}">
+<form action="{{ isset($genre) ? route('genres.update', $genre->id) : route('genres.store') }}" method='post'>
 
 @csrf
+
 @if(isset($genre))
     @method('PUT')
 @endif

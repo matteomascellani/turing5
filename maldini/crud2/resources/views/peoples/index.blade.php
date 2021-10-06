@@ -3,14 +3,15 @@
 <table>
     <tr>
         <th>ID</th>
-        <th>Titolo</th>
+        <th>Nome</th>
+        <th>Cognome</th>
     </tr>
 @foreach ($peoples as $people)
 
     <tr>
         <td>{{ $people->id}}</td>
-        <td><a href="{{ route('genres.edit', $people->id) }}">{{ $people->name }}</a></td>
-        <td><a href="{{ route('genres.edit', $people->id) }}">{{ $people->surname }}</a></td>
+        <td>{{ $people->name }}</td>
+        <td><a href="{{ route('peoples.edit', $people->id) }}">{{ $people->surname }}</a></td>
         <td>
             <form action="{{ route('peoples.destroy', $people->id) }}" method="POST">
                 @csrf

@@ -16,8 +16,6 @@ class GenreController extends Controller
     {
         $genres = Genre::with('movies')->get();
 
-        dd($genres);
-
         return view('genres.index', compact('genres'));
     }
 
