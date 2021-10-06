@@ -17,7 +17,8 @@ class ArtistsController extends Controller
      */
     public function index()
     {
-       $items=Artist::with('country','origin')->get();
+       //$items=Artist::with('country','origin')->get();
+       $items=Artist::all();
 
        return view('artist.index',compact('items'));
     }
