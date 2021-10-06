@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\MoviePeople;
+use Illuminate\Support\Facades\Redis;
+
 class MovieController extends Controller
 {
     /**
@@ -12,10 +14,12 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        echo "test";
+        //
     }
+
+
 
     /**
      * Show the form for creating a new resource.
