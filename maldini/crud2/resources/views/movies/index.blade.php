@@ -1,3 +1,5 @@
+@livewireStyles
+
 <div><a href='{{route('movies.create')}}'>Nuovo film</a></div>
 
 <table>
@@ -26,3 +28,7 @@
 
 @endforeach
 </table>
+
+<livewire:meteo />
+
+@livewireScripts

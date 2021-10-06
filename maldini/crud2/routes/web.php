@@ -16,6 +16,11 @@ use App\Http\Controllers\PeopleController;
 |
 */
 
+Route::get('/', function (){
+    return view('welcome');
+
+});
+
 Route::resource('movies', MovieController::class);
 Route::resource('peoples', PeopleController::class);
 Route::resource('genres', GenreController::class);
