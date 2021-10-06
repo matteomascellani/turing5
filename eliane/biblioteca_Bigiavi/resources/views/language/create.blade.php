@@ -37,7 +37,7 @@
                   <div class="modal-footer">
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                    <button type="submit" class="btn btn-primary" form="add">Aggiungi lingua</button>
+                    <button type="submit" class="btn btn-primary" form="add">Salva</button>
                   </div>
               </form>
 

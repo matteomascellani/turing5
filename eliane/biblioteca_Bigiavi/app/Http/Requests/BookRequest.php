@@ -24,13 +24,22 @@ class BookRequest extends FormRequest
     public function rules()
     {
         return [
+            'book.titolo'=>'required|max:191',
+            'book.author_id'=>'required',
+            'book.category_id'=>'required',
+            'book.language_id'=>'required',
+            'book.pages'=>'required'
 
         ];
     }
     public function messages()
     {
         return [
-
+          'book.titolo.required'=>'il campo Titolo del libro è obbligatorio',
+          'book.author_id.required'=>'il campo Autore è obbligatorio,',
+          'book.category_id.required'=>'il campo categoria è obbligatorio',
+          'book.language_id.required'=>'il campo lingua è obbligatorio',
+          'book.pages.required'=>'il campo numero pagine è obbligatorio'
 
         ];
     }

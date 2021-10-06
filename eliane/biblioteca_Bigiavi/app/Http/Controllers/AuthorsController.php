@@ -58,6 +58,7 @@ class AuthorsController extends Controller
             $author = Author::create($request->input('author'));
         }
 
+
         return redirect()->route('authors.index')->with('message', $author->wasRecentlyCreated ? "Autore creato" : "Autore già presente");
     }
 

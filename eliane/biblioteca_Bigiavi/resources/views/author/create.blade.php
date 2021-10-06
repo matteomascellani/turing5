@@ -68,6 +68,7 @@
                                 </div>
                         </div>
                         <div class="card-footer">
+                            <a class="btn btn-primary"  href="{{route("authors.index")}}">indietro</a>
                             <button type="submit" value="Salva" class="btn btn-primary">salva</button>
                         </div>
                     </form>

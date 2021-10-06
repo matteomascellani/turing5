@@ -16,7 +16,8 @@
                             <div class="row">
                                 <div class="card" style="width: 100%">
                                     <div class="card-header">
-                                        <h2> libri :{{$author->cognome}} {{$author->cognome}}</h2>
+                                        <h2> Libri di: <b style="color: rgb(14, 37, 247)"> {{$author->cognome}} {{$author->cognome}} </b></h2>
+                                        <h3>Numero Libri: <b style="color: black">{{$countlibro}} </b></h3>
                                     </div>
                                     <div class="card-body">
 
@@ -51,6 +52,13 @@
                                                @endforeach
                                            </tbody>
                                         </table>
+
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <a href="{{route('authors.index')}}" class="btn btn-primary">Precedente</a>
+                                    </div>
+
 
                                     </div>
                                 </div>

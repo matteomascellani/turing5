@@ -20,8 +20,10 @@
                         <div style="float: right">
                             <form class="form-inline m-0 my-lg-0" method="GET" action="/searchSubscriber" id="searc">
                                 @csrf
-                                <input type="search" name="query"  class="form-control rounded" placeholder="Search Subscriber" aria-label="Search" />
+
+                              <input type="search" name="query"  class="form-control rounded" placeholder="Search Subscriber" aria-label="Search" />
                               <button type="submit" class="btn btn-outline-primary" form="searc">search</button>
+                              <a class="btn btn-primary" href="{{route("subscribers.index")}}">Resetta</a>
                             </form>
                         </div>
 

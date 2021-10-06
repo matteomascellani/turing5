@@ -87,6 +87,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
+                                    <a href="{{route('books.index')}}" class="btn btn-primary">Indietro</a>
                                     <input type="submit" value="Salva modifica" class="btn btn-primary">
                                 </div>
                             </form>

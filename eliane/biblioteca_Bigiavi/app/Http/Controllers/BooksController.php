@@ -7,6 +7,7 @@ use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Language;
+use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 
 class BooksController extends Controller
@@ -16,18 +17,29 @@ class BooksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items=Book::orderBy('titolo','ASC')->get();
+
+
+        $query=$request->get('query','');
+        $items=Book::orderBy('titolo','ASC');
+
+        if($query){
+           $items=$items->where('titolo','LIKE','%'.$query.'%');
+        }
+
+        $items=$items->get();
+
         $category=Category::get();
         $author=Author::get();
         $language=Language::get();
         $allbooks=$items->count();
 
-        return view('book.index',compact('items','category','author','language','allbooks'));
+        return view('book.index',compact('items','category','author','language','allbooks','query'));
 
     }
-
+    /*
+    fonction  pour la recherche
     public function searchBooks(){
         $search=$_GET['query'];
         $items=Book::where('titolo','LIKE','%'.$search.'%')->get();
@@ -41,7 +53,7 @@ class BooksController extends Controller
             return view('book.notfound',compact('search'));
         }
     }
-
+    */
     public function libriAuthor($authorId)
     {
 
@@ -49,7 +61,8 @@ class BooksController extends Controller
         $author=Author::find($authorId);
 
         $items=Author::find($authorId)->book()->get();
-        return view('book.livres_author',compact('book','items','author'));
+        $countlibro=$items->count();
+        return view('book.livres_author',compact('book','items','author','countlibro'));
 
     }
 
@@ -77,8 +90,13 @@ class BooksController extends Controller
     public function store(BookRequest $request)
     {
         $book=new Book();
-        $book=Book::create($request->input('book'));
-        return redirect('/books');
+
+        if(!$book=Book::where('titolo'.$request->input('book.titolo'))->first()){
+            $book=Book::create($request->input('book'));
+
+        }
+
+        return redirect()->route('book.index')->with('message',$book-> wasRecentlyCreated ? 'Libro Creato':'Libro esiste già');
     }
 
     /**
@@ -117,7 +135,7 @@ class BooksController extends Controller
     public function update(Request $request,Book $book )
     {
         $book->update($request->input('book'));
-        $request->session()->flash('update','update Succeful!!!!!!!!!!!!!!');
+        $request->session()->flash('update','update Succeful!!!!!!!!!!!');
         return redirect('/books');
 
     }

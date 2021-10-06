@@ -40,7 +40,7 @@
                                 <select name="author[country_id]" class="form-control">
                                     @foreach ($country as $item)
 
-                                        <option value="{{ $item->id }}">
+                                        <option value="{{ $item->id }}" @if ($item->id == $author->country_id) selected="selected"@endif>
                                             {{ $item->state }}
                                         </option>
 
@@ -58,6 +58,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
+                                <a href="{{route('authors.index')}}" class="btn btn-primary">Pagina iniziale</a>
                                 <button type="submit" value="Salva" class="btn btn-primary">salva modifiche</button>
                             </div>
                     </form>

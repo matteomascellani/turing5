@@ -14,22 +14,8 @@
 
     <body>
         <div>
-            @if (strlen(session('target')) > 0)
-                @if (session('count') == 0)
-                    <div class="alert alert-success " style="color: rgb(13, 97, 13)">
-
-                        <u>MESSAGE </u>: <strong style="font-size: 25px">
-                            {{ strtoupper(session('target')) }}</strong> è stato
-                        creato correttemente!!!!
-                    </div>
-                @else
-                    <div class="alert alert-danger">
-                        <u> Attenzione</u>: <strong
-                            style="font-size: 25px">{{ strtoupper(session('target')) }}</strong> esiste
-                        già!!!!!!!!
-                    </div>
-                @endif
-
+            @if (session('message'))
+            <div class="alert alert-success">{{ session('message') }}</div>
             @endif
         </div>
         <div>
@@ -41,6 +27,10 @@
             @if (session('delete'))
                 <div class="alert alert-success">{{ session('delete') }}</div>
             @endif
+
+            @if(!$items->count())
+            Nessun risultato trovato
+        @endif
         </div>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-2">
@@ -51,12 +41,14 @@
                                 <h4 ><b class="underline" style="color: blue ;font-style: italic;font-family:georgia,sherif ; font-size:23px">Libri disponibili:</b>( {{ $allbooks }} libri) </h4>
                             </div>
                             <div style="float: right">
-                                <form class="form-inline m-0 my-lg-0" method="GET" action="/searchBooks" id="searc">
+                                <form class="form-inline m-0 my-lg-0" method="GET" action="{{route('books.index')}}" id="searc">
                                     @csrf
 
-                                    <input type="search" name="query" class="form-control rounded"
+                                    <input type="search" name="query" value="{{ $query ?? '' }}" class="form-control rounded"
                                         placeholder="Search book" aria-label="Search" />
+
                                     <button type="submit" class="btn btn-primary" form="searc">search</button>
+                                    <a class="btn btn-primary" href="{{route("books.index")}}">Resetta</a>
                                 </form>
                             </div>
 

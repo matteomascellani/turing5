@@ -14,6 +14,7 @@ class CategoryRequest extends FormRequest
     public function authorize()
     {
         return true;
+
     }
 
     /**
@@ -24,7 +25,13 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'category.nome' =>'required|max 191'
+        ];
+    }
+    public function messages()
+    {
+        return[
+            'category.nome.required'=>'il campo del nome categoria è obbligatorio'
         ];
     }
 }

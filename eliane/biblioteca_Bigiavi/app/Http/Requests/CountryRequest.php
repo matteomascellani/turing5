@@ -24,7 +24,17 @@ class CountryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'country.state'=>'required|max:191',
+            'country.code'=>'required|max:5'
         ];
     }
+    public function messages()
+    {
+        return[
+            'country.state.required'=>'il campo paese è obbligatorio',
+            'country.code.required'=>'il campo codice è obbligatorio'
+        ];
+
+    }
+
 }

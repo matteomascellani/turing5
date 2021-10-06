@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
 
-
     </x-slot>
 
     <head>
@@ -44,7 +43,7 @@
                                     @csrf
                                     <input type="search" name="query" value="{{ $query ?? '' }}" class="form-control rounded" placeholder="Search Author" aria-label="Search" />
                                     <button type="submit" class="btn btn-outline-primary" form="searc">search</button>
-                                    <a class="btn btn-info" href="{{ route('authors.index') }}">Resetta</a>
+                                    <a class="btn btn-primary" href="{{ route('authors.index') }}">Resetta</a>
                                 </form>
                             </div>
 
@@ -77,7 +76,7 @@
                                                 <form action="{{ route('authors.show', $item->id) }}" method="get">
                                                     @csrf
 
-                                                    <input type="submit" value="read" class="btn btn-info">
+                                                    <input type="submit"  class="fab fa-readme">
                                                 </form>
                                             </td>
                                             <td>

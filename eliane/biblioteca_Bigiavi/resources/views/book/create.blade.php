@@ -5,6 +5,15 @@
     </head>
 
     <body>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -87,6 +96,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
+                                    <a class="btn btn-primary" href="{{route("books.index")}}">Indietro</a>
                                     <input type="submit" value="Salva" class="btn btn-primary">
                                 </div>
                             </form>

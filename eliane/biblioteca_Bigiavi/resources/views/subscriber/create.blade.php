@@ -54,6 +54,7 @@
                         </form>
                     </div>
                     <div class="card-footer">
+                        <a  class="btn btn-primary" href="{{route("subscribers.index")}}">Indietro</a>
                         <button type="submit" form="create" class="btn btn-success">Salva</button>
                     </div>
                 </div>
