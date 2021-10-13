@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('movies', MovieController::class);
+Route::resource('peoples', PeoplesController::class);
+Route::resource('genres', GenresController::class);
