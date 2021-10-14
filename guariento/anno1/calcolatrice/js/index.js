@@ -79,7 +79,7 @@ function main() {
 
   // Gestisco l'esecuzione di un'operazione
   function doOperation(calcData, doOperationCallback) {
-    const serverUrl = "http://localhost/primo-anno/calcolatrice/";
+    const serverUrl = "http://calculator.locl/";
 
     const formData = new FormData();
     formData.append("oprd1", calcData.oprd1);

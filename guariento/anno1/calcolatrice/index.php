@@ -29,7 +29,7 @@
 
         <div class="row text-center">
             <h1>Calcolatrice</h1>
-            <h3>La mia calcolatrice artiginale.</h3>
+            <h3>La mia calcolatrice artigianale.</h3>
         </div>
 
         <div class="row justify-content-center mt-3">
