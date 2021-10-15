@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/turing5/guariento/calcolatrice/classes/Calculator.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/classes/Calculator.php");
 
 $oprd1 = (int)($_POST["oprd1"]) ?? 0;
 $oprd2 = (int)($_POST["oprd2"]) ?? 0;

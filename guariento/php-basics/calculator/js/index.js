@@ -79,14 +79,14 @@ function main() {
 
   // Gestisco l'esecuzione di un'operazione
   function doOperation(calcData, doOperationCallback) {
-    const serverUrl = "http://localhost/turing5/guariento";
+    const serverUrl = "http://calculator.locl/";
 
     const formData = new FormData();
     formData.append("oprd1", calcData.oprd1);
     formData.append("oprd2", calcData.oprd2);
     formData.append("oprt", calcData.oprt);
 
-    fetch(`${serverUrl}/calcolatrice/ajax/doOperation.php`, {
+    fetch(`${serverUrl}/ajax/doOperation.php`, {
       method: "POST",
       body: formData,
     })
