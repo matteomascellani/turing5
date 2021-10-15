@@ -76,7 +76,7 @@
                                                 <form action="{{ route('authors.show', $item->id) }}" method="get">
                                                     @csrf
 
-                                                    <input type="submit"  class="fab fa-readme">
+                                                    <input type="submit"  value="read" class="btn btn-primary">
                                                 </form>
                                             </td>
                                             <td>

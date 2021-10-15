@@ -34,9 +34,9 @@
                 <div class="vertical-menu">
                     <a href="" class="active">Home</a>
                     <a href="#"></a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    <a href="#">Link 4</a>
+                    <a href="/books">BOOKS</a>
+                    <a href="/authors">AUTHORS</a>
+                    <a href="/subscribers">SUBSCRIBERS</a>
 
                 </div>
             </div>

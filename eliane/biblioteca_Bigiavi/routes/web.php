@@ -39,7 +39,7 @@ Route::resource('subscribers',SubscribersController::class);
 Route::resource('loans',LoansController::class);
 
 Route::get('authors/{authorId}/books',[BooksController::class,'libriAuthor'] );
-Route::get('/search',[AuthorsController::class,'search']);
-Route::get('/searchBooks', [BooksController::class,'searchBooks']);
+//Route::get('/search',[AuthorsController::class,'search']);
+//Route::get('/searchBooks', [BooksController::class,'searchBooks']);
 Route::get('searchSubscriber',[SubscribersController::class,'searchSubscriber']);
 
