@@ -61,9 +61,9 @@ class doctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Doctor $doctor)
     {
-        //
+        return view('doctors.edit',compact('doctor'));
     }
 
     /**
@@ -73,9 +73,11 @@ class doctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Doctor  $doctor)
     {
-        //
+        $doctor->update($request->input('doctor'));
+
+        return redirect('/doctors');
     }
 
     /**
@@ -84,8 +86,10 @@ class doctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Doctor $doctor)
     {
-        //
+
+        $doctor->delete();
+        return redirect('/doctors');
     }
 }

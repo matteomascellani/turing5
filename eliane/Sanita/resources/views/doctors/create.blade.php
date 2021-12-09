@@ -8,7 +8,7 @@
     NOME:<input class="form-control" type="text" name="doctor[nome]">
     COGNOME:<input class="form-control" type="text" name="doctor[cognome]">
 
-    <input type="submit" class="btn btn-success">
+    <input type="submit" class="btn btn-success" value="salva">
 </form>
 
 @endsection

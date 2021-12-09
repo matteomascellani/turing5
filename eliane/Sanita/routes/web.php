@@ -15,10 +15,10 @@ use App\Http\Controllers\doctorController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\doctorController::class, 'index'])->name('doctor');
 Route::resource('doctors', doctorController::class);
