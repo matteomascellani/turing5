@@ -25,14 +25,13 @@ class AuthorsController extends Controller
             $items = $items->where('cognome','LIKE','%'.$query.'%');
         }
         $items = $items->get();
-
         $country=Country::get();
         return view('author.index',compact('items','country','query'));
     }
 
 
 
-    /**
+    /**z
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
